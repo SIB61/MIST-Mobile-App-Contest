@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -121,7 +122,8 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                     if(task2.isSuccessful()){
                                                         progressDialog.dismiss();
                                                         Toast.makeText(getApplicationContext(),"Verification link sent to your email",Toast.LENGTH_LONG).show();
-                                                        startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class));
+                                                        startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).
+                                                                putExtra("Email",email).putExtra("Password",password).putExtra("Name",name).putExtra("Url",resultUri.toString()));
 
                                                     }
                                                 });

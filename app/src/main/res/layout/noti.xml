@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:padding="15dp"
+    android:id="@+id/change"
+    android:layout_marginBottom="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/dhaka"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:text="Urgent B+ blood is needed at Osmani Medical College"
+        android:id="@+id/urgent"
+        android:layout_toRightOf="@id/profile_image"
+        android:layout_marginLeft="10dp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8:10 : 24 June 2021"
+        android:layout_below="@+id/urgent"
+        android:layout_toRightOf="@id/profile_image"
+        android:textColor="#000"
+        android:layout_marginTop="5dp"
+        android:id="@+id/date"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"></TextView>
+    </RelativeLayout>
+</LinearLayout>
