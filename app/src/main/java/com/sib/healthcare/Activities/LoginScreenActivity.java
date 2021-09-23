@@ -38,7 +38,8 @@ public class LoginScreenActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         if(currentUser!=null&&currentUser.isEmailVerified())
-        {
+            startActivity(new Intent(LoginScreenActivity.this,RegisterScreenActivity.class));
+      /*  {
             email=getIntent().getStringExtra("Email");
             password=getIntent().getStringExtra("Password");
             password=getIntent().getStringExtra("Password");
@@ -80,7 +81,7 @@ public class LoginScreenActivity extends AppCompatActivity {
 
                         }
                     });
-        }
+        } */
     }
 
     @Override
