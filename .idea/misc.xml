@@ -3,17 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Main/app/src/main/res/drawable/cancel.xml" value="0.14322916666666666" />
-        <entry key="..\:/Main/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.14322916666666666" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_comment.xml" value="0.1" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_login_screen.xml" value="0.12864583333333332" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_notifications.xml" value="0.12708333333333333" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_register_screen.xml" value="0.1125" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_show_posts.xml" value="0.12708333333333333" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_splash_screen.xml" value="0.12708333333333333" />
-        <entry key="..\:/Main/app/src/main/res/layout/comments.xml" value="0.1" />
-        <entry key="..\:/Main/app/src/main/res/layout/noti.xml" value="0.12708333333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/drawable/bg.xml" value="0.21979166666666666" />
+        <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_register_screen.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.20364583333333333" />
+        <entry key="app/src/main/res/layout/noti.xml" value="0.16261261261261262" />
       </map>
     </option>
   </component>
