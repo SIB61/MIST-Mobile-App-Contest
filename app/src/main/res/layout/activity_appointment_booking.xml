@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Consultancy.AppointmentBookingActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_AB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="name"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_AB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/name_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="age"
+        app:layout_constraintEnd_toStartOf="@+id/genderLayout_AB"
+        app:layout_constraintStart_toStartOf="@+id/nameLayout_AB"
+        app:layout_constraintTop_toBottomOf="@id/nameLayout_AB">
+
+        <EditText
+            android:id="@+id/age_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/genderLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="gender"
+        app:layout_constraintEnd_toEndOf="@id/nameLayout_AB"
+        app:layout_constraintStart_toEndOf="@id/ageLayout_AB"
+        app:layout_constraintTop_toTopOf="@id/ageLayout_AB">
+
+        <AutoCompleteTextView
+            android:id="@+id/gender_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:textColor="@color/black"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/heightLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="height"
+        app:layout_constraintEnd_toStartOf="@+id/weightLayout_AB"
+        app:layout_constraintStart_toStartOf="@+id/nameLayout_AB"
+        app:layout_constraintTop_toBottomOf="@+id/ageLayout_AB">
+
+        <EditText
+            android:id="@+id/height_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weightLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="weight"
+        app:layout_constraintEnd_toEndOf="@+id/nameLayout_AB"
+        app:layout_constraintStart_toEndOf="@id/heightLayout_AB"
+        app:layout_constraintTop_toTopOf="@id/heightLayout_AB">
+
+        <EditText
+            android:id="@+id/weignt_AB"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descriptionLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Problem Description..."
+        app:layout_constraintEnd_toEndOf="@+id/weightLayout_AB"
+        app:layout_constraintStart_toStartOf="@+id/heightLayout_AB"
+        app:layout_constraintTop_toBottomOf="@+id/heightLayout_AB">
+
+        <EditText
+            android:id="@+id/description_AB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:lines="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateLayout_AB"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="date"
+        app:endIconDrawable="@drawable/ic_baseline_edit_calendar_24"
+        app:layout_constraintEnd_toEndOf="@+id/descriptionLayout_AB"
+        app:layout_constraintStart_toStartOf="@+id/descriptionLayout_AB"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionLayout_AB">
+
+        <AutoCompleteTextView
+            android:id="@+id/date_AB"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:enabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:cornerRadius="0dp"
+    android:layout_marginBottom="-7dp"
+    android:onClick="bookAppointment"
+    android:text="book an appointment"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

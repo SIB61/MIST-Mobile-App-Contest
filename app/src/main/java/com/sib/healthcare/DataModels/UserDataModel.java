@@ -1,6 +1,9 @@
 package com.sib.healthcare.DataModels;
 
-public class UserDataModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UserDataModel implements Parcelable {
     private String uId,image,name,mbbs,degrees,type,clinicAddress,district,day1,day2,time1,time2;
     private String division,email,phoneNumber,bloodGroup;
     private boolean isDoctor,isDonor;
@@ -15,6 +18,39 @@ public class UserDataModel {
         this.isDoctor = isDoctor;
         this.isDonor = isDonor;
     }
+
+    protected UserDataModel(Parcel in) {
+        uId = in.readString();
+        image = in.readString();
+        name = in.readString();
+        mbbs = in.readString();
+        degrees = in.readString();
+        type = in.readString();
+        clinicAddress = in.readString();
+        district = in.readString();
+        day1 = in.readString();
+        day2 = in.readString();
+        time1 = in.readString();
+        time2 = in.readString();
+        division = in.readString();
+        email = in.readString();
+        phoneNumber = in.readString();
+        bloodGroup = in.readString();
+        isDoctor = in.readByte() != 0;
+        isDonor = in.readByte() != 0;
+    }
+
+    public static final Creator<UserDataModel> CREATOR = new Creator<UserDataModel>() {
+        @Override
+        public UserDataModel createFromParcel(Parcel in) {
+            return new UserDataModel(in);
+        }
+
+        @Override
+        public UserDataModel[] newArray(int size) {
+            return new UserDataModel[size];
+        }
+    };
 
     public String getuId() {
         return uId;
@@ -158,5 +194,32 @@ public class UserDataModel {
 
     public void setDonor(boolean donor) {
         isDonor = donor;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(uId);
+        dest.writeString(image);
+        dest.writeString(name);
+        dest.writeString(mbbs);
+        dest.writeString(degrees);
+        dest.writeString(type);
+        dest.writeString(clinicAddress);
+        dest.writeString(district);
+        dest.writeString(day1);
+        dest.writeString(day2);
+        dest.writeString(time1);
+        dest.writeString(time2);
+        dest.writeString(division);
+        dest.writeString(email);
+        dest.writeString(phoneNumber);
+        dest.writeString(bloodGroup);
+        dest.writeByte((byte) (isDoctor ? 1 : 0));
+        dest.writeByte((byte) (isDonor ? 1 : 0));
     }
 }

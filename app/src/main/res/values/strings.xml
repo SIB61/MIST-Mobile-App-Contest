@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Health Care</string>
+
+    <string-array name="day_names">
+        <item>sat</item>
+        <item>sun</item>
+        <item>mon</item>
+        <item>tue</item>
+        <item>wed</item>
+        <item>thu</item>
+        <item>fri</item>
+    </string-array>
+
     <string-array name="BloodTypes">
         <item>A+</item>
         <item>B+</item>

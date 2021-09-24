@@ -25,7 +25,7 @@
           android:gravity="center"
           android:textStyle="bold"
           android:textSize="18sp"
-          android:textColor="#000"></TextView>
+          android:textColor="#000"/>
   </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             android:text="Abid Ahmed"
             android:id="@+id/profile_name"
             android:layout_toRightOf="@id/profile_image"
-            android:layout_marginLeft="10dp"></TextView>
+            android:layout_marginLeft="10dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:textColor="#000"
             android:id="@+id/date"
             android:layout_marginLeft="10dp"
-            android:textSize="14sp"></TextView>
+            android:textSize="14sp"/>
     </RelativeLayout>
 
     <TextView
@@ -70,7 +70,7 @@
         android:textColor="#000"
         android:id="@+id/blood"
         android:textSize="18sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         android:id="@+id/patient"
         android:textColor="#000"
         android:textSize="18sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         android:textColor="#000"
         android:textSize="18sp"
 
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             android:layout_marginTop="5dp"
             android:text="Comment"
             android:textColor="#fff"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold"/>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -115,7 +115,7 @@
             android:text="Call"
             android:layout_marginLeft="5dp"
             android:textColor="#fff"
-            android:textStyle="bold"></Button>
+            android:textStyle="bold"/>
     </LinearLayout>
 
 </LinearLayout>

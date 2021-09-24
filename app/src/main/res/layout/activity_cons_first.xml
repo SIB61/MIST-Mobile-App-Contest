@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    tools:context=".Activities.Consultancy.ConsFirstActivity">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg"
+        android:backgroundTint="@color/purple_200"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_200"
+            app:menu="@menu/main_bar_menu"
+            android:elevation="0dp"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:gravity="center_vertical"
+            android:text="Find your desired Specialist"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/askDoctor"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="30dp"
+            android:padding="2dp"
+            android:onClick="goToAskSpecialistsActivity"
+            android:text="Ask our specialists ?"
+            app:backgroundTint="@color/white"
+            android:textColor="#80000000"
+            app:cornerRadius="20dp"
+            app:elevation="5dp">
+
+        </com.google.android.material.button.MaterialButton>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Category "
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dental"
+        app:layout_constraintStart_toStartOf="@+id/heart" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/heart"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        android:onClick="goToDoctorListActivity"
+        app:layout_constraintBottom_toBottomOf="@+id/dental"
+        app:layout_constraintEnd_toStartOf="@+id/dental"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_heart" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Heart"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/heart"
+        app:layout_constraintStart_toStartOf="@+id/heart"
+        app:layout_constraintTop_toBottomOf="@id/heart" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        android:onClick="goToDoctorListActivity"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/brain"
+        app:layout_constraintStart_toEndOf="@id/heart"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_tooth" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dental"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/dental"
+        app:layout_constraintStart_toStartOf="@+id/dental"
+        app:layout_constraintTop_toBottomOf="@id/dental" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/brain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        android:onClick="goToDoctorListActivity"
+        app:layout_constraintBottom_toBottomOf="@+id/dental"
+        app:layout_constraintEnd_toStartOf="@+id/all"
+        app:layout_constraintStart_toEndOf="@id/dental">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_brain" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brain"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/brain"
+        app:layout_constraintStart_toStartOf="@+id/brain"
+        app:layout_constraintTop_toBottomOf="@id/brain" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        android:onClick="goToDoctorListActivity"
+        app:layout_constraintBottom_toBottomOf="@+id/brain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/brain">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_all" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See all"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/all"
+        app:layout_constraintStart_toStartOf="@+id/all"
+        app:layout_constraintTop_toBottomOf="@id/all" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/top_left20"
+        android:backgroundTint="@color/purple_200"
+        android:gravity="center|start"
+        android:orientation="horizontal"
+        android:paddingVertical="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-30dp"
+            android:rotation="-90"
+            android:text="Top Doctors"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/doctorListId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-30dp"
+            tools:itemCount="1"
+            tools:listitem="@layout/top_dr_list_item" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

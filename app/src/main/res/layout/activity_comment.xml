@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Comment"
-    android:padding="20dp"
-    >
+    tools:context=".Activities.Comment"
+    android:padding="20dp" >
     <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
@@ -23,7 +22,7 @@
             android:textStyle="bold"
             android:layout_marginTop="0dp"
             android:layout_below="@+id/back"
-            android:textColor="#000"></TextView>
+            android:textColor="#000"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="8dp"
@@ -31,12 +30,12 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_below="@+id/te"
-            android:id="@+id/vi"></View>
+            android:id="@+id/vi"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/vi"
-            android:id="@+id/comments"></androidx.recyclerview.widget.RecyclerView>
+            android:id="@+id/comments"/>
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -55,14 +54,14 @@
             android:background="@drawable/text"
       android:textColor="#000"
             android:textColorHint="#000"
-      ></AutoCompleteTextView>
+      />
       <ImageView
           android:layout_width="0dp"
           android:layout_marginTop="10dp"
           android:layout_weight="1"
           android:id="@+id/send"
           android:layout_height="wrap_content"
-          android:src="@drawable/ic_baseline_send_24"></ImageView>
+          android:src="@drawable/ic_baseline_send_24"/>
     </LinearLayout>
 
     </RelativeLayout>

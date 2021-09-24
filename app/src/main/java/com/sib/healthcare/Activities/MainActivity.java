@@ -2,9 +2,11 @@ package com.sib.healthcare.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.sib.healthcare.Activities.Consultancy.ConsFirstActivity;
 import com.sib.healthcare.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToConsultancy(View view) {
+       startActivity(new Intent(this, ConsFirstActivity.class));
     }
 
     public void goToBloodBank(View view) {

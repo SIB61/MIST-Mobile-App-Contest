@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,11 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
-
+        <activity
+            android:name=".Activities.Consultancy.ConsFirstActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.MainActivity"/>
         <activity
             android:name=".Activities.RegisterScreenActivity"
-            android:parentActivityName=".Activities.LoginScreenActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activities.LoginScreenActivity" />
         <activity
             android:name=".Activities.LoginScreenActivity"
             android:exported="true" />
@@ -25,13 +29,35 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
+        <activity android:name=".Activities.Consultancy.SolutionsActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.Consultancy.AskSpecialistsActivity"/>
+        <activity android:name=".Activities.Consultancy.EditProfileActivity"
+            android:exported="true"/>
+        <activity android:name=".Activities.Consultancy.DrAppointmentListActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity"/>
+        <activity android:name=".Activities.Consultancy.DoctorProfileActivity"
+            android:exported="true"/>
+        <activity android:name=".Activities.Consultancy.DoctorListActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity"/>
+        <activity android:name=".Activities.Consultancy.AskSpecialistsActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity"/>
+        <activity android:name=".Activities.Consultancy.AppointmentBookingActivity"
+            android:exported="true"
+            android:parentActivityName=".Activities.Consultancy.DoctorProfileActivity"/>
+
+
+
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />

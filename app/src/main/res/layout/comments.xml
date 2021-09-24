@@ -35,7 +35,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/profile_name"
         android:layout_toRightOf="@id/profile_image"
-        android:layout_marginLeft="10dp"></TextView>
+        android:layout_marginLeft="10dp"/>
         <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:layout_marginLeft="15dp"
         android:layout_below="@id/profile_name"
         android:layout_toRightOf="@id/profile_image"
-        android:id="@+id/mention"></TextView>
+        android:id="@+id/mention"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:textColor="#000"
             android:layout_marginLeft="10dp"
             android:id="@+id/main"
-            android:layout_marginBottom="10dp"></TextView>
+            android:layout_marginBottom="10dp"/>
 
     </RelativeLayout>
 
@@ -65,5 +65,5 @@
         android:layout_height="wrap_content"
         android:textColor="#000"
         android:layout_marginLeft="40dp"
-        android:id="@+id/timed"></TextView>
+        android:id="@+id/timed"/>
 </LinearLayout>
