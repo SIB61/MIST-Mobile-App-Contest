@@ -146,14 +146,14 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/covid_main_activity_back_arraw"
+        android:id="@+id/covid_statistics_activity_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/covid_statistic_back" />
+        app:srcCompat="@drawable/back_arraw_white" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -161,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/covid_main_activity_back_arraw"
+        app:layout_constraintTop_toTopOf="@+id/covid_statistics_activity_back"
         app:srcCompat="@drawable/covid_notification_bell" />
 
     <TextView
@@ -175,7 +175,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/covid_main_activity_back_arraw" />
+        app:layout_constraintTop_toBottomOf="@+id/covid_statistics_activity_back" />
 
     <Button
         android:id="@+id/button3"

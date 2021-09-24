@@ -27,7 +27,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <ImageView
-            android:id="@+id/covid_main_activity_back_arraw"
+            android:id="@+id/covid_statistics_activity_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/covid_main_activity_back_arraw"
+            app:layout_constraintTop_toTopOf="@+id/covid_statistics_activity_back"
             app:srcCompat="@drawable/covid_notification_bell" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/covid_main_activity_back_arraw" />
+            app:layout_constraintTop_toBottomOf="@+id/covid_statistics_activity_back" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -157,19 +157,18 @@
             app:layout_constraintStart_toEndOf="@+id/covid_main_activity_call_nowbtn"
             app:layout_constraintTop_toTopOf="@+id/covid_main_activity_call_nowbtn" />
 
-
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="100dp"
             android:fontFamily="@font/graphikmedium"
             android:text="Prevention"
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+            app:layout_constraintTop_toBottomOf="@+id/covid_main_activity_call_nowbtn" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -217,140 +216,9 @@
             app:layout_constraintStart_toStartOf="@+id/imageView3"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <TextView
-            android:id="@+id/help_desk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_marginTop="150dp"
-            android:fontFamily="@font/graphikmedium"
-            android:text="Our Services"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6">
-
-        </TextView>
-
-        <HorizontalScrollView
-
-            android:id="@+id/horizontalScrollView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
 
 
-            android:layout_marginTop="80dp"
-            android:background="@drawable/covid_our_service_bg"
-            app:layout_constraintTop_toBottomOf="@+id/help_desk"
-            tools:layout_editor_absoluteX="20dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/covid_activity_main_remote_health_services"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/design_default_color_error">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/alfa_slab_one"
-                            android:gravity="center_horizontal"
-                            android:text="Remote Health Services"
-                            android:textColor="#FAFAFA"
-                            android:textSize="16sp"></TextView>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#F06292">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/alfa_slab_one"
-                            android:gravity="center"
-                            android:text="Finding Blood Doner's"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"></TextView>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/holo_green_light">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/alfa_slab_one"
-                            android:gravity="center"
-                            android:text="Covid-19 vaccine info"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"></TextView>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="10dp"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/holo_orange_light">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/alfa_slab_one"
-                            android:gravity="center"
-                            android:text="Emergency Help"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp"></TextView>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-
-            </LinearLayout>
-        </HorizontalScrollView>
 
         <TextView
             android:id="@+id/textView6"
@@ -376,7 +244,7 @@
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
             app:srcCompat="@drawable/covid_own_test" />
 
         <Button
@@ -386,7 +254,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
-            android:background="@color/purple_200"
+            android:background="@drawable/backg"
             android:backgroundTint="#F31C1C"
             android:drawableRight="@drawable/covid_static_btn_icon"
             android:fontFamily="@font/graphiksemibold"
@@ -401,32 +269,6 @@
             app:layout_constraintHorizontal_bias="0.477"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:fontFamily="monospace"
-            android:paddingBottom="10dp"
-            android:text="Today's Update:"
-            android:textColor="#FDFDFD"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/covid_main_activity_call_nowbtn" />
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Ajker Covid'19 update new in bd"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
