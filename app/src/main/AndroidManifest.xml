@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".covid_section.Statistics"
+            android:exported="true" />
+        <activity
             android:name=".covid_section.covid_main_activity"
             android:exported="true" />
         <activity
@@ -31,7 +34,7 @@
         <activity android:name=".Activities.PostsandWatch" />
         <activity android:name=".Activities.ShowDonors" />
         <activity android:name=".Activities.Comment" />
-        <activity android:name=".Activities.ShowPosts"></activity>
+        <activity android:name=".Activities.ShowPosts" />
         <activity android:name=".Activities.DonorReg" />
         <activity android:name=".Activities.Notifications" />
         <activity android:name=".Activities.Posting" />
@@ -85,6 +88,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

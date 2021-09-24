@@ -129,7 +129,7 @@
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
-            app:backgroundTint="@color/teal_200"
+            app:backgroundTint="#DD3453"
             app:layout_constraintEnd_toStartOf="@+id/button2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +140,7 @@
             android:layout_width="146dp"
             android:layout_height="wrap_content"
             android:background="@drawable/covid_sent_smsbc"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="#5A0FC6"
             android:backgroundTintMode="add"
             android:drawableLeft="@drawable/covid_sent_sms_icon"
             android:drawablePadding="8dp"
@@ -251,6 +251,7 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/covid_activity_main_remote_health_services"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="10dp"
