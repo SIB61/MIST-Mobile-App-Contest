@@ -1,5 +1,6 @@
 package com.sib.healthcare.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,10 +15,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.sib.healthcare.DataModels.UserDataModel;
@@ -25,6 +30,9 @@ import com.sib.healthcare.databinding.ActivityRegisterScreenBinding;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
+
+import java.util.HashMap;
+import java.util.Objects;
 
 public class RegisterScreenActivity extends AppCompatActivity {
     private ActivityRegisterScreenBinding binding;
@@ -122,8 +130,20 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                     if(task2.isSuccessful()){
                                                         progressDialog.dismiss();
                                                         Toast.makeText(getApplicationContext(),"Verification link sent to your email",Toast.LENGTH_LONG).show();
-                                                        startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).
-                                                                putExtra("Email",email).putExtra("Password",password).putExtra("Name",name).putExtra("Url",resultUri.toString()));
+
+                                                        FirebaseInstanceId.getInstance().getInstanceId()
+                                                                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                                                                        if (task.isSuccessful()) {
+                                                                            String token = Objects.requireNonNull(task.getResult()).getToken();
+                                                                            SessionManager sh=new SessionManager(RegisterScreenActivity.this,SessionManager.USERSESSION);
+                                                                            sh.loginSession(name,email,"No",password,resultUri.toString(),"No",token,"No","No");
+
+                                                                            startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).putExtra("Work","Reg"));
+                                                                        }
+                                                                    }});
+
 
                                                     }
                                                 });

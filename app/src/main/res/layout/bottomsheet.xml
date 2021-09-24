@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/bottomsheet"
+    android:padding="30dp"
+    android:background="@drawable/bottombackground">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:textStyle="bold"
+        android:text="   Edit"
+        android:drawableLeft="@drawable/create"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:id="@+id/view"
+        android:layout_marginBottom="20dp"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    android:textStyle="bold"
+        android:text="   Delete"
+        android:drawableLeft="@drawable/deletfe"
+        android:textColor="#000"
+        android:textSize="18dp"
+        android:id="@+id/change"
+        android:layout_marginBottom="20dp"></TextView>
+
+
+</LinearLayout>
