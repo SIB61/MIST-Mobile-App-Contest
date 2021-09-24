@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.sib.healthcare.Activities.Consultancy.ConsFirstActivity;
+import com.sib.healthcare.Activities.MainActivity;
 import com.sib.healthcare.R;
 
 public class covid_main_activity extends AppCompatActivity {
@@ -25,6 +26,7 @@ public class covid_main_activity extends AppCompatActivity {
     Button call_nowBtn;
     ImageView call_nowCancleBtn;
     View remote_health_services;
+    View back_to_home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class covid_main_activity extends AppCompatActivity {
         stat = findViewById(R.id.stat);
         call_nowBtn = findViewById(R.id.covid_main_activity_call_nowbtn);
         remote_health_services = findViewById(R.id.covid_activity_main_remote_health_services);
+        back_to_home = findViewById(R.id.covid_main_activity_back_arraw);
 
 
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
@@ -90,6 +93,13 @@ public class covid_main_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(covid_main_activity.this, ConsFirstActivity.class));
+            }
+        });
+
+        back_to_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(covid_main_activity.this, MainActivity.class));
             }
         });
 

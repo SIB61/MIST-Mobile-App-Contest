@@ -146,7 +146,7 @@
     </androidx.cardview.widget.CardView>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/covid_main_activity_back_arraw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -161,7 +161,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/covid_main_activity_back_arraw"
         app:srcCompat="@drawable/covid_notification_bell" />
 
     <TextView
@@ -175,7 +175,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/covid_main_activity_back_arraw" />
 
     <Button
         android:id="@+id/button3"

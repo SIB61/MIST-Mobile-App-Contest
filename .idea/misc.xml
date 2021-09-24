@@ -23,6 +23,10 @@
         <entry key="..\:/Main/app/src/main/res/menu/edit.xml" value="0.12708333333333333" />
         <entry key="..\:/Main/app/src/main/res/menu/main_bar_menu.xml" value="0.12864583333333332" />
         <entry key="..\:/Main/app/src/main/res/menu/nav.xml" value="0.12864583333333332" />
+        <entry key="app/src/main/res/drawable/arrowb.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ba.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/back_arraw_white.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/bg.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/covid_callbtn.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/covid_home_screen.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/covid_menu.xml" value="0.175" />
