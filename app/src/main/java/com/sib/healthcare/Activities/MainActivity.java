@@ -1,7 +1,7 @@
 package com.sib.healthcare.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.sib.healthcare.covid_section.covid_main_activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToCovid(View view) {
+        startActivity(new Intent(this, covid_main_activity.class));
     }
 
     public void goToMedicine(View view) {
