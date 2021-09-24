@@ -8,15 +8,26 @@ import android.os.Handler;
 
 import com.sib.healthcare.R;
 
-public class SplashScreenActivity extends AppCompatActivity {
+import java.util.HashMap;
 
+public class SplashScreenActivity extends AppCompatActivity {
+String email="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
+        SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+        HashMap<String, String> hm = sh.returnData();
+       email = hm.get(SessionManager.EMAIL);
         new Handler().postDelayed((Runnable) () -> {
-            startActivity(new Intent(this,RegisterScreenActivity.class));
+            if(email==null||email.equals("")) {
+                startActivity(new Intent(this, LoginScreenActivity.class));
+                finish();
+            }
+            else {
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            }
         },3000);
 
     }

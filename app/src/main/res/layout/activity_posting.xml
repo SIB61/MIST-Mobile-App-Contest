@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Posting"
+    tools:context=".Activities.Posting"
     android:padding="30dp"
     android:background="#fff">
     <LinearLayout
@@ -81,7 +81,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="#000"
-                android:background="@drawable/str"
                 android:padding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -89,6 +88,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
 
         android:layout_marginTop="10dp"
         android:hint="Reason of blood needed"
@@ -108,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#000"
-            android:background="@drawable/str"
+
             android:padding="10dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -117,6 +117,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
 
             android:layout_marginTop="10dp"
             android:hint="Enter Hospital Name"
@@ -136,7 +137,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="#000"
-                android:background="@drawable/str"
                 android:padding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -195,6 +195,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
 
             android:layout_marginTop="10dp"
             android:hint="Enter Phone Number"
@@ -214,11 +215,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
-                android:background="@drawable/str"
                 android:padding="10dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-        <Button
+          <androidx.appcompat.widget.AppCompatButton
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
@@ -230,6 +230,6 @@
             android:textColor="#fff"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:layout_marginBottom="20dp"></Button>
+            android:layout_marginBottom="20dp"></androidx.appcompat.widget.AppCompatButton>
     </LinearLayout>
 </ScrollView>

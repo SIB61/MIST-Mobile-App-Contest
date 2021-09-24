@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToBloodBank(View view) {
+        startActivity(new Intent(this, PostsandWatch.class));
     }
 
     public void goToCovid(View view) {

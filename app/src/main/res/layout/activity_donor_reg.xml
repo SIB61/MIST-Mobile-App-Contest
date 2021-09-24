@@ -140,7 +140,7 @@
                 android:gravity="center"
                 tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck"></Spinner>
         </LinearLayout>
-        <Button
+          <androidx.appcompat.widget.AppCompatButton
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
@@ -153,7 +153,7 @@
             android:textColor="#fff"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:layout_marginBottom="20dp"></Button>
+            android:layout_marginBottom="20dp"></androidx.appcompat.widget.AppCompatButton>
 
         <TextView
             android:layout_width="match_parent"
