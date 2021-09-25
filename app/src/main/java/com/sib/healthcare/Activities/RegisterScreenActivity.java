@@ -132,19 +132,18 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                         Toast.makeText(getApplicationContext(),"Verification link sent to your email",Toast.LENGTH_LONG).show();
 
                                                         FirebaseInstanceId.getInstance().getInstanceId()
-                                                                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                                                                    @Override
-                                                                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                                                                        if (task.isSuccessful()) {
-                                                                            String token = Objects.requireNonNull(task.getResult()).getToken();
-                                                                            SessionManager sh=new SessionManager(RegisterScreenActivity.this,SessionManager.USERSESSION);
-                                                                            sh.loginSession(name,email,"No",password,path,"No",token,"No","No");
+                                                                .addOnCompleteListener(task4 -> {
+                                                                    if (task4.isSuccessful()) {
+                                                                        String token = Objects.requireNonNull(task4.getResult()).getToken();
+                                                                        SessionManager sh=new SessionManager(RegisterScreenActivity.this,SessionManager.USERSESSION);
+                                                                        sh.loginSession(name,email,"No",password,path,"No",token,"No","No");
 
-                                                                            startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).putExtra("Work","Reg"));
-                                                                        }
-                                                                    }});
-
-
+                                                                        startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).putExtra("Work","Reg"));
+                                                                    }
+                                                                    else{
+                                                                        Log.d("TAG", "signUp: "+task4.getException());
+                                                                    }
+                                                                });
                                                     }
                                                 });
                                             }
@@ -169,6 +168,8 @@ public class RegisterScreenActivity extends AppCompatActivity {
                     });
         }
     }
+
+
 
     private void updateUI(FirebaseUser user) {
         if (user!=null && user.isEmailVerified())
