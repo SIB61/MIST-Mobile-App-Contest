@@ -13,10 +13,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.sib.healthcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -76,7 +79,12 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
 
             }
         });
-        Picasso.get().load(list.get(i).getUrl()).fit().centerCrop().into(holder.profile_image);
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
+        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+            Glide.with(c).load(uri).into(holder.profile_image);
+        });
 
         holder.urgent.setText(list.get(i).getDivision());
         holder.date.setText(list.get(i).getTime()+" : "+list.get(i).getDate());
