@@ -20,12 +20,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.sib.healthcare.DataModels.UserDataModel;
 import com.sib.healthcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +51,7 @@ PostsAdapter post;
     Button yes, no;
     LinearLayout ask;
     BottomNavigationView bm;
+    UserDataModel dsf;
 
 
     @Override
@@ -63,6 +68,7 @@ PostsAdapter post;
         final SessionManager sh=new SessionManager(this,SessionManager.USERSESSION);
         HashMap<String,String> hm=sh.returnData();
         url=hm.get(SessionManager.URL);
+     //   Toast.makeText(getApplicationContext(),url,Toast.LENGTH_LONG).show();
         String donor=hm.get(SessionManager.DONOR);
        //Toast.makeText(getApplicationContext(), donor+"Abid", Toast.LENGTH_LONG).show();
          dis=hm.get(SessionManager.DISTRICT);
@@ -112,7 +118,13 @@ PostsAdapter post;
                          finish();
            }
        });
-        Picasso.get().load(url).fit().centerCrop().into(profile_image);
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
+        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+            Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+            Glide.with(this).load(uri).into(profile_image);
+        });
+
         posts.setLayoutManager(new LinearLayoutManager(this));
        post = new PostsAdapter(this, list);
         posts.setAdapter(post);

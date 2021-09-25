@@ -21,7 +21,7 @@ String email="";
        email = hm.get(SessionManager.EMAIL);
         new Handler().postDelayed((Runnable) () -> {
             if(email==null||email.equals("")) {
-                startActivity(new Intent(this, LoginScreenActivity.class));
+                startActivity(new Intent(this, LoginScreenActivity.class).putExtra("Work","Splash"));
                 finish();
             }
             else {

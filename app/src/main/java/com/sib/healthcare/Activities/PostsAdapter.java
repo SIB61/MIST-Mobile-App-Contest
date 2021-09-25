@@ -16,10 +16,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.sib.healthcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -72,7 +75,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
         long ryu=ru.nextInt(10000000);
         // append a string into StringBuilder input1
         input1.append(se);
-        //  Toast.makeText(getApplicationContext(),gh,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(c,list.get(i).getUrl(),Toast.LENGTH_LONG).show();
         // reverse StringBuilder input1
         se = String.valueOf(input1.reverse());
         String finalSe = se;
@@ -115,7 +118,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
                 bsd.show();
             }
         });
-        Picasso.get().load(list.get(i).getUrl()).fit().centerCrop().into(holder.profile_image);
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
+        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+       //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+            Glide.with(c).load(uri).into(holder.profile_image);
+        });
         holder.profile_name.setText(list.get(i).getName());
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override

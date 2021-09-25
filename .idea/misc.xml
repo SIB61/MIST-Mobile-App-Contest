@@ -17,28 +17,14 @@
         <entry key="..\:/Main/app/src/main/res/layout/activity_register_screen.xml" value="0.1125" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_posts.xml" value="0.12708333333333333" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_splash_screen.xml" value="0.12708333333333333" />
+        <entry key="..\:/Main/app/src/main/res/layout/bottomsheet.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/comments.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/noti.xml" value="0.12708333333333333" />
         <entry key="..\:/Main/app/src/main/res/layout/posts.xml" value="0.12864583333333332" />
         <entry key="..\:/Main/app/src/main/res/menu/edit.xml" value="0.12708333333333333" />
         <entry key="..\:/Main/app/src/main/res/menu/main_bar_menu.xml" value="0.12864583333333332" />
         <entry key="..\:/Main/app/src/main/res/menu/nav.xml" value="0.12864583333333332" />
-        <entry key="app/src/main/res/drawable/arrowb.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/ba.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/back_arraw_white.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/bg.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/covid_callbtn.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/covid_home_screen.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/covid_menu.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/covid_our_service_bg.xml" value="0.175" />
-        <entry key="app/src/main/res/drawable/covid_own_test.xml" value="0.175" />
-        <entry key="app/src/main/res/font/alfa_slab_one.xml" value="0.1890625" />
-        <entry key="app/src/main/res/layout/activity_covid_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20364583333333333" />
-        <entry key="app/src/main/res/layout/covid_statistics_activity.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.9" />
-        <entry key="app/src/main/res/layout/main_activity_call_now.xml" value="0.15885416666666666" />
       </map>
     </option>
   </component>

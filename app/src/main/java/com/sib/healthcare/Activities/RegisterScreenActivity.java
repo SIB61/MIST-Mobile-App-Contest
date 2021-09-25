@@ -37,7 +37,7 @@ import java.util.Objects;
 public class RegisterScreenActivity extends AppCompatActivity {
     private ActivityRegisterScreenBinding binding;
     private FirebaseAuth mAuth;
-    private String image ,name,email,password,rePassword;
+    private String image ,name,email,password,rePassword,uid;
     private ProgressDialog progressDialog;
     private Uri resultUri;
 
@@ -138,7 +138,7 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                                         if (task.isSuccessful()) {
                                                                             String token = Objects.requireNonNull(task.getResult()).getToken();
                                                                             SessionManager sh=new SessionManager(RegisterScreenActivity.this,SessionManager.USERSESSION);
-                                                                            sh.loginSession(name,email,"No",password,resultUri.toString(),"No",token,"No","No");
+                                                                            sh.loginSession(name,email,"No",password,path,"No",token,"No","No");
 
                                                                             startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).putExtra("Work","Reg"));
                                                                         }

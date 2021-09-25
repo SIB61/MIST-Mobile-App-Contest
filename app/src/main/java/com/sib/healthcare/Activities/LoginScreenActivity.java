@@ -41,7 +41,6 @@ public class LoginScreenActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         if(currentUser!=null&&currentUser.isEmailVerified())
-            startActivity(new Intent(LoginScreenActivity.this,RegisterScreenActivity.class));
        {
             if(getIntent().getStringExtra("Work").equals("Reg")){
             SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
@@ -73,7 +72,7 @@ public class LoginScreenActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Tokens").updateChildren(t);
             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
-            startActivity(new Intent(getApplicationContext(), PostsandWatch.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
             else
@@ -113,7 +112,6 @@ public class LoginScreenActivity extends AppCompatActivity {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                                                 SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
-                                                HashMap<String, String> hm = sh.returnData();
 
                                                 sh.loginSession(name, email, "No", password, Url, "Yes", snapshot1.child("token").getValue().toString(), "No", "No");
 
@@ -125,7 +123,7 @@ public class LoginScreenActivity extends AppCompatActivity {
                                             }
                                         });
                                       }
-                                    startActivity(new Intent(getApplicationContext(), PostsandWatch.class));
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     finish();
                                 }
 
