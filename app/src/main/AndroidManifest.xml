@@ -76,6 +76,13 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".Activities.PostsandWatch"></activity>
+        <activity android:name=".Activities.Posting"></activity>
+        <activity android:name=".Activities.Notifications"></activity>
+        <activity android:name=".Activities.DonorReg"></activity>
+        <activity android:name=".Activities.Comment"></activity>
+        <activity android:name=".Activities.ShowPosts"></activity>
+        <activity android:name=".Activities.ShowDonors"></activity>
 
         <service
             android:name=".Activities.FirebaseMessagingService"
