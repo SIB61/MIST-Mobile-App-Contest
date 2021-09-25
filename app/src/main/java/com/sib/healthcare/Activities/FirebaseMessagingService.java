@@ -1,5 +1,6 @@
 package com.sib.healthcare.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -22,6 +23,7 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
      NotificationManager mNotificationManager;
 
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);

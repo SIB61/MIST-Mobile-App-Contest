@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="20dp"
+    android:layout_marginBottom="20dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/dhaka"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:text="Abid Ahmed"
+            android:id="@+id/profile_name"
+            android:layout_toRightOf="@id/profile_image"
+            android:layout_marginLeft="10dp"></TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="24 June 2021"
+            android:layout_below="@+id/profile_name"
+            android:layout_toRightOf="@id/profile_image"
+            android:textColor="#000"
+            android:id="@+id/blood"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"></TextView>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Chat"
+            android:background="@drawable/button"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/chat"></Button>
+    </RelativeLayout>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="10dp"
+    android:text="In Emergency Please Call on"
+    android:textColor="#000"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    android:id="@+id/emer"
+    android:layout_marginLeft="10dp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:id="@+id/address"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"></TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

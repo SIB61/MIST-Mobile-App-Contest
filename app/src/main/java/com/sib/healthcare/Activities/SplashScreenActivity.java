@@ -6,22 +6,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.sib.healthcare.R;
 
+import java.util.HashMap;
+
 public class SplashScreenActivity extends AppCompatActivity {
-    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+String email="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
+        SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+        HashMap<String, String> hm = sh.returnData();
+       email = hm.get(SessionManager.EMAIL);
         new Handler().postDelayed((Runnable) () -> {
-            if(user != null && user.isEmailVerified())
-                startActivity(new Intent(this,MainActivity.class));
-            else
-                startActivity(new Intent(this,LoginScreenActivity.class));
+            if(email==null||email.equals("")) {
+                startActivity(new Intent(this, LoginScreenActivity.class));
+                finish();
+            }
+            else {
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
+            }
         },3000);
+
     }
 }

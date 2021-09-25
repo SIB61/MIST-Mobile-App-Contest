@@ -14,7 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.sib.healthcare.R;
@@ -33,55 +36,115 @@ public class LoginScreenActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+     //   updateUI(currentUser);
     }
 
     private void updateUI(FirebaseUser currentUser) {
         if(currentUser!=null&&currentUser.isEmailVerified())
             startActivity(new Intent(LoginScreenActivity.this,RegisterScreenActivity.class));
-      /*  {
-            email=getIntent().getStringExtra("Email");
-            password=getIntent().getStringExtra("Password");
-            password=getIntent().getStringExtra("Password");
-            String email1="";
-            HashMap mp=new HashMap();
-            mp.put("Name",name);
-            mp.put("Email",email);
-            mp.put("Password",email);
-            mp.put("url",Url);
-            for(int i=0;i<email.length();i++)
-            {
-                if(email.charAt(i)=='@')
+       {
+            if(getIntent().getStringExtra("Work").equals("Reg")){
+            SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+            HashMap<String, String> hm = sh.returnData();
+            String token = hm.get(SessionManager.TOKEN);
+             name = hm.get(SessionManager.FULLNAME);
+            Url = hm.get(SessionManager.URL);
+            String email1 = "";
+            HashMap mp = new HashMap();
+            mp.put("Name", name);
+            mp.put("Email", email);
+            mp.put("Password", password);
+            mp.put("url", Url);
+            for (int i = 0; i < email.length(); i++) {
+                if (email.charAt(i) == '@')
                     break;
-                email1+=email.charAt(i);
+                email1 += email.charAt(i);
             }
-            FirebaseDatabase.getInstance().getReference("Users").child(email1).setValue(mp);
 
             String finalEmail = email1;
-            FirebaseInstanceId.getInstance().getInstanceId()
-                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                            if (task.isSuccessful()) {
-                                String token = Objects.requireNonNull(task.getResult()).getToken();
-                                HashMap t=new HashMap();
-                                t.put("token",token);
-                                HashMap iu=new HashMap();
-                                iu.put("token",token);
-                                Random rn=new Random();
-                                long yh=rn.nextInt(10000000);
-                                iu.put("name",name);
-                                FirebaseDatabase.getInstance().getReference("Names").child(yh+"").updateChildren(iu);
-                                SessionManager sh=new SessionManager(LoginScreenActivity.this,SessionManager.USERSESSION);
-                                sh.loginSession(name,email,"No",password,Url,"No",token,"No","No");
-                                FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Tokens").updateChildren(t);
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                finish();
-                            }
+            HashMap t = new HashMap();
+            t.put("token", token);
+            HashMap iu = new HashMap();
+            iu.put("token", token);
+            Random rn = new Random();
+            long yh = rn.nextInt(10000000);
+            iu.put("name", name);
+            FirebaseDatabase.getInstance().getReference("Names").child(yh + "").updateChildren(iu);
+                FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
+            FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Tokens").updateChildren(t);
+            FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
+            startActivity(new Intent(getApplicationContext(), PostsandWatch.class));
+            finish();
+        }
+            else
+            {
+                String email1="";
+                for (int i = 0; i < email.length(); i++) {
+                    if (email.charAt(i) == '@')
+                        break;
+                    email1 += email.charAt(i);
+                }
+                String finalEmail = email1;
+                FirebaseDatabase.getInstance().getReference("Users").child(email1).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Toast.makeText(getApplicationContext(), finalEmail, Toast.LENGTH_LONG).show();
+                        if (snapshot.hasChildren()) {
+                            name = snapshot.child("Name").getValue().toString();
+                            Url = snapshot.child("url").getValue().toString();
+                            FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Donor").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                                    if(snapshot1.hasChildren()) {
+                                        String phone = snapshot1.child("phone").getValue().toString();
+                                        String district = snapshot1.child("district").getValue().toString();
+                                        String division = snapshot1.child("division").getValue().toString();
+                                        String blood = snapshot1.child("blood").getValue().toString();
+                                        String url = snapshot1.child("url").getValue().toString();
+                                        String token = snapshot1.child("token").getValue().toString();
+                                        SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+                                        HashMap<String, String> hm = sh.returnData();
 
+                                        sh.loginSession(name, email, phone, password, url, "Yes", token, division, district);
+                                    }
+                                    else
+                                    {
+                                        FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Tokens").addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                                                SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+                                                HashMap<String, String> hm = sh.returnData();
+
+                                                sh.loginSession(name, email, "No", password, Url, "Yes", snapshot1.child("token").getValue().toString(), "No", "No");
+
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                      }
+                                    startActivity(new Intent(getApplicationContext(), PostsandWatch.class));
+                                    finish();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                         }
-                    });
-        } */
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        }
     }
 
     @Override
