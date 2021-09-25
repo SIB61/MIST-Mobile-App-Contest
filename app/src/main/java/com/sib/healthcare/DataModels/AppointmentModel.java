@@ -3,10 +3,12 @@ package com.sib.healthcare.DataModels;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.Timestamp;
+
 public class AppointmentModel implements Parcelable {
 
     private String drName,drUid;
-    private String pUid,pName,age,gender,height,weight,description,date;
+    private String pUid,pName,age,gender,height,weight,description, date;
 
     public AppointmentModel() {
 
@@ -25,6 +27,31 @@ public class AppointmentModel implements Parcelable {
         this.date = date;
     }
 
+    protected AppointmentModel(Parcel in) {
+        drName = in.readString();
+        drUid = in.readString();
+        pUid = in.readString();
+        pName = in.readString();
+        age = in.readString();
+        gender = in.readString();
+        height = in.readString();
+        weight = in.readString();
+        description = in.readString();
+        date = in.readParcelable(Timestamp.class.getClassLoader());
+    }
+
+    public static final Creator<AppointmentModel> CREATOR = new Creator<AppointmentModel>() {
+        @Override
+        public AppointmentModel createFromParcel(Parcel in) {
+            return new AppointmentModel(in);
+        }
+
+        @Override
+        public AppointmentModel[] newArray(int size) {
+            return new AppointmentModel[size];
+        }
+    };
+
     @Override
     public String toString() {
         return "AppointmentModel{" +
@@ -41,30 +68,6 @@ public class AppointmentModel implements Parcelable {
                 '}';
     }
 
-    protected AppointmentModel(Parcel in) {
-        drName = in.readString();
-        drUid = in.readString();
-        pUid = in.readString();
-        pName = in.readString();
-        age = in.readString();
-        gender = in.readString();
-        height = in.readString();
-        weight = in.readString();
-        description = in.readString();
-        date = in.readString();
-    }
-
-    public static final Creator<AppointmentModel> CREATOR = new Creator<AppointmentModel>() {
-        @Override
-        public AppointmentModel createFromParcel(Parcel in) {
-            return new AppointmentModel(in);
-        }
-
-        @Override
-        public AppointmentModel[] newArray(int size) {
-            return new AppointmentModel[size];
-        }
-    };
 
     public String getDrName() {
         return drName;
@@ -165,4 +168,6 @@ public class AppointmentModel implements Parcelable {
         dest.writeString(description);
         dest.writeString(date);
     }
+
+
 }

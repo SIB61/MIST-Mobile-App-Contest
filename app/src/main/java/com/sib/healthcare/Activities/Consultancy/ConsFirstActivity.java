@@ -89,7 +89,7 @@ public class ConsFirstActivity extends AppCompatActivity {
     }
 
     public void goToAskSpecialistsActivity(View view) {
-        startActivity(new Intent(this, AskSpecialistsActivity.class));
+        startActivity(new Intent(this, AskSpecialistsActivity.class).putExtra("userDataModel",userDataModel));
     }
 
     public void goToDoctorListActivity(View view) {

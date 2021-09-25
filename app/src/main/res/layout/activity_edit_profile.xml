@@ -164,18 +164,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="time"
-                app:layout_constraintEnd_toEndOf="@+id/day1Layout_EP"
                 app:layout_constraintStart_toStartOf="@+id/day1Layout_EP"
                 app:layout_constraintTop_toBottomOf="@+id/day1Layout_EP">
 
                 <AutoCompleteTextView
                     android:id="@+id/time1_EP"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:enabled="false"
-                    android:textColor="@color/black"
-                    android:hint="time" />
+                    android:hint="time"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -187,17 +185,15 @@
                 android:hint="time"
                 app:layout_constraintBottom_toBottomOf="@+id/time1Layout_EP"
                 app:layout_constraintEnd_toEndOf="@+id/day2Layout_EP"
-                app:layout_constraintStart_toStartOf="@+id/day2Layout_EP"
                 app:layout_constraintTop_toTopOf="@+id/time1Layout_EP">
 
                 <AutoCompleteTextView
                     android:id="@+id/time2_EP"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:enabled="false"
-                    android:textColor="@color/black"
-                    android:hint="time" />
+                    android:hint="time"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
@@ -206,7 +202,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintBottom_toBottomOf="@+id/time1Layout_EP"
-                app:layout_constraintEnd_toStartOf="@+id/day2Layout_EP"
+                app:layout_constraintEnd_toStartOf="@+id/time2Layout_EP"
                 app:layout_constraintStart_toEndOf="@+id/time1Layout_EP"
                 app:layout_constraintTop_toTopOf="@+id/time1Layout_EP" />
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity"
-    android:background="#EFEFEF">
+    android:background="@color/back_white">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -67,7 +67,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="-50dp"
+                android:layout_marginTop="-60dp"
                 android:layout_marginEnd="10dp"
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"

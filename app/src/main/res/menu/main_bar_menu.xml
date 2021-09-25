@@ -5,4 +5,8 @@
     <item
         android:id="@+id/reg"
         android:title="Register as a doctor" />
+    <item android:id="@+id/ap"
+        app:showAsAction="always"
+        android:title="appointments"
+        android:icon="@drawable/ic_baseline_notifications_active_24"/>
 </menu>

@@ -131,7 +131,6 @@ private  String[] Types={"Allergists/Immunologists","All","Cardiologists","Colon
         });
     }
 
-
     }
 
 

@@ -45,6 +45,7 @@ private String name,image,mbbs,degrees,type,clinicAddress,district,day1,day2,tim
 private String buttonText,time;
 private StorageReference storageReference;
 private DocumentReference drDocumentRef;
+private DocumentReference userDocumentRef;
 private Uri resultUri;
 private UserDataModel userDataModel;
 private String userId;
@@ -75,6 +76,7 @@ private MaterialTimePicker timePicker;
         binding.day2EP.setAdapter(dayAdapter);
         drDocumentRef= FirebaseFirestore.getInstance().document("Doctors/"+userId);
         buttonText=getIntent().getStringExtra("TAG");
+        userDocumentRef= FirebaseFirestore.getInstance().document("Users/"+userId);
         userDataModel=new UserDataModel();
         userDataModel=getIntent().getParcelableExtra("userDataModel");
         typeAdapter=new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,Types);
@@ -86,24 +88,39 @@ private MaterialTimePicker timePicker;
         image=userDataModel.getImage();
         setView();
 
-        timePicker = new MaterialTimePicker.Builder().build();
+
         binding.time1LayoutEP.setEndIconOnClickListener( v -> {
+            timePicker = new MaterialTimePicker.Builder().build();
             timePicker.show(getSupportFragmentManager(),"select time");
             timePicker.addOnPositiveButtonClickListener( v1 -> {
-                time1=timePicker.getHour()+":"+timePicker.getMinute();
+                int h = timePicker.getHour();
+                String m=timePicker.getMinute()+"";
+                String a;
+                a=  h<12 ? "AM":"PM" ;
+                h= h<=12 ? h : h-12;
+                h= h==0 ? 12 : h;
+                if(m.length()==1) m="0"+m;
+                time1=h+" : "+m+" "+a;
                 userDataModel.setTime1(time1);
                 binding.time1EP.setText(time1);
             });
         });
         binding.time2LayoutEP.setEndIconOnClickListener( v -> {
+            timePicker = new MaterialTimePicker.Builder().build();
             timePicker.show(getSupportFragmentManager(),"select time");
             timePicker.addOnPositiveButtonClickListener( v1 -> {
-                time2=timePicker.getHour()+":"+timePicker.getMinute();
+                int h = timePicker.getHour();
+                String m=timePicker.getMinute()+"";
+                String a;
+                a=  h<12 ? "AM":"PM" ;
+                h= h<=12 ? h : h-12;
+                h= h==0 ? 12 : h;
+                if(m.length()==1) m="0"+m;
+                time2=h+" : "+m+" "+a;
                 userDataModel.setTime2(time2);
                 binding.time2EP.setText(time2);
             });
         });
-
 
         binding.button4.setText(buttonText);
 
@@ -178,8 +195,10 @@ private MaterialTimePicker timePicker;
                 task1 -> {
                     if(task1.isSuccessful())
                     {
-                        startActivity(new Intent(this, DoctorProfileActivity.class));
-                        finish();
+                        userDocumentRef.set(userDataModel).addOnSuccessListener(unused -> {
+                            Toast.makeText(EditProfileActivity.this,"Successfully registered as a doctor",Toast.LENGTH_SHORT).show();
+                            finish();
+                        });
                     }
                     else Toast.makeText(this,"Something went wrong",Toast.LENGTH_SHORT).show();
 

@@ -39,16 +39,11 @@ private StorageReference storageReference;
             binding.buttonDP.setText("Edit Profile Info");
         }
         binding.buttonDP.setOnClickListener( v -> {
-            if(userDataModel.getuId().equals(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()))
-                startActivity(new Intent(this,EditProfileActivity.class).putExtra("userDataModel",userDataModel).putExtra("TAG","save"));
-            else {
                 AppointmentModel appointmentModel=new AppointmentModel();
                 appointmentModel.setpUid(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 appointmentModel.setDrName(userDataModel.getName());
                 appointmentModel.setDrUid(userDataModel.getuId());
                 startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("appointmentModel", appointmentModel));
-            }
-
         });
     }
 
