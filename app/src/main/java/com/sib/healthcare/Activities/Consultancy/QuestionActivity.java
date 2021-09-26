@@ -56,8 +56,8 @@ private String[] gender={"male","female"};
         }
         else {
 
-            String uid= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-            QuestionModel model=new QuestionModel(userDataModel.getuId(),null,"anonymous",age,gender,height,weight,description,Timestamp.now());
+            String uId= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+            QuestionModel model=new QuestionModel(uId,null,"anonymous",age,gender,height,weight,description,Timestamp.now());
             if(!name.isEmpty())
                 model.setName(name);
             collectionReference.add(model).addOnCompleteListener(task -> {

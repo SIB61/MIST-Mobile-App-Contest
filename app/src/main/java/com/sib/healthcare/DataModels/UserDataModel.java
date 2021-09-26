@@ -7,7 +7,16 @@ public class UserDataModel implements Parcelable {
     private String uId,image,name,mbbs,degrees,type,clinicAddress,district,day1,day2,time1,time2;
     private String division,email,phoneNumber,bloodGroup;
     private boolean isDoctor,isDonor;
+    private int appointments;
     public UserDataModel() {
+    }
+
+    public int getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(int appointments) {
+        this.appointments = appointments;
     }
 
     public UserDataModel(String uId, String image, String name, String email, boolean isDoctor, boolean isDonor) {

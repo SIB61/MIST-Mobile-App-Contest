@@ -3,10 +3,13 @@ package com.sib.healthcare.Activities;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.firebase.firestore.auth.User;
+import com.sib.healthcare.DataModels.UserDataModel;
+
 import java.util.HashMap;
 
 public class SessionManager {
-
+    private UserDataModel userDataModel;
     SharedPreferences sh;
     SharedPreferences.Editor ed;
     Context c;
@@ -27,10 +30,10 @@ public class SessionManager {
     public static final String DISTRICT = "DISTRICT";
 
 
-
     public static final String ISREMEMBERME = "REMEMBERME";
     public static final String REMEMBERMEPHONE = "PHONE";
     public static final String REMEMBERMEPASS = "PASS";
+
 
     public SessionManager(Context c, String session) {
         this.c = c;
@@ -38,10 +41,11 @@ public class SessionManager {
         ed = sh.edit();
     }
 
+
+
     public void loginSession(String fullname, String email, String phone, String pass,String url,String donor,String token,String division,String district) {
 
         ed.putBoolean(ISLOGGED, true);
-
         ed.putString(FULLNAME, fullname);
         ed.putString(EMAIL, email);
         ed.putString(PHONE, phone);

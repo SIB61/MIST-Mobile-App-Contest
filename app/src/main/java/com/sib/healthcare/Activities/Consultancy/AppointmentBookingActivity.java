@@ -33,13 +33,13 @@ private DocumentReference drRef;
         binding=ActivityAppointmentBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         appointmentModel=new AppointmentModel();
-        appointmentModel=getIntent().getParcelableExtra("appointmentModel");
+      appointmentModel=getIntent().getParcelableExtra("appointmentModel");
         drUid=appointmentModel.getDrUid();
-        uid=appointmentModel.getpUid();
-        name=appointmentModel.getpName();
-        binding.nameAB.setText(name);
-        dRef= FirebaseFirestore.getInstance().collection("Appointments/Doctors/"+drUid);
-        pRef=FirebaseFirestore.getInstance().collection("Appointments/Patients/"+uid);
+       uid=appointmentModel.getpUid();
+       name=appointmentModel.getDrName();
+     //   binding.nameAB.setText(name);
+        dRef= FirebaseFirestore.getInstance().collection("Users/"+drUid+"/Appointments");
+        pRef=FirebaseFirestore.getInstance().collection("Users/"+uid+"/Appointments");
         drRef=FirebaseFirestore.getInstance().document("Doctors/"+drUid);
 
         ArrayAdapter adapter1=new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,Genders);
@@ -59,33 +59,35 @@ private DocumentReference drRef;
     }
 
     public void bookAppointment(View view) {
-      appointmentModel.setpName(binding.nameAB.getText().toString().trim());
-      appointmentModel.setDescription(binding.descriptionAB.getText().toString().trim());
+      name=binding.nameAB.getText().toString().trim();
+      description=binding.descriptionAB.getText().toString().trim();
       age=binding.ageAB.getText().toString().trim();
       gender=binding.genderAB.getText().toString().trim();
       height=binding.heightAB.getText().toString().trim();
       weight=binding.weigntAB.getText().toString().trim();
       date=binding.dateAB.getText().toString().trim();
-      if(height.isEmpty()||weight.isEmpty()||gender.isEmpty()||age.isEmpty()||date.isEmpty())
+      if(name.isEmpty()||description.isEmpty()||height.isEmpty()||weight.isEmpty()||gender.isEmpty()||age.isEmpty()||date.isEmpty())
       {
           Toast.makeText(AppointmentBookingActivity.this,"required fields can't be empty",Toast.LENGTH_SHORT).show();
       }
       else
       {
+          appointmentModel.setpName(name);
           appointmentModel.setAge(age);
+          appointmentModel.setDescription(description);
           appointmentModel.setGender(gender);
           appointmentModel.setHeight(height);
           appointmentModel.setWeight(weight);
           appointmentModel.setDate(date);
+          appointmentModel.setType("p");
           pRef.add(appointmentModel).addOnSuccessListener(documentReference -> {
+             appointmentModel.setType("d");
               dRef.add(appointmentModel).addOnSuccessListener(documentReference1 -> {
                   Toast.makeText(AppointmentBookingActivity.this,"Appointment booked successfully",Toast.LENGTH_SHORT).show();
+                  drRef.update("appointments",getIntent().getIntExtra("appointments",0)+1);
                   onBackPressed();
               });
           });
-
-
       }
-
     }
 }

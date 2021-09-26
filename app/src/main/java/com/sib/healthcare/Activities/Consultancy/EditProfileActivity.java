@@ -189,8 +189,7 @@ private MaterialTimePicker timePicker;
         userDataModel.setTime2(time2);
         userDataModel.setDoctor(true);
         userDataModel.setImage(image);
-
-
+        userDataModel.setAppointments(0);
         drDocumentRef.set(userDataModel).addOnCompleteListener(
                 task1 -> {
                     if(task1.isSuccessful())

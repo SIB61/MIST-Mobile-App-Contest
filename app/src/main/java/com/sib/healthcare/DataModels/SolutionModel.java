@@ -3,10 +3,18 @@ package com.sib.healthcare.DataModels;
 import com.google.firebase.Timestamp;
 
 public class SolutionModel {
-   private String id, name , profile , solution ;
+   private String id, name , profile , solution,type ;
    private   Timestamp timestamp;
 
     public SolutionModel() {
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public SolutionModel(String id, String name, String profile, String solution, Timestamp timestamp) {
