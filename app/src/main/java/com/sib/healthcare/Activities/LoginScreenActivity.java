@@ -116,7 +116,7 @@ public class LoginScreenActivity extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                                                 SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
 
-                                                sh.loginSession(name, email, "No", password, Url, "Yes", snapshot1.child("token").getValue().toString(), "No", "No");
+                                                sh.loginSession(name, email, "No", password, Url, "No", snapshot1.child("token").getValue().toString(), "No", "No");
 
                                             }
 

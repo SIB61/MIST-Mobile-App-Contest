@@ -45,9 +45,6 @@ ArrayAdapter<String> adapter;
         setContentView(R.layout.activity_comment);
         comment=(RecyclerView)findViewById(R.id.comments);
         write=(AutoCompleteTextView) findViewById(R.id.write);
-        ca=new CommentAdapter(this,list);
-        comment.setLayoutManager(new LinearLayoutManager(this));
-        comment.setAdapter(ca);
         date=getIntent().getStringExtra("Date");
         gh=getIntent().getStringExtra("Gh");
         dis=getIntent().getStringExtra("Dis");
@@ -60,17 +57,23 @@ ArrayAdapter<String> adapter;
         Url=getIntent().getStringExtra("Url");
         disease=getIntent().getStringExtra("Disease");
         send=(ImageView) findViewById(R.id.send);
+   //Toast.makeText(getApplicationContext(),date+" "+gh,Toast.LENGTH_LONG).show();
+
         FirebaseDatabase.getInstance().getReference("Comments").child(date+" "+gh).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear();
-                for(DataSnapshot s: snapshot.getChildren())
-                {
-                    CommnetsData de=s.getValue(CommnetsData.class);
-                    Toast.makeText(getApplicationContext(),de.getTimed(),Toast.LENGTH_LONG).show();
-                    list.add(de);
+            public void onDataChange(@NonNull DataSnapshot snapshot4) {
+                  list.clear();
+                if (snapshot4.hasChildren()) {
+               //     Toast.makeText(getApplicationContext(),date+" "+gh,Toast.LENGTH_LONG).show();
+                    for (DataSnapshot s : snapshot4.getChildren()) {
+                        CommnetsData de = s.getValue(CommnetsData.class);
+                    //    Toast.makeText(getApplicationContext(), de.getTimed(), Toast.LENGTH_LONG).show();
+                        list.add(de);
+                    }
+                    ca = new CommentAdapter(Comment.this, list);
+                    comment.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    comment.setAdapter(ca);
                 }
-                ca.notifyDataSetChanged();
             }
 
             @Override
@@ -86,7 +89,7 @@ ArrayAdapter<String> adapter;
                 {
                     names[co]=s.child("name").getValue().toString();
                     token[co]=s.child("token").getValue().toString();
-                //    Toast.makeText(getApplicationContext(),write.getText().toString(),Toast.LENGTH_LONG).show();
+            //        Toast.makeText(getApplicationContext(),write.getText().toString(),Toast.LENGTH_LONG).show();
                     co++;
                 }
                 String[] na=new String[co];
@@ -139,7 +142,7 @@ send.setOnClickListener(new View.OnClickListener() {
 
 
         String mention = "",t="";
-        Toast.makeText(getApplicationContext(), write.getText().toString(), Toast.LENGTH_LONG).show();
+     //   Toast.makeText(getApplicationContext(), write.getText().toString(), Toast.LENGTH_LONG).show();
        for(int i=0;i<co;i++)
         {
             if(write.getText().toString().contains(names[i]))
@@ -204,7 +207,7 @@ send.setOnClickListener(new View.OnClickListener() {
                 long ryu=ru.nextInt(10000000);
                 // append a string into StringBuilder input1
                 input1.append(se[0]);
-               Toast.makeText(getApplicationContext(),gh,Toast.LENGTH_LONG).show();
+              // Toast.makeText(getApplicationContext(),gh,Toast.LENGTH_LONG).show();
                 // reverse StringBuilder input1
                 se[0] = String.valueOf(input1.reverse());
                 String main=write.getText().toString();
@@ -218,7 +221,7 @@ send.setOnClickListener(new View.OnClickListener() {
                 HashMap op = new HashMap();
                 op.put("Clicked", "No");
                 FirebaseDatabase.getInstance().getReference("Comments").
-                       child(cday + " " + finalMonth + " " + cy + " " + gh).child(ryu+"").setValue(cd);
+                       child(date+" " + gh).child(ryu+"").setValue(cd);
                 if(!email1.equals(email2)) {
                     NotiData nd = new NotiData(blood, patient,disease ,
                             location, phone, cday + " " + finalMonth + " " + cy, url, name, email, dis, name + " commented on your post", time, name, gh + "");
@@ -226,13 +229,15 @@ send.setOnClickListener(new View.OnClickListener() {
                     FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op);
                     FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Notifications").
                             child(cday + " " + finalMonth + " " + cy + " " + time).setValue(nd);
-                    //  Toast.makeText(getApplicationContext(),dn.getToken(),Toast.LENGTH_LONG).show();
+                     Toast.makeText(getApplicationContext(),need,Toast.LENGTH_LONG).show();
                     FcmNotificationsSender fcm = new FcmNotificationsSender(need, "Comments", name + " commented on your post", getApplicationContext(), Comment.this);
                     // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
                     fcm.SendNotifications();
-                    FcmNotificationsSender fcm1 = new FcmNotificationsSender(finalT, "Comments", name + " mentioned you in a comment", getApplicationContext(), Comment.this);
-                    // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
-                    fcm.SendNotifications();
+                    if(m!=null&&!m.equals("")) {
+                        FcmNotificationsSender fcm1 = new FcmNotificationsSender(finalT, "Comments", name + " mentioned you in a comment", getApplicationContext(), Comment.this);
+                         Toast.makeText(getApplicationContext(), finalT, Toast.LENGTH_LONG).show();
+                        fcm.SendNotifications();
+                    }
                 }
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
                 write.setText("");

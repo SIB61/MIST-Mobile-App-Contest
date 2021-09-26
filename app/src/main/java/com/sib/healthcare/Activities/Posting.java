@@ -190,28 +190,37 @@ String gh1="";
 
                                             Donor dn=snapshot.getValue(Donor.class);
                                            // Toast.makeText(getApplicationContext(),dn.getBlood()+" "+blood_type,Toast.LENGTH_LONG).show();
-                                            if(dn.getBlood().equals(blood_type)){
-                                                String ema="";
-                                                for(int i=0;i<em.length();i++)
-                                                {
-                                                    if(em.charAt(i)=='@')
+                                            if(dn.getBlood().equals(blood_type)) {
+                                                String ema = "";
+                                                for (int i = 0; i < em.length(); i++) {
+                                                    if (em.charAt(i) == '@')
                                                         break;
-                                                    ema+=em.charAt(i);
+                                                    ema += em.charAt(i);
                                                 }
-                                                HashMap op=new HashMap();
-                                                op.put("Clicked","No");
+                                                HashMap op = new HashMap();
+                                                op.put("Clicked", "No");
                                                 NotiData nd;
-                                                if(work.equals("Edit"))
-                                                nd = new NotiData(blood_type, patient.getText().toString(), disease.getText().toString(),
-                                                        location.getText().toString(), phone.getText().toString(),de,url,name,email,district.getText().toString(),"Urgent "+blood_type+" blood is needed at "+division.getSelectedItem().toString(),time,name,gh1);
-                                            else
-                                                    nd = new NotiData(blood_type, patient.getText().toString(), disease.getText().toString(),
-                                                            location.getText().toString(), phone.getText().toString(),cday+" "+finalMonth+" "+cy,url,name,email,district.getText().toString(),"Urgent "+blood_type+" blood is needed at "+division.getSelectedItem().toString(),time,name,gh+"");
+                                                if (work.equals("Edit")) {
+                                                    HashMap op34 = new HashMap();
+                                                    op34.put("Clicked", "No");
+                                                    FirebaseDatabase.getInstance().getReference("Users").child(ema).child("Clicked").child(de).setValue(op34);
 
-                                                FcmNotificationsSender fcm = new FcmNotificationsSender(dn.getToken(), "Blood Needed", blood_type+" blood is needed at "+
-                                                    location.getText().toString()+", "+district.getText().toString(), getApplicationContext(), Posting.this);
-                                           // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
-                                            fcm.SendNotifications();
+                                                    nd = new NotiData(blood_type, patient.getText().toString(), disease.getText().toString(),
+                                                            location.getText().toString(), phone.getText().toString(), de, url, name, email, district.getText().toString(), "Urgent " + blood_type + " blood is needed at " + division.getSelectedItem().toString(), time, name, gh1);
+FirebaseDatabase.getInstance().getReference("Users").child(ema).child("Notifications").child(de).setValue(nd);
+                                                }else {
+                                                    nd = new NotiData(blood_type, patient.getText().toString(), disease.getText().toString(),
+                                                            location.getText().toString(), phone.getText().toString(), cday + " " + finalMonth + " " + cy, url, name, email, district.getText().toString(), "Urgent " + blood_type + " blood is needed at " + division.getSelectedItem().toString(), time, name, gh + "");
+                                                    HashMap op34 = new HashMap();
+                                                    op34.put("Clicked", "No");
+                                                    FirebaseDatabase.getInstance().getReference("Users").child(ema).child("Notifications").child(cday + " " + finalMonth + " " + cy+" "+time).setValue(nd);
+                                                    FirebaseDatabase.getInstance().getReference("Users").child(ema).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op34);
+
+                                                }
+                                                    FcmNotificationsSender fcm = new FcmNotificationsSender(dn.getToken(), "Blood Needed", blood_type + " blood is needed at " +
+                                                            location.getText().toString() + ", " + district.getText().toString(), getApplicationContext(), Posting.this);
+                                                    // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
+                                                    fcm.SendNotifications();
                                             }
                                         }
 

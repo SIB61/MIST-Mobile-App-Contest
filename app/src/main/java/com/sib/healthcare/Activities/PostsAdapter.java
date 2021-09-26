@@ -131,7 +131,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
                 c.startActivity(new Intent(c,Comment.class).putExtra("Date",list.get(i).getDate()).
                         putExtra("Gh",list.get(i).getGh()).putExtra("Email",list.get(i).getEmail()).
                         putExtra("Dis",list.get(i).getDistrict()).putExtra("Div",list.get(i).getDivision())
-                .putExtra("Blood",list.get(i).getBlood()).putExtra("Patient",list.get(i).getPatientName())
+                    .putExtra("Blood",list.get(i).getBlood()).putExtra("Patient",list.get(i).getPatientName())
                         .putExtra("Pat",list.get(i).getPhone()).putExtra("Location",list.get(i).getLocation())
                    .putExtra("Url",list.get(i).getUrl())   .putExtra("Disease",list.get(i).getDisease()));
             }

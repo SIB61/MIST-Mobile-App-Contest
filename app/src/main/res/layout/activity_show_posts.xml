@@ -93,22 +93,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:id="@+id/chat"
             android:layout_marginTop="5dp"
             android:text="Comment"
             android:textColor="#fff"
-            android:textStyle="bold"/>
-        <Button
+            android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:id="@+id/Call"
             android:layout_marginTop="5dp"
@@ -117,5 +117,4 @@
             android:textColor="#fff"
             android:textStyle="bold"/>
     </LinearLayout>
-
 </LinearLayout>

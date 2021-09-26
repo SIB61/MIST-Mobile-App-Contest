@@ -55,7 +55,7 @@
       android:text="My name Is Abid"
       android:textColor="#000"
       android:id="@+id/blood"
-      android:textSize="18sp"
+      android:textSize="16sp"
       android:textStyle="bold"></TextView>
     <TextView
     android:layout_width="match_parent"
@@ -63,7 +63,7 @@
     android:layout_marginTop="10dp"
     android:id="@+id/patient"
         android:textColor="#000"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"></TextView>
     <TextView
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/contact"
         android:textColor="#000"
-        android:textSize="18sp"
+        android:textSize="16sp"
 
         android:textStyle="bold"></TextView>
     <LinearLayout
@@ -83,7 +83,7 @@
     android:layout_width="0dp"
     android:layout_weight="1"
     android:layout_marginRight="5dp"
-    android:layout_height="48dp"
+    android:layout_height="40dp"
     android:background="@drawable/button"
     android:id="@+id/chat"
     android:layout_marginTop="5dp"
@@ -94,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="5dp"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:id="@+id/Call"
             android:layout_marginTop="5dp"
