@@ -2,39 +2,45 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="250dp"
-    android:layout_height="200dp"
+    android:layout_width="230dp"
+    android:layout_height="180dp"
     tools:viewBindingIgnore="true"
     android:background="@drawable/round20"
-    android:padding="20dp"
+    android:padding="15dp"
     android:backgroundTint="@color/white"
     android:layout_marginEnd="30dp">
 
 
     <TextView
         android:id="@+id/doctorNameId"
-        android:layout_width="105dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="Dr. seldon kane kine"
-        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textSize="23sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/topDrProfilePic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/doctorDesId"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="3"
         android:text="MBBS from DMC, FCPS ,  Heart Specialist"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/topDrProfilePic"
+        app:layout_constraintStart_toStartOf="@+id/doctorNameId" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/topDrProfilePic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/doctorNameId"

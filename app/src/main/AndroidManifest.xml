@@ -52,6 +52,7 @@
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true" />
+
         <activity
             android:name=".Activities.Consultancy.SolutionsActivity"
             android:exported="true"

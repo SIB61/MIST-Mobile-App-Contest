@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,20 +40,27 @@ private StorageReference storageReference;
             binding.buttonDP.setText("Edit Profile Info");
         }
         binding.buttonDP.setOnClickListener( v -> {
+            try {
+
                 AppointmentModel appointmentModel=new AppointmentModel();
                 appointmentModel.setpUid(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 appointmentModel.setDrName(userDataModel.getName());
                 appointmentModel.setDrUid(userDataModel.getuId());
-                startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("appointmentModel", appointmentModel));
-        });
+                startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("appointmentModel", appointmentModel).putExtra("appointments",userDataModel.getAppointments()));
+            }
+            catch (Exception e){
+                Log.d("TAG", "onCreate: "+e.toString());
+            }
+               });
     }
 
     private void setView() {
         storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
             Glide.with(this).load(uri).into(binding.profilePic);
+            binding.nameDP.setText(userDataModel.getName());
+            binding.typeDP.setText(userDataModel.getType());
         });
-        binding.nameDP.setText(userDataModel.getName());
-        binding.typeDP.setText(userDataModel.getType());
+
     }
 
 }

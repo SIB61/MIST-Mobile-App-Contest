@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdReceiver;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -61,7 +62,7 @@ public class RegisterScreenActivity extends AppCompatActivity {
         super.onStart();
         if (mAuth.getCurrentUser()!=null&&mAuth.getCurrentUser().isEmailVerified())
         {
-            updateUI(mAuth.getCurrentUser());
+           // updateUI(mAuth.getCurrentUser());
         }
     }
 
@@ -130,7 +131,6 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                     if(task2.isSuccessful()){
                                                         progressDialog.dismiss();
                                                         Toast.makeText(getApplicationContext(),"Verification link sent to your email",Toast.LENGTH_LONG).show();
-
                                                         FirebaseInstanceId.getInstance().getInstanceId()
                                                                 .addOnCompleteListener(task4 -> {
                                                                     if (task4.isSuccessful()) {

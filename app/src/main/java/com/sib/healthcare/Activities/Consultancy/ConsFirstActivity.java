@@ -2,19 +2,32 @@ package com.sib.healthcare.Activities.Consultancy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.helper.widget.Layer;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.auth.data.model.User;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.storage.FirebaseStorage;
 import com.sib.healthcare.Adapter.Consultancy.TopDrListAdapter;
 import com.sib.healthcare.DataModels.UserDataModel;
 import com.sib.healthcare.R;
@@ -29,8 +42,11 @@ public class ConsFirstActivity extends AppCompatActivity {
     private UserDataModel userDataModel;
     private FirebaseUser currentUser;
     private DocumentReference documentReference;
-    private TopDrListAdapter adapter;
+    //private TopDrListAdapter adapter;
     private List<UserDataModel> userDataModels;
+    private FirestoreRecyclerOptions<UserDataModel> options;
+    private Query query;
+    private FirestoreRecyclerAdapter<UserDataModel,TopDrViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +58,42 @@ public class ConsFirstActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         currentUser= FirebaseAuth.getInstance().getCurrentUser();
         userDataModel=new UserDataModel();
-        userDataModels=new ArrayList<>();
         documentReference= FirebaseFirestore.getInstance().document("Users/"+currentUser.getUid());
-        adapter=new TopDrListAdapter(userDataModels);
-        binding.doctorListId.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        binding.doctorListId.setAdapter(new TopDrListAdapter(userDataModels));
+        //adapter=new TopDrListAdapter(userDataModels);
+        query=FirebaseFirestore.getInstance().collection("Doctors").limit(10);
+        options=new FirestoreRecyclerOptions.Builder<UserDataModel>()
+                .setQuery(query,UserDataModel.class).build();
+        adapter=new FirestoreRecyclerAdapter<UserDataModel, TopDrViewHolder>(options) {
+            @SuppressLint("CheckResult")
+            @Override
+            protected void onBindViewHolder(@NonNull TopDrViewHolder holder, int position, @NonNull UserDataModel model) {
+                holder.name.setText(model.getName());
+                holder.des.setText(formatDes(model));
+                FirebaseStorage.getInstance().getReference(model.getImage()).getDownloadUrl().addOnSuccessListener(uri -> {
+                    Glide.with(ConsFirstActivity.this).load(uri).into(holder.image);
+                });
 
+            }
+
+            @NonNull
+            @Override
+            public TopDrViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new TopDrViewHolder(LayoutInflater.from(ConsFirstActivity.this).inflate(R.layout.top_dr_list_item,parent,false));
+            }
+
+            @Override
+            public void onDataChanged() {
+                super.onDataChanged();
+            }
+        };
+        binding.doctorListId.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        binding.doctorListId.setAdapter(adapter);
+
+    }
+
+    private String formatDes(UserDataModel u) {
+        String s="MBBS from "+u.getMbbs()+"\n"+u.getType()+"\n"+u.getDegrees();
+        return  s;
     }
 
     @Override
@@ -56,14 +102,16 @@ public class ConsFirstActivity extends AppCompatActivity {
         documentReference.addSnapshotListener((value, error) -> {
             if (value != null) {
                 userDataModel=value.toObject(UserDataModel.class);
-                userDataModels.add(userDataModel);
-                adapter=new TopDrListAdapter(userDataModels);
-                binding.doctorListId.setAdapter(adapter);
+
             }
         });
+        adapter.startListening();
+    }
 
-
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 
     @Override
@@ -111,5 +159,15 @@ public class ConsFirstActivity extends AppCompatActivity {
         }
      startActivity(intent);
 
+    }
+    private class TopDrViewHolder extends RecyclerView.ViewHolder{
+        TextView name , des;
+        ImageView image;
+        public TopDrViewHolder(@NonNull View itemView) {
+            super(itemView);
+            name=itemView.findViewById(R.id.doctorNameId);
+            des=itemView.findViewById(R.id.doctorDesId);
+            image=itemView.findViewById(R.id.topDrProfilePic);
+        }
     }
 }

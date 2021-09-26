@@ -61,7 +61,7 @@ private FirestoreRecyclerAdapter<SolutionModel, SolutionHolder> adapter ;
 
                 });*/
         userDataModel=getIntent().getParcelableExtra("userDataModel");
-        if(userDataModel.isDoctor())
+        if(!userDataModel.isDoctor())
         {
             binding.editTextAsol.setVisibility(View.GONE);
             binding.sendAsol.setVisibility(View.GONE);
@@ -86,6 +86,7 @@ private FirestoreRecyclerAdapter<SolutionModel, SolutionHolder> adapter ;
                      holder.name.setText(model.getName());
                      @SuppressLint("SimpleDateFormat") String time = new SimpleDateFormat( "d MMM yyyy, h:mm a" ).format ( model.getTimestamp().toDate() );
                      holder.time.setText(time);
+                     holder.type.setText(model.getType());
                      StorageReference storageReference= FirebaseStorage.getInstance().getReference(model.getProfile());
                      storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
                          Picasso.get().load(uri).into(holder.image);
@@ -121,6 +122,7 @@ private FirestoreRecyclerAdapter<SolutionModel, SolutionHolder> adapter ;
         if(!s.isEmpty())
         {
             SolutionModel p = new SolutionModel(userDataModel.getuId(),userDataModel.getName(),userDataModel.getImage(),s,Timestamp.now());
+            p.setType(userDataModel.getType());
             collectionReference.add(p).addOnFailureListener(e -> Toast.makeText(SolutionsActivity.this,"something went wrong",Toast.LENGTH_SHORT).show())
             .addOnSuccessListener(documentReference -> binding.editTextAsol.setText(""));
         }
@@ -144,7 +146,7 @@ private FirestoreRecyclerAdapter<SolutionModel, SolutionHolder> adapter ;
     }
 
     private class SolutionHolder extends RecyclerView.ViewHolder{
-        private TextView solution,name,time;
+        private TextView solution,name,time,type;
         private CircleImageView image;
         public SolutionHolder(@NonNull View itemView) {
             super(itemView);
@@ -152,6 +154,7 @@ private FirestoreRecyclerAdapter<SolutionModel, SolutionHolder> adapter ;
             name=itemView.findViewById(R.id.name_SI);
             image=itemView.findViewById(R.id.pic_SI);
             time=itemView.findViewById(R.id.dateText_SI);
+            type=itemView.findViewById(R.id.type_SI);
         }
     }
 

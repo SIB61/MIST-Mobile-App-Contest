@@ -4,14 +4,14 @@ package com.sib.healthcare.DataModels;
 import com.google.firebase.Timestamp;
 
 public class QuestionModel {
-   private String id,questionId,name,age,gender,height,weight,question;
+   private String uId,questionId,name,age,gender,height,weight,question;
    private Timestamp timestamp;
 
    public QuestionModel() {
    }
 
-   public QuestionModel(String id, String questionId, String name, String age, String gender, String height, String weight, String question, Timestamp timestamp) {
-      this.id = id;
+   public QuestionModel(String uId, String questionId, String name, String age, String gender, String height, String weight, String question, Timestamp timestamp) {
+      this.uId = uId;
       this.questionId = questionId;
       this.name = name;
       this.age = age;
@@ -22,12 +22,12 @@ public class QuestionModel {
       this.timestamp = timestamp;
    }
 
-   public String getId() {
-      return id;
+   public String getuId() {
+      return uId;
    }
 
-   public void setId(String id) {
-      this.id = id;
+   public void setuId(String uId) {
+      this.uId = uId;
    }
 
    public String getQuestionId() {

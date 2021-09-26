@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:text="Problem Statement"
 
             android:textColor="@color/black"
@@ -32,7 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="slkdmklas" />
+            android:text="slkdmklas"
+            android:textSize="17sp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/solutions_AS"
             android:layout_width="match_parent"

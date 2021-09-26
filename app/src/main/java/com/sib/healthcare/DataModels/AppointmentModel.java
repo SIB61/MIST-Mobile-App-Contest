@@ -7,11 +7,19 @@ import com.google.firebase.Timestamp;
 
 public class AppointmentModel implements Parcelable {
 
-    private String drName,drUid;
-    private String pUid,pName,age,gender,height,weight,description, date;
+    private String drName,drUid,type;
+    private String pUid,pName,age,gender,height,weight,description, date , serialNo;
 
     public AppointmentModel() {
 
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public AppointmentModel(String drName, String drUid, String uid, String name, String age, String gender, String height, String weight, String description, String date) {
@@ -37,7 +45,8 @@ public class AppointmentModel implements Parcelable {
         height = in.readString();
         weight = in.readString();
         description = in.readString();
-        date = in.readParcelable(Timestamp.class.getClassLoader());
+        date = in.readString();
+        type = in.readString();
     }
 
     public static final Creator<AppointmentModel> CREATOR = new Creator<AppointmentModel>() {
