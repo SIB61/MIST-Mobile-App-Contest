@@ -41,12 +41,7 @@ private StorageReference storageReference;
         }
         binding.buttonDP.setOnClickListener( v -> {
             try {
-
-                AppointmentModel appointmentModel=new AppointmentModel();
-                appointmentModel.setpUid(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                appointmentModel.setDrName(userDataModel.getName());
-                appointmentModel.setDrUid(userDataModel.getuId());
-                startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("appointmentModel", appointmentModel).putExtra("appointments",userDataModel.getAppointments()));
+                startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("userDataModel", userDataModel));
             }
             catch (Exception e){
                 Log.d("TAG", "onCreate: "+e.toString());
@@ -55,12 +50,11 @@ private StorageReference storageReference;
     }
 
     private void setView() {
-        storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
-            Glide.with(this).load(uri).into(binding.profilePic);
-            binding.nameDP.setText(userDataModel.getName());
-            binding.typeDP.setText(userDataModel.getType());
-        });
-
+        binding.nameDP.setText(userDataModel.getName());
+        binding.typeDP.setText(userDataModel.getType());
+       storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
+          Glide.with(this).load(uri).into(binding.profilePic);
+       });
     }
 
 }

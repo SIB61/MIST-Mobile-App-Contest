@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.sib.healthcare.R;
 import com.sib.healthcare.databinding.ActivityAskSpecialistsBinding;
 import com.sib.healthcare.databinding.ActivitySplashScreenBinding;
@@ -36,12 +37,12 @@ ActivitySplashScreenBinding binding;
 
        email = hm.get(SessionManager.EMAIL);
         new Handler().postDelayed((Runnable) () -> {
-            if(email==null||email.equals("")) {
+            if(email==null||email.equals("")||FirebaseAuth.getInstance().getCurrentUser()==null|| !FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
                 startActivity(new Intent(this, LoginScreenActivity.class).putExtra("Work","Splash"));
                 finish();
             }
             else {
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class).putExtra("Work","Splash"));
                 finish();
             }
         },3000);

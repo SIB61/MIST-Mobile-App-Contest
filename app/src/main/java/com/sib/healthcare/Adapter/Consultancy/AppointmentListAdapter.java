@@ -39,10 +39,17 @@ public class AppointmentListAdapter extends RecyclerView.Adapter {
     }
     public String formatText(AppointmentModel appointmentModel){
         String t;
-        t="Name : " + appointmentModel.getpName()+"\nAge : "+appointmentModel.getAge()
-                +"    gender : "+appointmentModel.getGender()+"\nheight : "+appointmentModel.getHeight()
-                +"    weight : "+appointmentModel.getWeight()+ "\nDescription : "+appointmentModel.getDescription();
-
+        if(appointmentModel.getType().equals("wp"))
+        {
+            t="Patient Name : "+appointmentModel.getpName()+"\nAge : "+appointmentModel.getAge()
+                    +"\nGender : "+appointmentModel.getGender()+"\nHeight : "+appointmentModel.getHeight()
+                    +"\nWeight : "+appointmentModel.getWeight()+"\nDate : "+appointmentModel.getDate()
+                    +"\nDescription : "+appointmentModel.getDescription();
+        }
+        else {
+            t = "Doctor Name : " + appointmentModel.getDrName() + "\nDate : " + appointmentModel.getDate()
+                    + "\nClinic Address : " + appointmentModel.getClinicAddress();
+        }
         return t;
     }
 

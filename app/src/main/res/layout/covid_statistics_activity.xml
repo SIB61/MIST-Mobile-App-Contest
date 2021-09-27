@@ -177,15 +177,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/covid_statistics_activity_back" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
-        android:background="@drawable/button"
-        android:backgroundTint="@color/Blood"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="20dp"
         android:text="My Country"
         android:textAllCaps="false"
         android:textColor="#000000"
@@ -195,13 +195,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/covid_our_service_bg"
+        app:cornerRadius="20dp"
         android:text="Global"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

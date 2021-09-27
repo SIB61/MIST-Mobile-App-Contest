@@ -5,39 +5,20 @@ import android.os.Parcelable;
 
 import com.google.firebase.Timestamp;
 
-public class AppointmentModel implements Parcelable {
+public class AppointmentModel implements Parcelable  {
 
-    private String drName,drUid,type;
-    private String pUid,pName,age,gender,height,weight,description, date , serialNo;
+    private String drName,drUid,type,clinicAddress;
+    private String pUid,pName,age,gender,height,weight,description, date , serialNo , approximateTime;
 
     public AppointmentModel() {
 
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public AppointmentModel(String drName, String drUid, String uid, String name, String age, String gender, String height, String weight, String description, String date) {
-        this.drName = drName;
-        this.drUid = drUid;
-        this.pUid = uid;
-        this.pName = name;
-        this.age = age;
-        this.gender = gender;
-        this.height = height;
-        this.weight = weight;
-        this.description = description;
-        this.date = date;
-    }
-
     protected AppointmentModel(Parcel in) {
         drName = in.readString();
         drUid = in.readString();
+        type = in.readString();
+        clinicAddress = in.readString();
         pUid = in.readString();
         pName = in.readString();
         age = in.readString();
@@ -46,7 +27,8 @@ public class AppointmentModel implements Parcelable {
         weight = in.readString();
         description = in.readString();
         date = in.readString();
-        type = in.readString();
+        serialNo = in.readString();
+        approximateTime = in.readString();
     }
 
     public static final Creator<AppointmentModel> CREATOR = new Creator<AppointmentModel>() {
@@ -61,20 +43,53 @@ public class AppointmentModel implements Parcelable {
         }
     };
 
-    @Override
-    public String toString() {
-        return "AppointmentModel{" +
-                "drName='" + drName + '\'' +
-                ", drUid='" + drUid + '\'' +
-                ", pUid='" + pUid + '\'' +
-                ", pName='" + pName + '\'' +
-                ", age='" + age + '\'' +
-                ", gender='" + gender + '\'' +
-                ", height='" + height + '\'' +
-                ", weight='" + weight + '\'' +
-                ", description='" + description + '\'' +
-                ", date='" + date + '\'' +
-                '}';
+    public String getApproximateTime() {
+        return approximateTime;
+    }
+
+    public void setApproximateTime(String approximateTime) {
+        this.approximateTime = approximateTime;
+    }
+
+    public String getClinicAddress() {
+        return clinicAddress;
+    }
+
+    public void setClinicAddress(String clinicAddress) {
+        this.clinicAddress = clinicAddress;
+    }
+
+    public String getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(String serialNo) {
+        this.serialNo = serialNo;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public AppointmentModel(String drName, String drUid, String type, String clinicAddress, String pUid, String pName, String age, String gender, String height, String weight, String description, String date, String serialNo, String approximateTime) {
+        this.drName = drName;
+        this.drUid = drUid;
+        this.type = type;
+        this.clinicAddress = clinicAddress;
+        this.pUid = pUid;
+        this.pName = pName;
+        this.age = age;
+        this.gender = gender;
+        this.height = height;
+        this.weight = weight;
+        this.description = description;
+        this.date = date;
+        this.serialNo = serialNo;
+        this.approximateTime = approximateTime;
     }
 
 
@@ -159,6 +174,7 @@ public class AppointmentModel implements Parcelable {
         this.date = date;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -168,6 +184,8 @@ public class AppointmentModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(drName);
         dest.writeString(drUid);
+        dest.writeString(type);
+        dest.writeString(clinicAddress);
         dest.writeString(pUid);
         dest.writeString(pName);
         dest.writeString(age);
@@ -176,7 +194,7 @@ public class AppointmentModel implements Parcelable {
         dest.writeString(weight);
         dest.writeString(description);
         dest.writeString(date);
+        dest.writeString(serialNo);
+        dest.writeString(approximateTime);
     }
-
-
 }

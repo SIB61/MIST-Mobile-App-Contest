@@ -42,8 +42,6 @@ public class ConsFirstActivity extends AppCompatActivity {
     private UserDataModel userDataModel;
     private FirebaseUser currentUser;
     private DocumentReference documentReference;
-    //private TopDrListAdapter adapter;
-    private List<UserDataModel> userDataModels;
     private FirestoreRecyclerOptions<UserDataModel> options;
     private Query query;
     private FirestoreRecyclerAdapter<UserDataModel,TopDrViewHolder> adapter;
@@ -81,10 +79,6 @@ public class ConsFirstActivity extends AppCompatActivity {
                 return new TopDrViewHolder(LayoutInflater.from(ConsFirstActivity.this).inflate(R.layout.top_dr_list_item,parent,false));
             }
 
-            @Override
-            public void onDataChanged() {
-                super.onDataChanged();
-            }
         };
         binding.doctorListId.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         binding.doctorListId.setAdapter(adapter);
@@ -123,13 +117,14 @@ public class ConsFirstActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.reg:
                startActivity(new Intent(ConsFirstActivity.this,EditProfileActivity.class).putExtra("TAG","register").putExtra("userDataModel",  userDataModel));
                 break;
+            case R.id.ap:
+                startActivity(new Intent(ConsFirstActivity.this,DrAppointmentListActivity.class).putExtra("isDoctor",userDataModel.isDoctor()));
 
         }
         return super.onOptionsItemSelected(item);

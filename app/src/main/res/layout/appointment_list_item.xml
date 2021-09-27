@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
+    android:orientation="vertical"
     android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/textView_AL"
         android:padding="10dp"
         android:layout_width="match_parent"
+         android:fontFamily="@font/graphikmedium"
         android:layout_height="wrap_content"
-        android:text="TextView sdkla lskd  lks cs \n lksdnlksad \n JKASK \n jhsdkalks"
+        android:text="Patient Name : Md Sabit Islam Bhuiya \nAge : 22 \nGender : male \nHeight : 6'1\nWeight : 82\nDate : 10-10-2021\nDescription : Demo......"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="17sp"
         android:lineSpacingExtra="2dp"
@@ -20,4 +22,12 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
          />
-</androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>

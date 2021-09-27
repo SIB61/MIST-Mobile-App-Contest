@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="Problem Statement"
-
+            android:fontFamily="@font/graphiksemibold"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="slkdmklas"
+            android:fontFamily="@font/graphikmedium"
             android:textSize="17sp"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/solutions_AS"

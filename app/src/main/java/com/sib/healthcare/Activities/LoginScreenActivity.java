@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -60,6 +61,7 @@ public class LoginScreenActivity extends AppCompatActivity {
             for (int i = 0; i < email.length(); i++) {
                 if (email.charAt(i) == '@')
                     break;
+                if(email.charAt(i)!='.')
                 email1 += email.charAt(i);
             }
 
@@ -84,19 +86,21 @@ public class LoginScreenActivity extends AppCompatActivity {
                 for (int i = 0; i < email.length(); i++) {
                     if (email.charAt(i) == '@')
                         break;
-                    email1 += email.charAt(i);
+                    if(email.charAt(i)!='.')
+                        email1 += email.charAt(i);
                 }
                 String finalEmail = email1;
                 FirebaseDatabase.getInstance().getReference("Users").child(email1).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Toast.makeText(getApplicationContext(), finalEmail, Toast.LENGTH_LONG).show();
                         if (snapshot.hasChildren()) {
+                            Toast.makeText(getApplicationContext(), finalEmail, Toast.LENGTH_LONG).show();
                             name = snapshot.child("Name").getValue().toString();
                             Url = snapshot.child("url").getValue().toString();
                             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Donor").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                                    Toast.makeText(LoginScreenActivity.this, snapshot1.toString(), Toast.LENGTH_SHORT).show();
                                     if(snapshot1.hasChildren()) {
                                         String phone = snapshot1.child("phone").getValue().toString();
                                         String district = snapshot1.child("district").getValue().toString();
@@ -180,4 +184,22 @@ public class LoginScreenActivity extends AppCompatActivity {
                 });
     }
 
+    public void forgotpass(View view) {
+        String e=binding.email.toString().trim();
+        if(e.isEmpty())
+        {
+            Toast.makeText(this,"Please enter your email to get password reset link",Toast.LENGTH_SHORT).show();
+
+        }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(e).matches())
+        {
+            Toast.makeText(this,"Please enter correct email address",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            FirebaseAuth.getInstance().sendPasswordResetEmail(e).addOnSuccessListener( unused -> {
+                Toast.makeText(this, "Password reset email sent", Toast.LENGTH_SHORT).show();
+            });
+
+        }
+    }
 }
