@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.sib.healthcare.DataModels.AppointmentModel;
+import com.sib.healthcare.models.AppointmentModel;
 import com.sib.healthcare.R;
 
 import java.util.List;

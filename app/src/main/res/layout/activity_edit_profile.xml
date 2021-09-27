@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".Activities.Consultancy.EditProfileActivity"
-    android:fillViewport="true">
+    tools:context=".activities.consultancy.EditProfileActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/editProfileToolbar"
         android:layout_width="match_parent"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,17 +26,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:paddingHorizontal="20dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingHorizontal="20dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@id/image_EP"
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@drawable/doctor"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:onClick="setProfilePic"
+                android:src="@drawable/doctor"
                 app:cardCornerRadius="65dp"
                 app:cardElevation="0dp"
+                app:civ_border_color="@color/back_white"
+                app:civ_border_width="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,13 +54,93 @@
                 android:hint="Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
                 app:layout_constraintTop_toBottomOf="@+id/image_EP">
 
                 <EditText
                     android:id="@+id/name_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:text="Md Sabit Islam Bhuiya" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout14"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout13"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                <EditText
+                    android:id="@+id/age_EP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:ems="10"
+                    android:text="22" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout13"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="gender"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout12"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+                <EditText
+                    android:id="@+id/gender_EP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:ems="10"
+                    android:text="22" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout12"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="height"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout15"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout14">
+
+                <EditText
+                    android:id="@+id/height_EP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:ems="10"
+                    android:text="22" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout15"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="weight"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout12"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
+
+                <EditText
+                    android:id="@+id/weight_EP"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:text="22" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -66,15 +149,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Mbbs from"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                tools:layout_editor_absoluteX="30dp">
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout18"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
                 <EditText
                     android:id="@+id/mbbs_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:text="DMC"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout4"
@@ -82,14 +171,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Additional degree"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
-                tools:layout_editor_absoluteX="30dp">
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
                 <EditText
                     android:id="@+id/degrees_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:text="FCPS"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -98,34 +192,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Specialist"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
-                tools:layout_editor_absoluteX="30dp">
+                app:helperText="require*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
                 <AutoCompleteTextView
                     android:id="@+id/type_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:textColor="@color/black"
-                    android:enabled="false"/>
+                    android:enabled="false"
+                    android:text="Neurology"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout2"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="location"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
-                tools:layout_editor_absoluteX="30dp">
+                android:hint="district"
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout18"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout16"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
 
                 <AutoCompleteTextView
                     android:id="@+id/location_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:textColor="@color/black"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:text="Dhaka"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/textInputLayout18"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="division"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout17"
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:text="Dhaka"
+                    android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,14 +260,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Clinic address"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-                tools:layout_editor_absoluteX="30dp">
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
                 <EditText
                     android:id="@+id/clinicAddress_EP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10" />
+                    android:ems="10"
+                    android:text="Uttara , Dhaka"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -150,13 +280,13 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Availability :"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/time1Layout_EP"
@@ -220,9 +350,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:textColor="@color/black"
                     android:enabled="false"
-                    android:hint="day" />
+                    android:hint="day"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -242,8 +372,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:enabled="false"
-                    android:textColor="@color/black"
-                    android:hint="day" />
+                    android:hint="day"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <View
@@ -278,8 +408,93 @@
                 app:layout_constraintStart_toStartOf="@+id/day2Layout_EP"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Register as a blood donor ?"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                app:layout_constraintEnd_toEndOf="@+id/textInputLayout15"
+                app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Register as a doctor ?"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox"
+                app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="blood group"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout17"
+                app:layout_constraintStart_toStartOf="@+id/textView31"
+                android:layout_marginTop="10dp"
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintTop_toBottomOf="@+id/textView31">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/black"
+                    android:text="O+"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout17"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="phone number"
+                app:helperText="required*"
+                app:helperTextTextColor="@color/Blood"
+                app:layout_constraintEnd_toEndOf="@+id/checkBox2"
+                app:layout_constraintStart_toEndOf="@+id/textInputLayout16"
+                app:layout_constraintTop_toTopOf="@+id/textInputLayout16">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="01792474468"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
     </ScrollView>
 
     <com.google.android.material.button.MaterialButton
@@ -287,10 +502,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:onClick="save"
-        app:cornerRadius="0dp"
         android:layout_marginBottom="-7dp"
+        android:onClick="save"
         android:text="save"
+        app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

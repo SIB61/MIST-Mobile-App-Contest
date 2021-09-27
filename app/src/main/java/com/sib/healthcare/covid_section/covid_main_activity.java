@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.sib.healthcare.Activities.MainActivity;
+import com.sib.healthcare.activities.MainActivity;
 import com.sib.healthcare.R;
 
 public class covid_main_activity extends AppCompatActivity {

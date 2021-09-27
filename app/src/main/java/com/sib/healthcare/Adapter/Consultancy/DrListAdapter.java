@@ -2,7 +2,6 @@ package com.sib.healthcare.Adapter.Consultancy;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,10 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
-import com.sib.healthcare.Activities.Consultancy.DoctorProfileActivity;
-import com.sib.healthcare.DataModels.UserDataModel;
+import com.sib.healthcare.activities.consultancy.DoctorProfileActivity;
+import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,28 +21,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".activities.profile.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".covid_section.Statistics"
             android:exported="true" />
         <activity
             android:name=".covid_section.covid_main_activity"
             android:exported="true" />
         <activity
-            android:name=".Activities.Consultancy.QuestionActivity"
+            android:name=".activities.consultancy.QuestionActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.AskSpecialistsActivity"/>
+            android:parentActivityName=".activities.consultancy.AskSpecialistsActivity" />
         <activity
-            android:name=".Activities.Consultancy.ConsFirstActivity"
+            android:name=".activities.consultancy.ConsFirstActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.MainActivity" />
+            android:parentActivityName=".activities.MainActivity" />
         <activity
-            android:name=".Activities.RegisterScreenActivity"
+            android:name=".activities.RegisterScreenActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.LoginScreenActivity" />
+            android:parentActivityName=".activities.LoginScreenActivity" />
         <activity
-            android:name=".Activities.LoginScreenActivity"
+            android:name=".activities.LoginScreenActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.SplashScreenActivity"
+            android:name=".activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,48 +54,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.MainActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".Activities.Consultancy.SolutionsActivity"
-            android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.AskSpecialistsActivity" />
-        <activity
-            android:name=".Activities.Consultancy.EditProfileActivity"
+            android:name=".activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.Consultancy.DrAppointmentListActivity"
+            android:name=".activities.consultancy.SolutionsActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity" />
+            android:parentActivityName=".activities.consultancy.AskSpecialistsActivity" />
         <activity
-            android:name=".Activities.Consultancy.DoctorProfileActivity"
+            android:name=".activities.consultancy.EditProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".Activities.Consultancy.DoctorListActivity"
+            android:name=".activities.consultancy.DrAppointmentListActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity" />
+            android:parentActivityName=".activities.consultancy.ConsFirstActivity" />
         <activity
-            android:name=".Activities.Consultancy.AskSpecialistsActivity"
-            android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.ConsFirstActivity" />
+            android:name=".activities.consultancy.DoctorProfileActivity"
+            android:exported="true" />
         <activity
-            android:name=".Activities.Consultancy.AppointmentBookingActivity"
+            android:name=".activities.consultancy.DoctorListActivity"
             android:exported="true"
-            android:parentActivityName=".Activities.Consultancy.DoctorProfileActivity" />
+            android:parentActivityName=".activities.consultancy.ConsFirstActivity" />
+        <activity
+            android:name=".activities.consultancy.AskSpecialistsActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.consultancy.ConsFirstActivity" />
+        <activity
+            android:name=".activities.consultancy.AppointmentBookingActivity"
+            android:exported="true"
+            android:parentActivityName=".activities.consultancy.DoctorProfileActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".Activities.PostsandWatch"></activity>
-        <activity android:name=".Activities.Posting"></activity>
-        <activity android:name=".Activities.Notifications"></activity>
-        <activity android:name=".Activities.DonorReg"></activity>
-        <activity android:name=".Activities.Comment"></activity>
-        <activity android:name=".Activities.ShowPosts"></activity>
-        <activity android:name=".Activities.ShowDonors"></activity>
+        <activity android:name=".activities.PostsandWatch" />
+        <activity android:name=".activities.Posting" />
+        <activity android:name=".activities.Notifications" />
+        <activity android:name=".activities.DonorReg" />
+        <activity android:name=".activities.Comment" />
+        <activity android:name=".activities.ShowPosts" />
+        <activity android:name=".activities.ShowDonors" />
 
         <service
-            android:name=".Activities.FirebaseMessagingService"
+            android:name=".activities.FirebaseMessagingService"
             android:permission="TODO"
             tools:ignore="ExportedService">
             <intent-filter>

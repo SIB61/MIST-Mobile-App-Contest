@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Consultancy.SolutionsActivity">
+    tools:context=".activities.consultancy.SolutionsActivity">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_ASol"
         android:layout_width="match_parent"

@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.sib.healthcare.Activities.Consultancy.SolutionsActivity;
-import com.sib.healthcare.DataModels.QuestionModel;
-import com.sib.healthcare.DataModels.UserDataModel;
+import com.sib.healthcare.activities.consultancy.SolutionsActivity;
+import com.sib.healthcare.models.QuestionModel;
+import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
 
 import java.util.List;

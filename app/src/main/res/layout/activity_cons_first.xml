@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fillViewport="true"
-    tools:context=".Activities.Consultancy.ConsFirstActivity">
+    tools:context=".activities.consultancy.ConsFirstActivity">
 
 
     <LinearLayout
