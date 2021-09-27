@@ -6,7 +6,7 @@ public class CountryData {
 
     public  static final String[] countryNames = {
 
-            "BAN", "IND", "USA", "MY", "AFG", "MF"
+            "BAN", "IND", "USA", "Malaysia", "AFG", "MF"
     };
 
     public  static final int[] countryFlag = {

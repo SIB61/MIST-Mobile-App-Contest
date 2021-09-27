@@ -123,7 +123,7 @@
         app:layout_constraintStart_toEndOf="@+id/cardView2" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/covid_statistic_totall_death"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -140,14 +140,14 @@
         android:layout_height="wrap_content"
         android:text="Patients"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@+id/covid_statistic_totall_death"
+        app:layout_constraintEnd_toEndOf="@+id/covid_statistic_totall_active"
+        app:layout_constraintStart_toStartOf="@+id/covid_statistic_totall_active"
+        app:layout_constraintTop_toTopOf="@+id/covid_statistic_totall_death"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/covid_statistic_totall_active"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="320"
