@@ -415,7 +415,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Register as a blood donor ?"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
 
@@ -434,7 +434,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Register as a doctor ?"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
@@ -463,7 +463,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/black"
-                    android:text="O+"
+                    android:enabled="false"
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -488,6 +488,22 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Max appointment/day"
+                app:layout_constraintEnd_toEndOf="@+id/time2Layout_EP"
+                app:layout_constraintStart_toStartOf="@+id/time1Layout_EP"
+                app:layout_constraintTop_toBottomOf="@+id/time1Layout_EP">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -509,5 +525,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
