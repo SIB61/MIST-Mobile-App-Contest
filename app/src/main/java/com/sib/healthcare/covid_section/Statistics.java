@@ -1,6 +1,7 @@
 package com.sib.healthcare.covid_section;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +27,7 @@ import org.json.JSONObject;
 
 public class Statistics extends AppCompatActivity {
 
+    TextView golbal_info;
     TextView totall_case;
     TextView totall_death;
     TextView totall_recover;
@@ -33,7 +36,14 @@ public class Statistics extends AppCompatActivity {
     TextView country_name;
     ImageView flags;
     private String countryName;
-CountryCodePicker countryCodePicker;
+    CountryCodePicker countryCodePicker;
+
+    CardView active_case;
+    CardView serious_case;
+    CardView recover_case;
+    TextView todays_case;
+
+
 
     View back_to_covid_home_page;
     String url = new String();
@@ -50,6 +60,11 @@ CountryCodePicker countryCodePicker;
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
         country_name = findViewById(R.id.covid_statistic_country_name);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
+        golbal_info = findViewById(R.id.covid_statistic_global_info);
+        active_case = findViewById(R.id.covid_statistic_active_case);
+        serious_case = findViewById(R.id.covid_statistic_serious_case);
+        recover_case = findViewById(R.id.covid_statistic_recover_case);
+        todays_case = findViewById(R.id.covid_statistic_today_update);
 
 
         flags = findViewById(R.id.flag);
@@ -65,14 +80,60 @@ CountryCodePicker countryCodePicker;
              countryName=countryCodePicker.getSelectedCountryName();
              country_name.setText(countryName);
              updateData(countryName);
+             golbal_info.setBackgroundColor(0x00000000);
+             country_name.setBackgroundColor(Color.WHITE);
+             golbal_info.setTextColor(Color.BLACK);
              Toast.makeText(this, countryName, Toast.LENGTH_SHORT).show();
+             active_case.setVisibility(View.VISIBLE);
+             serious_case.setVisibility(View.VISIBLE);
         });
 
+        golbal_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                golbal_info.setBackgroundColor(Color.WHITE);
+                updateData("all");
+                country_name.setBackgroundColor(0x00000000);
+                active_case.setVisibility(View.GONE);
+                serious_case.setVisibility(View.GONE);
+
+            }
+        });
+
+        country_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateData(countryName);
+                golbal_info.setBackgroundColor(0x00000000);
+                country_name.setBackgroundColor(Color.WHITE);
+                golbal_info.setTextColor(Color.BLACK);
+
+                active_case.setVisibility(View.VISIBLE);
+                serious_case.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        todays_case.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                todays_case.setTextColor(0xfffff);
+
+            }
+        });
 
     }
 
     private void updateData(String c) {
-        url = "https://coronavirus-19-api.herokuapp.com/countries/"+c;
+        if(c == "all"){
+            url = "https://coronavirus-19-api.herokuapp.com/all";
+        }
+        else{
+            url = "https://coronavirus-19-api.herokuapp.com/countries/"+c;
+        }
+
+
+
 
         // creating a new variable for our request queue
         RequestQueue queue = Volley.newRequestQueue(Statistics.this);
@@ -102,16 +163,21 @@ CountryCodePicker countryCodePicker;
                             String t_case = response.getString("cases");
                             String t_deaths = response.getString("deaths");
                             String t_recovers = response.getString("recovered");
-                            String t_active = response.getString("active");
-                            String t_critical = response.getString("critical");
+
+                            if(c != "all"){
+                                String t_active = response.getString("active");
+                                String t_critical = response.getString("critical");
+                                totall_active.setText(t_active);
+                                totall_serious.setText(t_critical);
+
+                            }
 
                             // after extracting all the data we are
                             // setting that data to all our views.
                             totall_case.setText(t_case);
                             totall_death.setText(t_deaths);
                             totall_recover.setText(t_recovers);
-                            totall_active.setText(t_active);
-                            totall_serious.setText(t_critical);
+
 
 
 

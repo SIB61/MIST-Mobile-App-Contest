@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/covid_statistic_global_info"
         app:layout_constraintTop_toBottomOf="@+id/editProfileToolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
