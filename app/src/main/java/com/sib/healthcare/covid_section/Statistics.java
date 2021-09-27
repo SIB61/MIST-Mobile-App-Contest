@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.hbb20.CountryCodePicker;
 import com.sib.healthcare.R;
 
 import org.json.JSONException;
@@ -32,8 +33,8 @@ public class Statistics extends AppCompatActivity {
     TextView totall_active;
     TextView totall_serious;
     TextView country_name;
-    Spinner spinner;
     ImageView flags;
+    CountryCodePicker  countryCodePicker;
 
     View back_to_covid_home_page;
     String url = new String();
@@ -49,7 +50,8 @@ public class Statistics extends AppCompatActivity {
         totall_active = findViewById(R.id.covid_statistic_totall_active);
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
         country_name = findViewById(R.id.covid_statistic_country_name);
-        spinner = findViewById(R.id.spinner);
+        countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
+
         flags = findViewById(R.id.flag);
 
         back_to_covid_home_page.setOnClickListener(new View.OnClickListener() {
@@ -59,28 +61,17 @@ public class Statistics extends AppCompatActivity {
             }
         });
 
+        countryCodePicker.showFullName(true);
+        countryCodePicker.setShowPhoneCode(false);
+        countryCodePicker.showNameCode(false);
+        countryCodePicker.setCcpDialogShowPhoneCode(false);
 
+        countryCodePicker.getDefaultCountryName();
 
+        countryCodePicker.getSelectedCountryEnglishName();
 
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
-                CountryData.countryNames));
+        Toast.makeText(Statistics.this, countryCodePicker.getSelectedCountryEnglishName(), Toast.LENGTH_SHORT).show();
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
-                updateData(i);
-
-                Toast.makeText(Statistics.this, CountryData.countryNames[i].toString(), Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
     }
 
     private void updateData(int i) {

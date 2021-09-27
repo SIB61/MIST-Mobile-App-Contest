@@ -177,7 +177,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/covid_statistics_activity_back" />
 
-    <LinearLayout
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/covid_statistic_country_code_picker"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
@@ -187,24 +188,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView">
 
-        <ImageView
-            android:id="@+id/flag"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            app:srcCompat="@drawable/india" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp" />
-
-
-    </LinearLayout>
+    </com.hbb20.CountryCodePicker>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/covid_statistic_country_name"
