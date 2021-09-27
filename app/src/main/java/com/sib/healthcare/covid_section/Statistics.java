@@ -1,17 +1,13 @@
 package com.sib.healthcare.covid_section;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,11 +15,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
 import com.hbb20.CountryCodePicker;
 import com.sib.healthcare.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 public class Statistics extends AppCompatActivity {
 
@@ -34,7 +32,8 @@ public class Statistics extends AppCompatActivity {
     TextView totall_serious;
     TextView country_name;
     ImageView flags;
-    CountryCodePicker  countryCodePicker;
+    private String countryName;
+CountryCodePicker countryCodePicker;
 
     View back_to_covid_home_page;
     String url = new String();
@@ -52,6 +51,7 @@ public class Statistics extends AppCompatActivity {
         country_name = findViewById(R.id.covid_statistic_country_name);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
 
+
         flags = findViewById(R.id.flag);
 
         back_to_covid_home_page.setOnClickListener(new View.OnClickListener() {
@@ -61,45 +61,18 @@ public class Statistics extends AppCompatActivity {
             }
         });
 
-        countryCodePicker.showFullName(true);
-        countryCodePicker.setShowPhoneCode(false);
-        countryCodePicker.showNameCode(false);
-        countryCodePicker.setCcpDialogShowPhoneCode(false);
+        countryCodePicker.setOnCountryChangeListener(() -> {
+             countryName=countryCodePicker.getSelectedCountryName();
+             country_name.setText(countryName);
+             updateData(countryName);
+             Toast.makeText(this, countryName, Toast.LENGTH_SHORT).show();
+        });
 
-        countryCodePicker.getDefaultCountryName();
-
-        countryCodePicker.getSelectedCountryEnglishName();
-
-        Toast.makeText(Statistics.this, countryCodePicker.getSelectedCountryEnglishName(), Toast.LENGTH_SHORT).show();
 
     }
 
-    private void updateData(int i) {
-
-        if(i==0){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/bangladesh";
-            country_name.setText("Bangladesh");
-        }
-        else if(i == 1){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/india";
-            country_name.setText("India");
-        }
-        else if(i==2){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/usa";
-            country_name.setText("USA");
-        }
-        else if(i == 3){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/Malaysia";
-            country_name.setText("Malaysia");
-        }
-        else if(i == 4){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/afghanistan";
-            country_name.setText("Afghanistan");
-        }
-        else if(i==5){
-            url = "https://coronavirus-19-api.herokuapp.com/countries/Mexico";
-            country_name.setText("Mexico");
-        }
+    private void updateData(String c) {
+        url = "https://coronavirus-19-api.herokuapp.com/countries/"+c;
 
         // creating a new variable for our request queue
         RequestQueue queue = Volley.newRequestQueue(Statistics.this);
