@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".activities.AboutUsActivity"
+            android:exported="true" />
+        <activity
             android:name=".Medicine.medicine_main_activity"
             android:exported="true" />
         <activity
@@ -29,7 +32,7 @@
         <activity
             android:name=".activities.consultancy.ChatListActivity"
             android:exported="true"
-            android:parentActivityName=".activities.consultancy.ConsFirstActivity"/>
+            android:parentActivityName=".activities.consultancy.ConsFirstActivity" />
         <activity
             android:name=".covid_section.Statistics"
             android:exported="true" />
@@ -70,7 +73,7 @@
         <activity
             android:name=".activities.consultancy.EditProfileActivity"
             android:exported="true"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".activities.consultancy.DrAppointmentListActivity"
             android:exported="true"
