@@ -20,11 +20,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.hbb20.CountryCodePicker;
 import com.sib.healthcare.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 
 public class Statistics extends AppCompatActivity {
@@ -34,6 +41,11 @@ public class Statistics extends AppCompatActivity {
     TextView totall_active;
     TextView totall_serious;
     ImageView flags;
+    BarChart barChart;
+    BarData barData;
+    BarDataSet barDataSet;
+    ArrayList<BarEntry> barEntries;
+
     Button country , world ;
     private String countryName = "Bangladesh";
     CountryCodePicker countryCodePicker;
@@ -61,6 +73,15 @@ CardView serious_case ,active_case,recover_case;
         recover_case = findViewById(R.id.cardView4);
         country = findViewById(R.id.covid_statistic_country_name);
         world=findViewById(R.id.button4);
+
+        barChart=findViewById(R.id.barChart);
+        getEntries();
+        barDataSet=new BarDataSet(barEntries,"Data Set");
+        barData=new BarData(barDataSet);
+        barChart.setData(barData);
+        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        barDataSet.setValueTextColor(Color.BLACK);
+        barDataSet.setValueTextSize(12.0f);
 
         flags = findViewById(R.id.flag);
 
@@ -112,6 +133,15 @@ CardView serious_case ,active_case,recover_case;
             }
         });*/
 
+    }
+    public void getEntries()
+    {
+        barEntries=new ArrayList<>();
+        barEntries.add(new BarEntry(1f,667765));
+        barEntries.add(new BarEntry(2f,9750));
+        barEntries.add(new BarEntry(3f,5765));
+        barEntries.add(new BarEntry(4f,370567));
+        barEntries.add(new BarEntry(5f,12786));
     }
 
     private void updateData(String c) {
