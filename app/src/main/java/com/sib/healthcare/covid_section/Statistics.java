@@ -1,9 +1,11 @@
 package com.sib.healthcare.covid_section;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,46 +28,39 @@ import org.json.JSONObject;
 
 
 public class Statistics extends AppCompatActivity {
-
-    TextView golbal_info;
     TextView totall_case;
     TextView totall_death;
     TextView totall_recover;
     TextView totall_active;
     TextView totall_serious;
-    TextView country_name;
     ImageView flags;
-    private String countryName;
+    Button country , world ;
+    private String countryName = "Bangladesh";
     CountryCodePicker countryCodePicker;
-
-    CardView active_case;
-    CardView serious_case;
-    CardView recover_case;
-    TextView todays_case;
-
+CardView serious_case ,active_case,recover_case;
 
 
     View back_to_covid_home_page;
     String url = new String();
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.covid_statistics_activity);
 
         back_to_covid_home_page = findViewById(R.id.covid_statistics_activity_back);
-        totall_case = findViewById(R.id.covid_statistic_total_case);
+        totall_case = findViewById(R.id.covid_statistic_totall_case);
         totall_death = findViewById(R.id.covid_statistic_totall_death);
         totall_recover = findViewById(R.id.covid_statistic_totall_recovered);
         totall_active = findViewById(R.id.covid_statistic_totall_active);
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
-        country_name = findViewById(R.id.covid_statistic_country_name);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
        // golbal_info = findViewById(R.id.covid_statistic_global_info);
-    /*    active_case = findViewById(R.id.covid_statistic_total_active);
-        serious_case = findViewById(R.id.covid_statistic_serious_case);
-        recover_case = findViewById(R.id.covid_statistic_recover_case);
-        todays_case = findViewById(R.id.covid_statistic_today_update);*/
-
+        active_case = findViewById(R.id.cardView3);
+        serious_case = findViewById(R.id.cardView5);
+        recover_case = findViewById(R.id.cardView4);
+        country = findViewById(R.id.covid_statistic_country_name);
+        world=findViewById(R.id.button4);
 
         flags = findViewById(R.id.flag);
 
@@ -78,49 +73,44 @@ public class Statistics extends AppCompatActivity {
 
         countryCodePicker.setOnCountryChangeListener(() -> {
              countryName=countryCodePicker.getSelectedCountryName();
-             country_name.setText(countryName);
+             country.setText(countryName);
              updateData(countryName);
-             golbal_info.setBackgroundColor(0x00000000);
-             country_name.setBackgroundColor(Color.WHITE);
-             golbal_info.setTextColor(Color.BLACK);
-             Toast.makeText(this, countryName, Toast.LENGTH_SHORT).show();
              active_case.setVisibility(View.VISIBLE);
              serious_case.setVisibility(View.VISIBLE);
         });
 
-        golbal_info.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                golbal_info.setBackgroundColor(Color.WHITE);
-                updateData("all");
-                country_name.setBackgroundColor(0x00000000);
-                active_case.setVisibility(View.GONE);
-                serious_case.setVisibility(View.GONE);
+        world.setOnClickListener(v -> {
+            updateData("world");
+            active_case.setVisibility(View.GONE);
+            serious_case.setVisibility(View.GONE);
 
-            }
+            country.setBackgroundColor(getColor(R.color.purple_200));
+            country.setTextColor(getColor(R.color.white));
+            world.setBackgroundColor(getColor(R.color.white));
+            world.setTextColor(getColor(R.color.black));
+
         });
 
-        country_name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateData(countryName);
-                golbal_info.setBackgroundColor(0x00000000);
-                country_name.setBackgroundColor(Color.WHITE);
-                golbal_info.setTextColor(Color.BLACK);
+        country.setOnClickListener(v -> {
+            updateData(countryName);
 
-                active_case.setVisibility(View.VISIBLE);
-                serious_case.setVisibility(View.VISIBLE);
-            }
+            active_case.setVisibility(View.VISIBLE);
+            serious_case.setVisibility(View.VISIBLE);
+
+            world.setBackgroundColor(getColor(R.color.purple_200));
+            world.setTextColor(getColor(R.color.white));
+            country.setBackgroundColor(getColor(R.color.white));
+            country.setTextColor(getColor(R.color.black));
         });
 
 
-        todays_case.setOnClickListener(new View.OnClickListener() {
+     /*   todays_case.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 todays_case.setTextColor(0xfffff);
 
             }
-        });
+        });*/
 
     }
 
