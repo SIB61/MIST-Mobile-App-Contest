@@ -49,7 +49,6 @@ private UserDataModel userDataModel;
     public void goToProfile(View view) {
         startActivity(new Intent(this, EditProfileActivity.class).putExtra("userDataModel",userDataModel));
     }
-
     public void goToAboutUs(View view) {
     }
 }

@@ -8,6 +8,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.sib.healthcare.activities.LoginScreenActivity;
 import com.sib.healthcare.activities.SessionManager;
 import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
@@ -159,9 +162,25 @@ nullAdapter=null;
                 userDataModel.setTime2(time2);
                 binding.time2EP.setText(time2);
             });
-        });
-
+          });
         }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profilemenu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==R.id.logout)
+        {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void showProgress(){
         progressDialog=new ProgressDialog(this);

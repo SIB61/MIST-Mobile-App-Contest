@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.10270270270270271" />
         <entry key="app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1900900900900901" />
+        <entry key="app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.18268398268398267" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1900900900900901" />
         <entry key="app/src/main/res/drawable/round10.xml" value="0.16484375" />
         <entry key="app/src/main/res/drawable/round20.xml" value="0.18755555555555556" />
@@ -49,6 +50,9 @@
         <entry key="app/src/main/res/layout/solution_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/top_dr_list_item.xml" value="0.17612612612612613" />
         <entry key="app/src/main/res/menu/main_bar_menu.xml" value="0.17612612612612613" />
+        <entry key="app/src/main/res/menu/profilemenu.xml" value="0.16926406926406926" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.18268398268398267" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18268398268398267" />
       </map>
     </option>
   </component>

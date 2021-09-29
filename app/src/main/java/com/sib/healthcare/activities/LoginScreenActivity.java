@@ -160,6 +160,7 @@ public class LoginScreenActivity extends AppCompatActivity {
     public void signIn(View view) {
         email=binding.email.getText().toString().trim();
         password=binding.password.getText().toString().trim();
+        if(!email.isEmpty()&&!password.isEmpty())
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
