@@ -66,7 +66,8 @@
             android:parentActivityName=".activities.consultancy.AskSpecialistsActivity" />
         <activity
             android:name=".activities.consultancy.EditProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.consultancy.DrAppointmentListActivity"
             android:exported="true"

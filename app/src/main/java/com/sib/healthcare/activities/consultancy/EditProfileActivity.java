@@ -69,34 +69,40 @@ private MaterialTimePicker timePicker;
         setContentView(binding.getRoot());
         setSupportActionBar(binding.editProfileToolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("My Profile");
         userId= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         //viewModel=new ViewModelProvider(this).get(EditProfileActivityViewModel.class);
-        dayAdapter=ArrayAdapter.createFromResource(this, R.array.day_names,R.layout.support_simple_spinner_dropdown_item);
-        binding.day1EP.setAdapter(dayAdapter);
-        binding.day2EP.setAdapter(dayAdapter);
         drDocumentRef= FirebaseFirestore.getInstance().document("Doctors/"+userId);
         buttonText=getIntent().getStringExtra("TAG");
         userDocumentRef= FirebaseFirestore.getInstance().document("Users/"+userId);
         userDataModel=getIntent().getParcelableExtra("userDataModel");
+        storageReference=FirebaseStorage.getInstance().getReference(userDataModel.getImage());
+        setView();
+
+        dayAdapter=ArrayAdapter.createFromResource(this, R.array.day_names,R.layout.support_simple_spinner_dropdown_item);
+        binding.day1EP.setAdapter(dayAdapter);
+        binding.day2EP.setAdapter(dayAdapter);
+
         typeAdapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,Types);
         binding.typeEP.setAdapter(typeAdapter);
-        storageReference=FirebaseStorage.getInstance().getReference(userDataModel.getImage());
-       bloodAdapter=ArrayAdapter.createFromResource(this,R.array.BloodTypes,R.layout.support_simple_spinner_dropdown_item);
+
+
+        bloodAdapter=ArrayAdapter.createFromResource(this,R.array.BloodTypes,R.layout.support_simple_spinner_dropdown_item);
         binding.bloodEP.setAdapter(bloodAdapter);
 
         divisionAdapter=ArrayAdapter.createFromResource(this,R.array.divisions,R.layout.support_simple_spinner_dropdown_item);
         binding.divisionEP.setAdapter(divisionAdapter);
 
-       districtAdapter=ArrayAdapter.createFromResource(this,R.array.districts,R.layout.support_simple_spinner_dropdown_item);
+        districtAdapter=ArrayAdapter.createFromResource(this,R.array.districts,R.layout.support_simple_spinner_dropdown_item);
         binding.districtEP.setAdapter(districtAdapter);
 
-         genderAdapter=new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,genders);
+        genderAdapter=new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,genders);
         binding.genderEP.setAdapter(genderAdapter);
 
         from=getIntent().getIntExtra("from",0);
         image=userDataModel.getImage();
 nullAdapter=null;
-        setView();
+
 
 
         binding.DrCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -181,7 +187,7 @@ nullAdapter=null;
             binding.DrCheckBox.setChecked(true);
             binding.clinicAddressEP.setText(userDataModel.getClinicAddress());
             binding.degreesEP.setText(userDataModel.getDegrees());
-            binding.districtEP.setText(userDataModel.getDistrict());
+         //   binding.districtEP.setText(userDataModel.getDistrict());
             binding.day1EP.setText(userDataModel.getDay1());
             binding.day2EP.setText(userDataModel.getDay2());
             binding.time1EP.setText(userDataModel.getTime1());
