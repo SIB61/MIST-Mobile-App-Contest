@@ -20,8 +20,10 @@
         <item>B-</item>
         <item>AB-</item>
         <item>O-</item>
-
     </string-array>
+
+
+
     <string-array name="districts">
         <item>Barguna</item>
         <item>Barisal</item>
