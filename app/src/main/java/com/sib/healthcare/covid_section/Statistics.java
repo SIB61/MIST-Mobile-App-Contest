@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,10 @@ public class Statistics extends AppCompatActivity {
     TextView totall_recover;
     TextView totall_active;
     TextView totall_serious;
+    TextView today_news;
+    TextView totall_news;
+
+    LinearLayout chartlayout;
     ImageView flags;
     BarChart barChart;
     BarData barData;
@@ -48,7 +53,8 @@ public class Statistics extends AppCompatActivity {
     ArrayList<BarEntry> barEntries;
 
 
-
+    String todays_affected = new String();
+    String todays_deaths = new String();
     Button country , world ;
     private String countryName = "Bangladesh";
     CountryCodePicker countryCodePicker;
@@ -70,13 +76,15 @@ public class Statistics extends AppCompatActivity {
         totall_active = findViewById(R.id.covid_statistic_totall_active);
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
+        chartlayout = findViewById(R.id.covid_statistic_chartlayout);
        // golbal_info = findViewById(R.id.covid_statistic_global_info);
         active_case = findViewById(R.id.cardView3);
         serious_case = findViewById(R.id.cardView5);
         recover_case = findViewById(R.id.cardView4);
         country = findViewById(R.id.covid_statistic_country_name);
         world=findViewById(R.id.button4);
-
+        today_news = findViewById(R.id.covid_statistic_today);
+        totall_news = findViewById(R.id.covid_statistic_totall);
         barChart=findViewById(R.id.barChart);
         barEntries = new ArrayList<>();
 
@@ -98,6 +106,7 @@ public class Statistics extends AppCompatActivity {
 
         flags = findViewById(R.id.flag);
 
+        updateData(countryCodePicker.getSelectedCountryName());
         back_to_covid_home_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +145,9 @@ public class Statistics extends AppCompatActivity {
         });
 
 
+
+
+
     }
 
 
@@ -172,7 +184,8 @@ public class Statistics extends AppCompatActivity {
                             String t_active = response.getString("active");
                             String t_critical = response.getString("critical");
 
-
+                            todays_affected = response.getString("todayCases");
+                            todays_deaths = response.getString("todayDeaths");
 
                             // after extracting all the data we are
                             // setting that data to all our views.
