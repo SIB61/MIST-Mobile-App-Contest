@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_medicine_main.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/layout/activity_notification.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.17612612612612613" />
         <entry key="app/src/main/res/layout/activity_personal_info.xml" value="0.1" />
@@ -42,6 +43,7 @@
         <entry key="app/src/main/res/layout/covid_statistics_activity.xml" value="0.22" />
         <entry key="app/src/main/res/layout/dr_list_item.xml" value="0.21" />
         <entry key="app/src/main/res/layout/frnd_chat.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/medicine_info_details.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/layout/my_chat.xml" value="0.22" />
         <entry key="app/src/main/res/layout/noti.xml" value="0.16261261261261262" />
         <entry key="app/src/main/res/layout/question_item.xml" value="0.33" />

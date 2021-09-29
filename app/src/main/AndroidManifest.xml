@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".Medicine.medicine_main_activity"
+            android:exported="true" />
+        <activity
             android:name=".activities.consultancy.ChatActivity"
             android:exported="true" />
         <activity
