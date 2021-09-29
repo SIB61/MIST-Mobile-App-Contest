@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.SplittableRandom;
 
 
 public class Statistics extends AppCompatActivity {
@@ -40,16 +43,23 @@ public class Statistics extends AppCompatActivity {
     TextView totall_recover;
     TextView totall_active;
     TextView totall_serious;
+    TextView today_news;
+    TextView totall_news;
+
+    LinearLayout chartlayout;
     ImageView flags;
     BarChart barChart;
     BarData barData;
     BarDataSet barDataSet;
     ArrayList<BarEntry> barEntries;
 
+
+    String todays_affected = new String();
+    String todays_deaths = new String();
     Button country , world ;
     private String countryName = "Bangladesh";
     CountryCodePicker countryCodePicker;
-CardView serious_case ,active_case,recover_case;
+    CardView serious_case ,active_case,recover_case;
 
 
     View back_to_covid_home_page;
@@ -67,24 +77,45 @@ CardView serious_case ,active_case,recover_case;
         totall_active = findViewById(R.id.covid_statistic_totall_active);
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
+        chartlayout = findViewById(R.id.covid_statistic_chartlayout);
        // golbal_info = findViewById(R.id.covid_statistic_global_info);
         active_case = findViewById(R.id.cardView3);
         serious_case = findViewById(R.id.cardView5);
         recover_case = findViewById(R.id.cardView4);
         country = findViewById(R.id.covid_statistic_country_name);
         world=findViewById(R.id.button4);
-
+        today_news = findViewById(R.id.covid_statistic_today);
+        totall_news = findViewById(R.id.covid_statistic_totall);
         barChart=findViewById(R.id.barChart);
-        getEntries();
+        barEntries = new ArrayList<>();
+
+
+        barEntries.add(new BarEntry(1f,Integer.parseInt("667765")));
+        barEntries.add(new BarEntry(2f,Integer.parseInt("9795")));
+        barEntries.add(new BarEntry(3f,Integer.parseInt("5765")));
+
+        barEntries.add(new BarEntry(4f,Integer.parseInt("370365")));
+        barEntries.add(new BarEntry(5f,Integer.parseInt("12786")));
+
         barDataSet=new BarDataSet(barEntries,"Data Set");
         barData=new BarData(barDataSet);
         barChart.setData(barData);
-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+
+        // color on each
+        barDataSet.setColors(
+                ContextCompat.getColor(barChart.getContext(), R.color.affected),
+                ContextCompat.getColor(barChart.getContext(), R.color.death),
+                ContextCompat.getColor(barChart.getContext(), R.color.recover),
+                ContextCompat.getColor(barChart.getContext(), R.color.active),
+                ContextCompat.getColor(barChart.getContext(), R.color.serious)
+        );
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(12.0f);
 
+
         flags = findViewById(R.id.flag);
 
+        updateData(countryCodePicker.getSelectedCountryName());
         back_to_covid_home_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,14 +127,12 @@ CardView serious_case ,active_case,recover_case;
              countryName=countryCodePicker.getSelectedCountryName();
              country.setText(countryName);
              updateData(countryName);
-             active_case.setVisibility(View.VISIBLE);
-             serious_case.setVisibility(View.VISIBLE);
+
         });
 
         world.setOnClickListener(v -> {
             updateData("world");
-            active_case.setVisibility(View.GONE);
-            serious_case.setVisibility(View.GONE);
+
 
             country.setBackgroundColor(getColor(R.color.purple_200));
             country.setTextColor(getColor(R.color.white));
@@ -125,39 +154,17 @@ CardView serious_case ,active_case,recover_case;
         });
 
 
-     /*   todays_case.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                todays_case.setTextColor(0xfffff);
 
-            }
-        });*/
+
 
     }
-    public void getEntries()
-    {
-        barEntries=new ArrayList<>();
-        barEntries.add(new BarEntry(1f,667765));
-        barEntries.add(new BarEntry(2f,9750));
-        barEntries.add(new BarEntry(3f,5765));
-        barEntries.add(new BarEntry(4f,370567));
-        barEntries.add(new BarEntry(5f,12786));
-    }
+
 
     private void updateData(String c) {
-        if(c == "all"){
-            url = "https://coronavirus-19-api.herokuapp.com/all";
-        }
-        else{
-            url = "https://coronavirus-19-api.herokuapp.com/countries/"+c;
-        }
 
-
-
-
+        url = "https://coronavirus-19-api.herokuapp.com/countries/"+c;
         // creating a new variable for our request queue
         RequestQueue queue = Volley.newRequestQueue(Statistics.this);
-
 
         // to get the response from our API.
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
@@ -183,20 +190,21 @@ CardView serious_case ,active_case,recover_case;
                             String t_case = response.getString("cases");
                             String t_deaths = response.getString("deaths");
                             String t_recovers = response.getString("recovered");
+                            String t_active = response.getString("active");
+                            String t_critical = response.getString("critical");
 
-                            if(c != "all"){
-                                String t_active = response.getString("active");
-                                String t_critical = response.getString("critical");
-                                totall_active.setText(t_active);
-                                totall_serious.setText(t_critical);
-
-                            }
+                            todays_affected = response.getString("todayCases");
+                            todays_deaths = response.getString("todayDeaths");
 
                             // after extracting all the data we are
                             // setting that data to all our views.
+                            totall_active.setText(t_active);
+                            totall_serious.setText(t_critical);
                             totall_case.setText(t_case);
                             totall_death.setText(t_deaths);
                             totall_recover.setText(t_recovers);
+
+                            getEntries(t_case, t_deaths, t_recovers, t_active, t_critical);
 
 
 
@@ -224,5 +232,17 @@ CardView serious_case ,active_case,recover_case;
 
     }
 
+    public void getEntries(String affected, String deaths, String recover, String active, String serious)
+    {
+        barChart.setAutoScaleMinMaxEnabled(true);
+        barChart.invalidate();
+        barChart.setTouchEnabled(false);
 
+        barEntries.set(0, new BarEntry(1f,Integer.parseInt(affected)));
+        barEntries.set(1, new BarEntry(2f,Integer.parseInt(deaths)));
+        barEntries.set(2, new BarEntry(3f,Integer.parseInt(recover)));
+        barEntries.set(3, new BarEntry(4f,Integer.parseInt(active)));
+        barEntries.set(4, new BarEntry(5f,Integer.parseInt(serious)));
+
+    }
 }

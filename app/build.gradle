@@ -70,4 +70,7 @@ dependencies {
     implementation "com.android.volley:volley:1.1.1"
     implementation 'com.hbb20:ccp:2.5.4'
 
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 }
