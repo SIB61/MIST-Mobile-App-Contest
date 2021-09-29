@@ -68,7 +68,7 @@
         android:layout_marginTop="20dp"
         android:text="My name Is Abid"
         android:textColor="#000"
-        android:id="@+id/blood"
+        android:id="@+id/blood_EP"
         android:textSize="18sp"
         android:textStyle="bold"/>
     <TextView

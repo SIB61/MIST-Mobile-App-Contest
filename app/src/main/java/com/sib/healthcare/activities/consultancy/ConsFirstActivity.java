@@ -64,6 +64,7 @@ public class ConsFirstActivity extends AppCompatActivity {
                 FirebaseStorage.getInstance().getReference(model.getImage()).getDownloadUrl().addOnSuccessListener(uri -> {
                     Glide.with(ConsFirstActivity.this).load(uri).into(holder.image);
                 });
+                holder.itemView.setOnClickListener(v -> startActivity(new Intent(ConsFirstActivity.this,DoctorProfileActivity.class).putExtra("userDataModel",model)));
 
             }
 
@@ -80,7 +81,7 @@ public class ConsFirstActivity extends AppCompatActivity {
     }
 
     private String formatDes(UserDataModel u) {
-        String s="MBBS from "+u.getMbbs()+"\n"+u.getType()+"\n"+u.getDegrees();
+        String s=u.getType()+"\nMBBS from "+u.getMbbs()+"\n"+u.getDegrees();
         return  s;
     }
 
@@ -119,10 +120,12 @@ public class ConsFirstActivity extends AppCompatActivity {
                 break;
             case R.id.ap:
                 startActivity(new Intent(ConsFirstActivity.this,DrAppointmentListActivity.class).putExtra("isDoctor",userDataModel.isDoctor()));
-
+                break;
+            case R.id.chatMenu:
+                startActivity(new Intent(ConsFirstActivity.this,ChatListActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     public void goToAskSpecialistsActivity(View view) {

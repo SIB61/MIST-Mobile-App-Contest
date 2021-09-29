@@ -1,11 +1,14 @@
 package com.sib.healthcare.activities.consultancy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,11 +30,14 @@ private StorageReference storageReference;
         super.onCreate(savedInstanceState);
         binding=ActivityDoctorProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolbarDP);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Doctor Profile");
         binding.profilePic.setImageResource(R.drawable.doctor);
         userDataModel=getIntent().getParcelableExtra("userDataModel");
         storageReference= FirebaseStorage.getInstance().getReference(userDataModel.getImage());
         setView();
-        setSupportActionBar(binding.toolbarDP);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         if(userDataModel.getuId().equals(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()))
@@ -48,12 +54,21 @@ private StorageReference storageReference;
                });
     }
 
+
+
     private void setView() {
         binding.nameDP.setText(userDataModel.getName());
         binding.typeDP.setText(userDataModel.getType());
        storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
           Glide.with(this).load(uri).into(binding.profilePic);
        });
+       String str = "MBBS from "+userDataModel.getMbbs()+"\n"+userDataModel.getDegrees()+"\n\nClinic Address : "
+               +userDataModel.getClinicAddress()+"\n\nAvailable at "+userDataModel.getTime1()+" to "+userDataModel.getTime2()
+               +" every "+userDataModel.getDay1()+"day"+" to "+userDataModel.getDay2()+"day";
+       binding.desAD.setText(str);
     }
 
+    public void goToChat(View view) {
+        startActivity(new Intent(DoctorProfileActivity.this,ChatActivity.class).putExtra("uId",userDataModel.getuId()));
+    }
 }

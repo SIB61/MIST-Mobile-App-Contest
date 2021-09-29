@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginEnd="60dp"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/frnd_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/round10"
+        android:backgroundTint="@color/purple_200"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:text="sabit islam Bhuiya"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/frnd_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/12/2020"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/frnd_msg"
+        app:layout_constraintTop_toBottomOf="@+id/frnd_msg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,9 +62,10 @@ private  String[] Types={"Allergists/Immunologists","All","Cardiologists","Colon
         Arrays.sort(Types);
         adapter=new DrListAdapter(drList);
         binding.drListRecycleView.setAdapter(adapter);
-
+        String[] str= getResources().getStringArray(R.array.districts);
+        Arrays.sort(str);
         ArrayAdapter adapter1=new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,Types);
-        ArrayAdapter adapter2=new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,DistrictList);
+        ArrayAdapter adapter2=new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,str);
 
         binding.spinner.setAdapter(adapter1);
         binding.spinner2.setAdapter(adapter2);

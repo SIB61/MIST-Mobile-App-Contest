@@ -60,11 +60,11 @@ public class Statistics extends AppCompatActivity {
         totall_serious = findViewById(R.id.covid_statistic_totall_serious);
         country_name = findViewById(R.id.covid_statistic_country_name);
         countryCodePicker = findViewById(R.id.covid_statistic_country_code_picker);
-        golbal_info = findViewById(R.id.covid_statistic_global_info);
-        active_case = findViewById(R.id.covid_statistic_active_case);
+       // golbal_info = findViewById(R.id.covid_statistic_global_info);
+    /*    active_case = findViewById(R.id.covid_statistic_total_active);
         serious_case = findViewById(R.id.covid_statistic_serious_case);
         recover_case = findViewById(R.id.covid_statistic_recover_case);
-        todays_case = findViewById(R.id.covid_statistic_today_update);
+        todays_case = findViewById(R.id.covid_statistic_today_update);*/
 
 
         flags = findViewById(R.id.flag);

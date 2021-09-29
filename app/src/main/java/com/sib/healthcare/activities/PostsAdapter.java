@@ -162,7 +162,7 @@ ImageView bottom;
             super(i);
             profile_name=i.findViewById(R.id.profile_name);
             date=i.findViewById(R.id.date);
-            blood=i.findViewById(R.id.blood);
+            blood=i.findViewById(R.id.blood_EP);
             contact=i.findViewById(R.id.contact);
             patient=i.findViewById(R.id.patient);
             profile_image=i.findViewById(R.id.profile_image);

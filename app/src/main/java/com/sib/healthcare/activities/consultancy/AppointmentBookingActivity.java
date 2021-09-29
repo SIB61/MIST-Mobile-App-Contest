@@ -1,9 +1,11 @@
 package com.sib.healthcare.activities.consultancy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -36,6 +38,8 @@ private UserDataModel dr;
         super.onCreate(savedInstanceState);
         binding=ActivityAppointmentBookingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setSupportActionBar(binding.toolbarAB);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         dr=getIntent().getParcelableExtra("userDataModel");
         uid= FirebaseAuth.getInstance().getUid();
         dRef= FirebaseFirestore.getInstance().collection("Users/"+drUid+"/Appointments");
@@ -56,6 +60,16 @@ private UserDataModel dr;
             datePicker.show();
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId()==R.id.home)
+        {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void bookAppointment(View view) {

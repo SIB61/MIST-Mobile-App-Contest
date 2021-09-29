@@ -30,7 +30,7 @@ public class DonorReg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_reg);
-        blood=(Spinner)findViewById(R.id.blood);
+        blood=(Spinner)findViewById(R.id.blood_EP);
         bl=getResources().getStringArray(R.array.BloodTypes);
         ArrayAdapter<String> ar=new ArrayAdapter<String>(this, R.layout.education,R.id.Edu,bl);
         blood.setAdapter(ar);

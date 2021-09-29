@@ -23,71 +23,71 @@
 
     </string-array>
     <string-array name="districts">
-        <item>Barguna (বরগুনা Borguna)</item>
-        <item>Barisal (বরিশাল Borishal)</item>
-        <item>Bhola (ভোলা Bhola)</item>
-        <item>Jhalokati (ঝালকাঠী Jhalokaţhi)</item>
-        <item>Patuakhali (পটুয়াখালী Poţuakhali)</item>
-        <item>Pirojpur (পিরোজপুর Pirojpur)</item>
-        <item>Bandarban (বান্দরবান Bandorban)</item>
-        <item>Brahmanbaria (ব্রাহ্মনবাড়ীয়া Bramhonbaŗia)</item>
-        <item>Chandpur (চাঁদপুর Chãdpur)</item>
-        <item>Chittagong (চট্টগ্রাম Chôţţogram)</item>
-        <item>Comilla (কুমিল্লা Kumilla)</item>
-        <item>Cox Bazar (কক্সবাজার Kôksbajar)</item>
-        <item>Feni (ফেনী Feni)</item>
-        <item>Khagrachari (খাগড়াছড়ি Khagŗachhoŗi)</item>
-        <item>Lakshmipur (লক্ষীপুর Lokkhipur)</item>
-        <item>Noakhali (নোয়াখালী Noakhali)</item>
-        <item>Rangamati (রাঙ্গামাটি Raņamaţi)</item>
-        <item>Dhaka (ঢাকা Đhaka)</item>
-        <item>Faridpur (ফরিদপুর Foridpur)</item>
-        <item>Gazipur (গাজীপুর Gajipur)</item>
-        <item>Gopalganj (গোপালগঞ্জ Gopalgônj)</item>
-        <item>Kishoreganj (কিশোরগঞ্জ Kishorgônj)</item>
-        <item>Madaripur (মাদারীপুর Madaripur)</item>
-        <item>Manikganj (মানিকগঞ্জ Manikgônj)</item>
-        <item>Munshiganj (মুন্সীগঞ্জ Munshigônj)</item>
-        <item>Narayanganj (নারায়ণগঞ্জ Naraeongônj)</item>
-        <item>Narsingdi (নরসিংদী Nôrshiņdi)</item>
-        <item>Rajbari (রাজবাড়ী Rajbaŗi)</item>
-        <item>Shariatpur (শরীয়তপুর Shoriotpur)</item>
-        <item>Tangail (টাঙ্গাইল Ţaņgail)</item>
-        <item>Jamalpur (জামালপুর Jamalpur)</item>
-        <item>Mymensingh (ময়মনসিংহ Môemonshiņho)</item>
-        <item>Netrakona (নেত্রকোনা Netrokona)</item>
-        <item>Sherpur (শেরপুর Sherpur)</item>
-        <item>Bagerhat (বাগেরহাট Bagerhaţ)</item>
-        <item>Chuadanga (চুয়াডাঙা Chuađaņa)</item>
-        <item>Jessore (যশোর Jôshor)</item>
-        <item>Jhenaidah (ঝিনাইদহ Jhinaidôh)</item>
-        <item>Khulna (খুলনা Khulna)</item>
-        <item>Kushtia (কুষ্টিয়া Kushţia)</item>
-        <item>Magura (মাগুরা Magura)</item>
-        <item>Meherpur (মেহেরপুর Meherpur)</item>
-        <item>Narail (নড়াইল Nôŗail)</item>
-        <item>Shatkhira (সাতক্ষীরা Shatkhira)</item>
-        <item>Bogra (বগুরা Bogura)</item>
-        <item>Jaipurhat (জয়পুরহাট Jôepurhaţ)</item>
-        <item>Naogaon (নওগাঁ Nôogão)</item>
-        <item>Natore (নাটোর Naţor)</item>
-        <item>Nawabganj (নওয়াবগঞ্জ Nôoabgônj)</item>
-        <item>Pabna (পাবনা Pabna)</item>
-        <item>Rajshahi (রাজশাহী Rajshahi)</item>
-        <item>Sirajganj (সিরাজগঞ্জ Shirajgônj)</item>
-        <item>Rangpur (রংপুর Rôņpur)</item>
-        <item>Gaibandha (গাইবান্ধা Gaibandha)</item>
-        <item>Kurigram (কুড়িগ্রাম Kuŗigram)</item>
-        <item>Nilphamari (নীলফামারী Nilfamari)</item>
-        <item>Lalmonirhat (লালমনিরহাট Lalmonirhaţ)</item>
-        <item>Dinajpur (দিনাজপুর Dinajpur)</item>
-        <item>Thakurgaon (ঠাকুরগাঁও Ţhakurgão)</item>
-        <item>Panchagarh (পঞ্চগড় Pônchogôŗ)</item>
-        <item>Habiganj (হবিগঞ্জ Hobigônj)</item>
-        <item>Maulvibazar (মৌলভীবাজার Maulbhibajar)</item>
-        <item>Sunamganj (সুনামগঞ্জ Shunamgônj)</item>
-        <item>Sylhet (সিলেট Sileţ)</item>
-
+        <item>Barguna</item>
+        <item>Barisal</item>
+        <item>Bhola</item>
+        <item>Jhalokati</item>
+        <item>Patuakhali</item>
+        <item>Pirojpur</item>
+        <item>Bandarban</item>
+        <item>Brahmanbaria</item>
+        <item>Chandpur</item>
+        <item>Chittagong</item>
+        <item>Comilla</item>
+        <item>Cox Bazar</item>
+        <item>Feni</item>
+        <item>Khagrachari</item>
+        <item>Lakshmipur</item>
+        <item>Noakhali</item>
+        <item>Rangamati</item>
+        <item>Dhaka</item>
+        <item>Faridpur</item>
+        <item>Gazipur</item>
+        <item>Gopalganj</item>
+        <item>Kishoreganj</item>
+        <item>Madaripur</item>
+        <item>Manikganj</item>
+        <item>Munshiganj</item>
+        <item>Narayanganj</item>
+        <item>Narsingdi</item>
+        <item>Rajbari</item>
+        <item>Shariatpur</item>
+        <item>Tangail</item>
+        <item>Jamalpur</item>
+        <item>Mymensingh</item>
+        <item>Netrakona</item>
+        <item>Sherpur</item>
+        <item>Bagerhat</item>
+        <item>Chuadanga</item>
+        <item>Jessore</item>
+        <item>Jhenaidah</item>
+        <item>Khulna</item>
+        <item>Kushtia</item>
+        <item>Magura</item>
+        <item>Meherpur</item>
+        <item>Narail</item>
+        <item>Shatkhira</item>
+        <item>Bogra</item>
+        <item>Jaipurhat</item>
+        <item>Naogaon</item>
+        <item>Natore</item>
+        <item>Nawabganj</item>
+        <item>Pabna</item>
+        <item>Rajshahi</item>
+        <item>Sirajganj</item>
+        <item>Rangpur</item>
+        <item>Gaibandha</item>
+        <item>Kurigram</item>
+        <item>Nilphamari</item>
+        <item>Lalmonirhat</item>
+        <item>Dinajpur</item>
+        <item>Thakurgaon</item>
+        <item>Panchagarh</item>
+        <item>Habiganj</item>
+        <item>Maulvibazar</item>
+        <item>Sunamganj</item>
+        <item>Sylhet</item>
+        <item>All</item>
     </string-array>
     <string-array name="divisions">
         <item>Sylhet</item>

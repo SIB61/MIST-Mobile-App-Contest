@@ -47,7 +47,7 @@
                 android:textColor="#000"></TextView>
 
             <Spinner
-                android:id="@+id/blood"
+                android:id="@+id/blood_EP"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
 

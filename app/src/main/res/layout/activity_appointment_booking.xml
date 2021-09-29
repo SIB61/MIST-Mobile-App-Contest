@@ -14,6 +14,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/purple_200"
+        app:title="Appointment Info"
+        app:titleCentered="true"
         app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -144,10 +147,11 @@
 
 <com.google.android.material.button.MaterialButton
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:cornerRadius="0dp"
     android:layout_marginBottom="-7dp"
+    android:background="@color/purple_200"
     android:onClick="bookAppointment"
     android:text="book an appointment"/>
 

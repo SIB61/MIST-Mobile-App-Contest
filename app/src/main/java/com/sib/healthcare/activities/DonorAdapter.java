@@ -63,7 +63,7 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.Donors> {
             profile_name=v.findViewById(R.id.profile_name);
             address=v.findViewById(R.id.address);
             emer=v.findViewById(R.id.emer);
-            blood=v.findViewById(R.id.blood);
+            blood=v.findViewById(R.id.blood_EP);
             chat=v.findViewById(R.id.chat);
 
         }

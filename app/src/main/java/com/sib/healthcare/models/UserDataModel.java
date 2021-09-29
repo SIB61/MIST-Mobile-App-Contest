@@ -7,8 +7,93 @@ public class UserDataModel implements Parcelable {
     private String uId,image,name,mbbs,degrees,type,clinicAddress,district,day1,day2,time1,time2,height,weight,age,gender;
     private String division,email,phoneNumber,bloodGroup;
     private boolean isDoctor,isDonor;
-    private int appointments,maxAppointmentsPerDay;
+    private int appointments,maxAppointmentsPerDay , d1 , d2;
     public UserDataModel() {
+    }
+
+    public UserDataModel(String uId, String image, String name, String mbbs, String degrees, String type, String clinicAddress, String district, String day1, String day2, String time1, String time2, String height, String weight, String age, String gender, String division, String email, String phoneNumber, String bloodGroup, boolean isDoctor, boolean isDonor, int appointments, int maxAppointmentsPerDay, int d1, int d2) {
+        this.uId = uId;
+        this.image = image;
+        this.name = name;
+        this.mbbs = mbbs;
+        this.degrees = degrees;
+        this.type = type;
+        this.clinicAddress = clinicAddress;
+        this.district = district;
+        this.day1 = day1;
+        this.day2 = day2;
+        this.time1 = time1;
+        this.time2 = time2;
+        this.height = height;
+        this.weight = weight;
+        this.age = age;
+        this.gender = gender;
+        this.division = division;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.bloodGroup = bloodGroup;
+        this.isDoctor = isDoctor;
+        this.isDonor = isDonor;
+        this.appointments = appointments;
+        this.maxAppointmentsPerDay = maxAppointmentsPerDay;
+        this.d1 = d1;
+        this.d2 = d2;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getMaxAppointmentsPerDay() {
+        return maxAppointmentsPerDay;
+    }
+
+    public void setMaxAppointmentsPerDay(int maxAppointmentsPerDay) {
+        this.maxAppointmentsPerDay = maxAppointmentsPerDay;
+    }
+
+    public int getD1() {
+        return d1;
+    }
+
+    public void setD1(int d1) {
+        this.d1 = d1;
+    }
+
+    public int getD2() {
+        return d2;
+    }
+
+    public void setD2(int d2) {
+        this.d2 = d2;
     }
 
     public int getAppointments() {
@@ -47,6 +132,15 @@ public class UserDataModel implements Parcelable {
         bloodGroup = in.readString();
         isDoctor = in.readByte() != 0;
         isDonor = in.readByte() != 0;
+        age =in.readString();
+        gender=in.readString();
+        height=in.readString();
+        weight=in.readString();
+        d1=in.readInt();
+        d2=in.readInt();
+        appointments=in.readInt();
+        maxAppointmentsPerDay=in.readInt();
+
     }
 
     public static final Creator<UserDataModel> CREATOR = new Creator<UserDataModel>() {
@@ -230,5 +324,13 @@ public class UserDataModel implements Parcelable {
         dest.writeString(bloodGroup);
         dest.writeByte((byte) (isDoctor ? 1 : 0));
         dest.writeByte((byte) (isDonor ? 1 : 0));
+        dest.writeString(age);
+        dest.writeString(gender);
+        dest.writeString(height);
+        dest.writeString(weight);
+        dest.writeInt(d1);
+        dest.writeInt(d2);
+        dest.writeInt(appointments);
+        dest.writeInt(maxAppointmentsPerDay);
     }
 }

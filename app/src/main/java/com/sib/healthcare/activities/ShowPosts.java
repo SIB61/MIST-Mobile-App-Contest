@@ -25,7 +25,7 @@ CircleImageView profile_image;
         address=getIntent().getStringExtra("Address");
         patient=getIntent().getStringExtra("Patient");
         disease=getIntent().getStringExtra("Disease");
-        blood1=(TextView)findViewById(R.id.blood);
+        blood1=(TextView)findViewById(R.id.blood_EP);
         profile_name=(TextView)findViewById(R.id.profile_name);
         patient1=(TextView)findViewById(R.id.patient);
         contact1=(TextView)findViewById(R.id.contact);
