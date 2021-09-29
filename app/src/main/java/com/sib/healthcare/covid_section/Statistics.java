@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -99,7 +100,15 @@ public class Statistics extends AppCompatActivity {
         barDataSet=new BarDataSet(barEntries,"Data Set");
         barData=new BarData(barDataSet);
         barChart.setData(barData);
-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+
+        // color on each
+        barDataSet.setColors(
+                ContextCompat.getColor(barChart.getContext(), R.color.affected),
+                ContextCompat.getColor(barChart.getContext(), R.color.death),
+                ContextCompat.getColor(barChart.getContext(), R.color.recover),
+                ContextCompat.getColor(barChart.getContext(), R.color.active),
+                ContextCompat.getColor(barChart.getContext(), R.color.serious)
+        );
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(12.0f);
 
@@ -228,6 +237,7 @@ public class Statistics extends AppCompatActivity {
         barChart.setAutoScaleMinMaxEnabled(true);
         barChart.invalidate();
         barChart.setTouchEnabled(false);
+
         barEntries.set(0, new BarEntry(1f,Integer.parseInt(affected)));
         barEntries.set(1, new BarEntry(2f,Integer.parseInt(deaths)));
         barEntries.set(2, new BarEntry(3f,Integer.parseInt(recover)));
