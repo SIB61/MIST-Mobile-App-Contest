@@ -320,6 +320,9 @@ nullAdapter=null;
         binding.toLEP.setVisibility(i);
         binding.typeLayoutEP.setVisibility(i);
     }
+
+
+
     public void donorInfo(boolean b)
     {
         String s="required*";
