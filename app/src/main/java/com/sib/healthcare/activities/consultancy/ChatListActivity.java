@@ -52,6 +52,7 @@ private FirestoreRecyclerAdapter<ChatModel,ChatListViewHolder> adapter;
                 holder.n.setText(model.getfName());
                 @SuppressLint("SimpleDateFormat") String time = new SimpleDateFormat( "d MMM yyyy, h:mm a" ).format ( model.getTimestamp().toDate() );
                 holder.t.setText(time);
+                holder.m.setText(model.getMsg());
                 holder.itemView.setOnClickListener(v -> { startActivity(new Intent(ChatListActivity.this,ChatActivity.class).putExtra("uId",model.getfUid()));});
             }
 
