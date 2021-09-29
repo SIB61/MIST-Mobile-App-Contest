@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,7 +51,7 @@ private String userId;
 boolean isSuccess;
 private ArrayAdapter dayAdapter,typeAdapter,genderAdapter,districtAdapter,divisionAdapter,bloodAdapter,nullAdapter;
 private ProgressDialog progressDialog;
-
+private AlertDialog.Builder builder;
 
 private int from ;
 private int d1,d2,max;
@@ -104,7 +106,7 @@ private MaterialTimePicker timePicker;
 
         from=getIntent().getIntExtra("from",0);
         image=userDataModel.getImage();
-nullAdapter=null;
+        nullAdapter=null;
 
 
 
@@ -175,9 +177,10 @@ nullAdapter=null;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()==R.id.logout)
         {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-            finish();
+//            FirebaseAuth.getInstance().signOut();
+//            startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//            finish();
+            logout();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -187,6 +190,8 @@ nullAdapter=null;
         progressDialog.setTitle("saving");
         progressDialog.show();
     }
+
+
     private void setView() {
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             Glide.with(this).load(uri).into(binding.imageEP);
@@ -231,8 +236,6 @@ nullAdapter=null;
             binding.DonorCheckBox.setChecked(false);
             donorInfo(false);
         }
-
-
     }
 
     public void save(View view) {
@@ -376,5 +379,34 @@ nullAdapter=null;
                 Exception error = result.getError();
             }
         }
+    }
+
+
+    private void logout() {
+        builder = new AlertDialog.Builder(this);
+
+        builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Are you sure you want to log out??")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        finish();
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+////            finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Log Out?");
+        alert.show();
     }
 }
