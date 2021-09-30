@@ -45,7 +45,7 @@ private String[] gender={"male","female"};
         String age = binding.ageAQ.getText().toString().trim();
         String gender = binding.genderAQ.getText().toString().trim();
         String height = binding.heightAQ.getText().toString().trim();
-        String weight = binding.heightAQ.getText().toString().trim();
+        String weight = binding.weigntAQ.getText().toString().trim();
         String description = binding.descriptionAQ.getText().toString().trim();
 
 
