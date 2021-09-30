@@ -18,12 +18,15 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.sib.healthcare.activities.consultancy.EditProfileActivity;
 import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
 
@@ -46,7 +49,7 @@ PostsAdapter post;
     LinearLayout ask;
     BottomNavigationView bm;
     UserDataModel dsf;
-
+    private UserDataModel userDataModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,8 @@ PostsAdapter post;
         final SessionManager sh=new SessionManager(this,SessionManager.USERSESSION);
         HashMap<String,String> hm=sh.returnData();
         url=hm.get(SessionManager.URL);
+        FirebaseFirestore.getInstance().document("Users/" + FirebaseAuth.getInstance().getUid())
+                .get().addOnSuccessListener(documentSnapshot -> userDataModel = documentSnapshot.toObject(UserDataModel.class));
      //   Toast.makeText(getApplicationContext(),url,Toast.LENGTH_LONG).show();
         String donor=hm.get(SessionManager.DONOR);
        //Toast.makeText(getApplicationContext(), donor+"Abid", Toast.LENGTH_LONG).show();
@@ -99,7 +104,9 @@ PostsAdapter post;
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),DonorReg.class));
+
+                //startActivity(new Intent(getApplicationContext(), EditProfileActivity.class).putExtra("userDataModel", userDataModel));
+                startActivity(new Intent(getApplicationContext(), DonorReg.class));
             }
         });
         profile_image=(CircleImageView) findViewById(R.id.profile_image);

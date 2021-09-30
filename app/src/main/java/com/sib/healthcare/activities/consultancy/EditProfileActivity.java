@@ -23,10 +23,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.sib.healthcare.activities.Donor;
 import com.sib.healthcare.activities.LoginScreenActivity;
 import com.sib.healthcare.activities.SessionManager;
 import com.sib.healthcare.models.UserDataModel;
@@ -36,7 +38,9 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.lang.reflect.Array;
+import java.util.HashMap;
 import java.util.Objects;
+import java.util.Random;
 
 public class EditProfileActivity extends AppCompatActivity {
 private ActivityEditProfileBinding binding;
@@ -125,6 +129,7 @@ private MaterialTimePicker timePicker;
             if(isChecked)
             {
                 donorInfo(true);
+
             }
             else
             {
@@ -320,7 +325,42 @@ private MaterialTimePicker timePicker;
 
 
     private void saveDonor() {
+        SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+        SessionManager sh2 = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
+        HashMap<String, String> hm = sh.returnData();
+        String email = hm.get(SessionManager.EMAIL);
+        String name = hm.get(SessionManager.FULLNAME);
+        String url = hm.get(SessionManager.URL);
+        String token = hm.get(SessionManager.TOKEN);
+        String pass = hm.get(SessionManager.PASS);
+        String email1 = "";
+        for (int i = 0; i < email.length(); i++) {
+            if (email.charAt(i) == '@')
+                break;
+            email1 += email.charAt(i);
+        }
 
+        HashMap pu = new HashMap();
+        pu.put("Phone", number);
+        pu.put("Division", district);
+        pu.put("District", division);
+        Toast.makeText(getApplicationContext(),number,Toast.LENGTH_LONG).show();
+        sh2.loginSession(name, email, number, pass, url, "Yes", token, division, district, "Normal", "No");
+        FirebaseDatabase.getInstance().getReference("Users").child(email1).
+                updateChildren(pu);
+        Random rn = new Random();
+        long pk = rn.nextInt(10000000);
+
+        Donor d = new Donor(district, division, number,
+                blood, email, url, name, token);
+        FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Donor").setValue(d);
+        FirebaseDatabase.getInstance().getReference("Donor").child(division).
+                child(pk + "").setValue(email1);
+        FirebaseDatabase.getInstance().getReference("Donor").child(district).
+                child(pk + "").setValue(email1);
+        FirebaseDatabase.getInstance().getReference("Donor").child(blood).
+                child(pk + "").setValue(email1);
+        FirebaseDatabase.getInstance().getReference("Donors").child(email1).setValue(d);
 
     }
 
