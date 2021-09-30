@@ -228,13 +228,13 @@ send.setOnClickListener(new View.OnClickListener() {
                     FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op);
                     FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Notifications").
                             child(cday + " " + finalMonth + " " + cy + " " + time).setValue(nd);
-                     Toast.makeText(getApplicationContext(),need,Toast.LENGTH_LONG).show();
+                  //   Toast.makeText(getApplicationContext(),need,Toast.LENGTH_LONG).show();
                     FcmNotificationsSender fcm = new FcmNotificationsSender(need, "Comments", name + " commented on your post", getApplicationContext(), Comment.this);
                     // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
                     fcm.SendNotifications();
                     if(m!=null&&!m.equals("")) {
                         FcmNotificationsSender fcm1 = new FcmNotificationsSender(finalT, "Comments", name + " mentioned you in a comment", getApplicationContext(), Comment.this);
-                         Toast.makeText(getApplicationContext(), finalT, Toast.LENGTH_LONG).show();
+                       //  Toast.makeText(getApplicationContext(), finalT, Toast.LENGTH_LONG).show();
                         fcm.SendNotifications();
                     }
                 }

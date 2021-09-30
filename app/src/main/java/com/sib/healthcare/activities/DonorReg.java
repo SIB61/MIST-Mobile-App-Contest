@@ -66,7 +66,7 @@ public class DonorReg extends AppCompatActivity {
                     String dis = district.getText().toString();
                     String div = division.getSelectedItem().toString();
                     String email1 = "";
-                    sh2.loginSession(name,email,phone1,pass,url,"Yes",token,div,dis);
+                    sh2.loginSession(name,email,phone1,pass,url,"Yes",token,div,dis,"Normal","No");
                     for (int i = 0; i < email.length(); i++) {
                         if (email.charAt(i) == '@')
                             break;

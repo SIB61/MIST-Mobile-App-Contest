@@ -72,7 +72,7 @@ PostsAdapter post;
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 if (item.getItemId()== R.id.s) {
-                    startActivity(new Intent(PostsandWatch.this, PostsandWatch.class));
+                    startActivity(new Intent(PostsandWatch.this, MainActivity.class));
                 }  else if (item.getItemId() == R.id.donors) {
                     startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
 

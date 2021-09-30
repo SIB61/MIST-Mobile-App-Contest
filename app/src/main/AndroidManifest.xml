@@ -103,6 +103,16 @@
         <activity android:name=".activities.Comment" />
         <activity android:name=".activities.ShowPosts" />
         <activity android:name=".activities.ShowDonors" />
+        <activity android:name=".Medicine.AddMedicine" />
+        <activity android:name=".Medicine.Aksing" />
+        <activity android:name=".Medicine.OrdersRe" />
+        <activity android:name=".Medicine.OwnerProfile" />
+        <activity android:name=".Medicine.Proceed" />
+        <activity android:name=".Medicine.ShowProduct" />
+        <activity android:name=".Medicine.TakeAddress" />
+        <activity android:name=".Medicine.User_Section" />
+        <activity android:name=".Medicine.TrShow" />
+        <activity android:name=".Medicine.ShowResults" />
 
         <service
             android:name=".activities.FirebaseMessagingService"

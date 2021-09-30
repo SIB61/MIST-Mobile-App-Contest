@@ -30,11 +30,12 @@ List<NotiData> list=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
         noti=(RecyclerView)findViewById(R.id.noti);
+        ImageView back;
         back=(ImageView)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onBackPressed();
             }
         });
 noti.setLayoutManager(new LinearLayoutManager(this));

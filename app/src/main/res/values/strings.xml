@@ -101,6 +101,32 @@
         <item>Rangpur</item>
         <item>Barishal</item>
     </string-array>
+    <string-array name="TypeM">
+        <item>Liquid</item>
+        <item>Tablets</item>
+        <item>Capsules</item>
+        <item>Topical medicines</item>
+        <item>Suppositories</item>
+        <item>Drops</item>
+        <item>Inhalers</item>
+        <item>Injections</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="What">
+        <item>Covid-19</item>
+        <item>Women Care</item>
+        <item>Devices</item>
+        <item>Homeopathy</item>
+        <item>Nutrition</item>
+        <item>Vitamins</item>
+        <item>Heart</item>
+        <item>Cancer</item>
+        <item>Diabetes</item>
+        <item>Penumonia</item>
+        <item>Mental</item>
+        <item>Phycology</item>
+        <item>Others</item>
+    </string-array>
     <string name="title_activity_statistices">Statistices</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

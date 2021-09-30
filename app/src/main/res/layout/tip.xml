@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="90dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    android:id="@+id/tr"
+    android:layout_marginRight="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/covid19"
+            android:layout_gravity="center"
+            android:id="@+id/ph"></de.hdodenhof.circleimageview.CircleImageView>
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textStyle="bold"
+       android:id="@+id/he"
+       android:textAlignment="center"
+       android:textSize="16sp"
+       android:textColor="#000"
+       android:layout_marginTop="10dp"></TextView>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -126,7 +126,7 @@ public class RegisterScreenActivity extends AppCompatActivity {
                                                                     if (task4.isSuccessful()) {
                                                                         String token = Objects.requireNonNull(task4.getResult()).getToken();
                                                                         SessionManager sh=new SessionManager(RegisterScreenActivity.this,SessionManager.USERSESSION);
-                                                                        sh.loginSession(name,email,"No",password,path,"No",token,"No","No");
+                                                                        sh.loginSession(name,email,"No",password,path,"No",token,"No","No","Normal","No");
 
                                                                         startActivity(new Intent(RegisterScreenActivity.this,LoginScreenActivity.class).putExtra("Work","Reg"));
                                                                     }

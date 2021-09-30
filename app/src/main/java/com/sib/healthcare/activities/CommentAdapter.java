@@ -38,7 +38,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Comment>
 
     @Override
     public void onBindViewHolder(@NonNull Comment holder, int i) {
-        Toast.makeText(c,list.size()+"",Toast.LENGTH_LONG).show();
+       //Toast.makeText(c,list.size()+"",Toast.LENGTH_LONG).show();
 
         holder.profile_name.setText(list.get(i).getName());
         holder.date.setText(list.get(i).getTimed());
