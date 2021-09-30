@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.sib.healthcare.R;
 import com.squareup.picasso.Picasso;
 
@@ -34,8 +37,12 @@ CircleImageView profile_image;
         blood1.setText(blood+" blood is needed at "+address+".");
         profile_name.setText(name);
         contact1.setText("Contact number: "+contact);
-        Picasso.get().load(url).fit().centerCrop().into(profile_image);
-
+        StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
+        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+            //  Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+            Glide.with(this).load(uri).into(profile_image);
+        });
 
     }
 }

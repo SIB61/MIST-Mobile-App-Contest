@@ -56,7 +56,7 @@ LinearLayout snack;
         type=(TextView)findViewById(R.id.type);
         no=(TextView)findViewById(R.id.no);
         donor.setLayoutManager(new LinearLayoutManager(this));
-        post = new DonorAdapter(getApplicationContext(), list,snack);
+        post = new DonorAdapter(ShowDonors.this, list,snack);
         donor.setAdapter(post);
         a.setOnClickListener(new View.OnClickListener() {
             @Override

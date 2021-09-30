@@ -52,16 +52,17 @@
             android:textStyle="bold"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"></TextView>
-        <Button
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/chat"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Chat"
-            android:background="@drawable/button"
-            android:textColor="#fff"
-            android:textSize="14sp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:id="@+id/chat"></Button>
+            android:background="@drawable/button"
+            android:text="Call"
+            android:textColor="#fff"
+            android:textSize="14sp"></androidx.appcompat.widget.AppCompatButton>
     </RelativeLayout>
 <TextView
     android:layout_width="match_parent"

@@ -122,7 +122,7 @@ PostsAdapter post;
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+          //  Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
             Glide.with(this).load(uri).into(profile_image);
         });
 
