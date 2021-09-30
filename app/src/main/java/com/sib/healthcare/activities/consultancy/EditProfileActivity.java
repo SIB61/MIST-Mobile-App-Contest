@@ -241,6 +241,8 @@ private MaterialTimePicker timePicker;
             binding.DonorCheckBox.setChecked(false);
             donorInfo(false);
         }
+
+
     }
 
     public void save(View view) {

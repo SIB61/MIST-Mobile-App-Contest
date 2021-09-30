@@ -70,9 +70,9 @@ public class LoginScreenActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Tokens").updateChildren(t);
             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).updateChildren(mp);
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
-        }
+            startActivity(new Intent(getApplicationContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+             }
             else
             {
                 String email1="";
@@ -113,7 +113,7 @@ public class LoginScreenActivity extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                                                 SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
 
-                                                sh.loginSession(name, email, "No", password, Url, "No", snapshot1.child("token").getValue().toString(), "No", "No","Normal","No");
+                                                sh.loginSession(name, email, "No", password, Url, "No", snapshot1.child("token").getValue().toString(), "No", "No","no","no");
 
                                             }
 
@@ -123,10 +123,9 @@ public class LoginScreenActivity extends AppCompatActivity {
                                             }
                                         });
                                       }
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     finish();
+                                    startActivity(new Intent(getApplicationContext(), MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                 }
-
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
 
@@ -183,7 +182,6 @@ public class LoginScreenActivity extends AppCompatActivity {
         if(e.isEmpty())
         {
             Toast.makeText(this,"Please enter your email to get password reset link",Toast.LENGTH_SHORT).show();
-
         }
         else if(!Patterns.EMAIL_ADDRESS.matcher(e).matches())
         {
@@ -193,7 +191,6 @@ public class LoginScreenActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().sendPasswordResetEmail(e).addOnSuccessListener( unused -> {
                 Toast.makeText(this, "Password reset email sent", Toast.LENGTH_SHORT).show();
             });
-
         }
     }
 }

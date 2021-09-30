@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             } else {
                 startActivity(new Intent(getApplicationContext(), OwnerProfile.class));
-                finish();
             }
         }
     }

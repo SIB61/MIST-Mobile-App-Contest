@@ -97,7 +97,7 @@ private FirestoreRecyclerAdapter<ChatModel,RecyclerView.ViewHolder> adapter;
                 return getItem(position).getType();
             }
         };
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(ChatActivity.this,LinearLayoutManager.VERTICAL,false));
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(ChatActivity.this,LinearLayoutManager.VERTICAL,true));
         binding.recyclerView.setAdapter(adapter);
         adapter.startListening();
     }
