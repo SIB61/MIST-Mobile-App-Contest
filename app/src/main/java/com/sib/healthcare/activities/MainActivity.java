@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.sib.healthcare.activities.consultancy.EditProfileActivity;
 import com.sib.healthcare.covid_section.covid_main_activity;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -76,4 +79,35 @@ public class MainActivity extends AppCompatActivity {
         public void goToAboutUs (View view){
         }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder  builder = new AlertDialog.Builder(this);
+
+        builder = new AlertDialog.Builder(this);
+
+        builder.setMessage("Are you sure you want to exit??")
+                .setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent a = new Intent(Intent.ACTION_MAIN);
+                        a.addCategory(Intent.CATEGORY_HOME);
+                        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(a);
+                        finish();
+
+////            finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        //Setting the title manually
+        alert.setTitle("Exit?");
+        alert.show();
+    }
 }

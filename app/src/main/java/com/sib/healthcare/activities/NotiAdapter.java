@@ -30,6 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
     Context c;
     List<NotiData> list;
+    String comm;
     public NotiAdapter(Context c, List<NotiData>list){
         this.c=c;
         this.list=list;
@@ -96,10 +97,22 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
                 FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Clicked").
                         child(list.get(i).getDate()+" "+list.get(i).getTime()).updateChildren(op);
                 holder.change.setBackgroundResource(R.color.White);
-               c.startActivity(new Intent(c,ShowPosts.class).putExtra("Name",list.get(i).getName1()).putExtra("Address",list.get(i).getLocation()+" "+list.get(i).getDistrict()
-               ).putExtra("Url",list.get(i).getUrl()).putExtra("Contact",list.get(i).getPhone()).putExtra("Patient",list.get(i).getPatientName()).
-                       putExtra("Disease",list.get(i).getDisease())
-               .putExtra("Blood",list.get(i).getBlood()));
+                if(list.get(i).getDivision().contains("Urgent")) {
+                    c.startActivity(new Intent(c, ShowPosts.class).putExtra("Name", list.get(i).getName1()).putExtra("Address", list.get(i).getLocation() + " " + list.get(i).getDistrict()
+                    ).putExtra("Url", list.get(i).getUrl()).putExtra("Contact", list.get(i).getPhone()).putExtra("Patient", list.get(i).getPatientName()).
+                            putExtra("Disease", list.get(i).getDisease()).putExtra("Email", list.get(i).getEmail())
+                            .putExtra("Blood", list.get(i).getBlood()).putExtra("Time", list.get(i).getTime()).putExtra("Date", list.get(i).getDate()));
+
+                }
+                else
+                {
+                    c.startActivity(new Intent(c,Comment.class).putExtra("Date",list.get(i).getDate()).
+                            putExtra("Gh",list.get(i).getTime()).putExtra("Email",list.get(i).getEmail()).
+                            putExtra("Dis",list.get(i).getDistrict()).putExtra("Div",list.get(i).getDivision())
+                            .putExtra("Blood",list.get(i).getBlood()).putExtra("Patient",list.get(i).getPatientName())
+                            .putExtra("Pat",list.get(i).getPhone()).putExtra("Location",list.get(i).getLocation())
+                            .putExtra("Url",list.get(i).getUrl())   .putExtra("Disease",list.get(i).getDisease()));
+                }
             }
         });
 

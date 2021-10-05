@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -48,8 +49,9 @@ TextView bname,des,mname,pr,price,c,count;
     Button dec,inc,buy;
     RelativeLayout scart;
     String se;
+    Button fav;
     LinearLayout ca;
-    RelativeLayout ert;
+    RelativeLayout ert,snack;
 List<Med> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ List<Med> list=new ArrayList<>();
         HashMap<String, String> hm = sh.returnData();
         email = hm.get(SessionManager.EMAIL);
         name = hm.get(SessionManager.FULLNAME);
+        fav=(Button) findViewById(R.id.fav);
         email1 = "";
         for (int i = 0; i < email.length(); i++) {
             if (email.charAt(i) == '@')
@@ -75,6 +78,9 @@ List<Med> list=new ArrayList<>();
                 onBackPressed();
             }
         });
+
+
+        snack=(RelativeLayout) findViewById(R.id.snack);
         url = hm.get(SessionManager.URL);
         Mname=getIntent().getStringExtra("Mname");
         Qua=getIntent().getStringExtra("Qua");
@@ -205,7 +211,68 @@ List<Med> list=new ArrayList<>();
                 }
             }
         });
+        FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Fav").child(Ran).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChildren())
+                    fav.setText("Remove from Favorites");
+                else
+                    fav.setText("Add to Favorites");
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(fav.getText().toString().contains("Add"))
+                {
+
+                    HashMap map=new HashMap();
+                    map.put("Name",Name);
+                    map.put("Ran",Ran);
+                    map.put("BNAME",bname.getText().toString());
+                    FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Fav").child(Ran).setValue(map);
+                    fav.setText("Remove From Favorites");
+                    @SuppressLint("ResourceAsColor") Snackbar snackbar = Snackbar.make(snack, "Added to Favorites", Snackbar.LENGTH_SHORT)
+                            .setAction("UNDO", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Snackbar snackbar1 = Snackbar.make(snack, "Removed From Favorites", Snackbar.LENGTH_SHORT);
+                                    snackbar1.show();
+                                }
+                            })
+                            .setActionTextColor(R.color.Blood);
+
+         /*   View snackView = snackbar.getView();
+            TextView textView = snackView.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);*/
+
+                    snackbar.show();
+
+                }
+                else
+                {
+                    // Toast.makeText(getApplicationContext(),"Removed",Toast.LENGTH_LONG).show();
+                    @SuppressLint("ResourceAsColor") Snackbar snackbar = Snackbar.make(snack, "Removed From Favorites", Snackbar.LENGTH_SHORT)
+                            .setAction("UNDO", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Snackbar snackbar1 = Snackbar.make(snack, "Removed From Favorites", Snackbar.LENGTH_SHORT);
+                                    snackbar1.show();
+                                }
+                            })
+                            .setActionTextColor(R.color.Blood);
+                    snackbar.show();
+                    fav.setText("Add To Favorites");
+                    FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Fav").child(Ran).removeValue();
+
+                }
+            }
+        });
         buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

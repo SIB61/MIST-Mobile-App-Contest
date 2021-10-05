@@ -89,7 +89,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
                     @Override
                     public void onClick(View view) {
                         Toast.makeText(c,finalSe1,Toast.LENGTH_LONG).show();
-                       c.startActivity(new Intent(c,Posting.class).putExtra("Date",list.get(i).getDate()+" "+list.get(i).getGh()).
+                       c.startActivity(new Intent(c,Posting.class).putExtra("Date",list.get(i).getDate()+" "+list.get(i).getTime()).
                                 putExtra("Work","Edit").putExtra("Month", finalSe));
                     }
                 });
@@ -127,7 +127,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
             @Override
             public void onClick(View view) {
                 c.startActivity(new Intent(c,Comment.class).putExtra("Date",list.get(i).getDate()).
-                        putExtra("Gh",list.get(i).getGh()).putExtra("Email",list.get(i).getEmail()).
+                        putExtra("Gh",list.get(i).getTime()).putExtra("Email",list.get(i).getEmail()).
                         putExtra("Dis",list.get(i).getDistrict()).putExtra("Div",list.get(i).getDivision())
                     .putExtra("Blood",list.get(i).getBlood()).putExtra("Patient",list.get(i).getPatientName())
                         .putExtra("Pat",list.get(i).getPhone()).putExtra("Location",list.get(i).getLocation())

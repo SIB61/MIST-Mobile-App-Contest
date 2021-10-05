@@ -6,6 +6,9 @@
     <item android:id="@+id/donors"
         android:title="Orders"
         android:icon="@drawable/ic_baseline_donut_large_24" />
+    <item android:id="@+id/fav"
+        android:title="Fav"
+        android:icon="@drawable/fav" />
     <item android:id="@+id/noti"
         android:title="Know"
         android:icon="@drawable/ic_baseline_notifications_active_24" />

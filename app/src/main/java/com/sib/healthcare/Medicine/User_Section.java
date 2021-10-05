@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -44,6 +45,7 @@ public class User_Section extends AppCompatActivity {
     TextView co, wo, de, ho, nu, vi, he, ca, dia, pn, me, ot, count, All;
     RelativeLayout scart;
     EditText se;
+    SwipeRefreshLayout refresh;
     ImageView search, cart;
     Button add;
     List<Med> list = new ArrayList<>();
@@ -91,14 +93,15 @@ public class User_Section extends AppCompatActivity {
                 {
                     startActivity(new Intent(User_Section.this, medicine_main_activity.class));
                 }
-                else if(item.getItemId()==R.id.profile)
+                else if(item.getItemId()==R.id.fav)
                 {
-                    //  startActivity(new Intent(UserPrfofilew.this, WatchLater.class));
+                     startActivity(new Intent(User_Section.this, Favorite.class));
 
                 }
             }
         });
         co = (TextView) findViewById(R.id.co);
+        refresh = (SwipeRefreshLayout) findViewById(R.id.refresh);
         All = (TextView) findViewById(R.id.All);
         count = (TextView) findViewById(R.id.count);
         scart = (RelativeLayout) findViewById(R.id.scart);
@@ -113,6 +116,13 @@ public class User_Section extends AppCompatActivity {
         name = hm.get(SessionManager.FULLNAME);
         url = hm.get(SessionManager.URL);
         email1 = "";
+        refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                startActivity(new Intent(getApplicationContext(),User_Section.class));
+                finish();
+            }
+        });
         for (int i = 0; i < email.length(); i++) {
             if (email.charAt(i) == '@')
                 break;
@@ -500,6 +510,13 @@ public class User_Section extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
 
     }
 }

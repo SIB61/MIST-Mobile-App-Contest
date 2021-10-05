@@ -5,17 +5,21 @@
       <map>
         <entry key="..\:/Main/app/src/main/res/drawable/cart.xml" value="0.14635416666666667" />
         <entry key="..\:/Main/app/src/main/res/drawable/delete.xml" value="0.14791666666666667" />
+        <entry key="..\:/Main/app/src/main/res/drawable/fav.xml" value="0.2703125" />
         <entry key="..\:/Main/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.14635416666666667" />
         <entry key="..\:/Main/app/src/main/res/drawable/text.xml" value="0.11041666666666666" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_add_medicine.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_aksing.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_comment.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_edit_profile.xml" value="0.12916666666666668" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_favorite.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_med_adapter.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_orders_re.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_owner_profile.xml" value="0.13020833333333334" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_posting.xml" value="0.17527173913043478" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_postsand_watch.xml" value="0.16168478260869565" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_proceed.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_show_posts.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_product.xml" value="0.13177083333333334" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_results.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_splash_screen.xml" value="0.151268115942029" />
