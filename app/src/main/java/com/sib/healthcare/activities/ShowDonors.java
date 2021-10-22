@@ -118,7 +118,8 @@ LinearLayout snack;
                                public void onCancelled(@NonNull DatabaseError error) {
 
                                }
-                           });Toast.makeText(getApplicationContext(),k+"Se",Toast.LENGTH_LONG).show();
+                           });
+                            //Toast.makeText(getApplicationContext(),k+"Se",Toast.LENGTH_LONG).show();
 
 if(k==0)
 {

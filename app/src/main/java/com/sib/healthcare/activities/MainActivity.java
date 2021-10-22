@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, EditProfileActivity.class).putExtra("userDataModel", userDataModel));
         }
         public void goToAboutUs (View view){
+        startActivity(new Intent(this,AboutUsActivity.class));
         }
 
     @Override

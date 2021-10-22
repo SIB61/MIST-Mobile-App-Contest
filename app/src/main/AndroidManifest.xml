@@ -21,8 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".activities.SurokkhaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.AboutUsActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".Medicine.medicine_main_activity"
             android:exported="true" />

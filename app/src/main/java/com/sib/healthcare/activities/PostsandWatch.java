@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +16,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,8 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.sib.healthcare.Medicine.User_Section;
-import com.sib.healthcare.activities.consultancy.EditProfileActivity;
 import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
 
@@ -86,26 +82,18 @@ PostsAdapter post;
          dis=hm.get(SessionManager.DISTRICT);
          div=hm.get(SessionManager.DIVISION);
         bm = (BottomNavigationView) findViewById(R.id.bottomnav);
-        bm.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bm.setOnItemSelectedListener((new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                if (item.getItemId()== R.id.s) {
-                    startActivity(new Intent(PostsandWatch.this, MainActivity.class));
-                }  else if (item.getItemId() == R.id.donors) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.donors) {
                     startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
-
-                }
-                else if(item.getItemId()==R.id.noti)
-                {
+                } else if (item.getItemId() == R.id.noti) {
                     startActivity(new Intent(PostsandWatch.this, Notifications.class));
                 }
-                else if(item.getItemId()==R.id.profile)
-                {
-                  //  startActivity(new Intent(UserPrfofilew.this, WatchLater.class));
-
-                }
+                return true;
             }
-        });
+        }));
+
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {

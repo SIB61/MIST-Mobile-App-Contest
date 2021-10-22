@@ -46,6 +46,11 @@ private StorageReference storageReference;
         }
         binding.buttonDP.setOnClickListener( v -> {
             try {
+                if(userDataModel.getuId().equals(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()))
+                {
+                    startActivity(new Intent(this, EditProfileActivity.class).putExtra("userDataModel", userDataModel));
+                }
+                else
                 startActivity(new Intent(this, AppointmentBookingActivity.class).putExtra("userDataModel", userDataModel));
             }
             catch (Exception e){

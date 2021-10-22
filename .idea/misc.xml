@@ -35,10 +35,15 @@
         <entry key="app/src/main/res/drawable/bg.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/round20.xml" value="0.18755555555555556" />
         <entry key="app/src/main/res/drawable/top_left20.xml" value="0.10045045045045045" />
+        <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_add_medicine.xml" value="0.17149122807017544" />
+        <entry key="app/src/main/res/layout/activity_aksing.xml" value="0.17149122807017544" />
         <entry key="app/src/main/res/layout/activity_appointment_booking.xml" value="0.17612612612612613" />
         <entry key="app/src/main/res/layout/activity_ask_specialists.xml" value="0.11171171171171171" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.17149122807017544" />
         <entry key="app/src/main/res/layout/activity_comment.xml" value="0.17612612612612613" />
         <entry key="app/src/main/res/layout/activity_cons_first.xml" value="0.11" />
+        <entry key="app/src/main/res/layout/activity_covid_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_doctor_list.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_doctor_profile.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_dr_appointment_list.xml" value="0.11171171171171171" />
@@ -47,10 +52,12 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="app/src/main/res/layout/activity_notification.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.17612612612612613" />
+        <entry key="app/src/main/res/layout/activity_postsand_watch.xml" value="0.1111111111111111" />
         <entry key="app/src/main/res/layout/activity_register_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_show_posts.xml" value="0.17612612612612613" />
         <entry key="app/src/main/res/layout/activity_solutions.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_surokkha.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout/appointment_list_item.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/ask_specialist_list_item.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/comments.xml" value="0.17612612612612613" />
@@ -59,7 +66,10 @@
         <entry key="app/src/main/res/layout/question_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/solution_item.xml" value="0.22" />
         <entry key="app/src/main/res/layout/top_dr_list_item.xml" value="0.17612612612612613" />
+        <entry key="app/src/main/res/menu/as_menu.xml" value="0.14629629629629629" />
+        <entry key="app/src/main/res/menu/edit1.xml" value="0.21" />
         <entry key="app/src/main/res/menu/main_bar_menu.xml" value="0.17612612612612613" />
+        <entry key="app/src/main/res/menu/nav1.xml" value="0.1111111111111111" />
       </map>
     </option>
   </component>

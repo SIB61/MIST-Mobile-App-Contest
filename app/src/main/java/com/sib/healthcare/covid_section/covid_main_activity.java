@@ -16,6 +16,7 @@ import android.widget.Spinner;
 
 import com.sib.healthcare.activities.MainActivity;
 import com.sib.healthcare.R;
+import com.sib.healthcare.activities.SurokkhaActivity;
 
 public class covid_main_activity extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class covid_main_activity extends AppCompatActivity {
     Spinner spinner;
     Button stat;
     Button call_nowBtn;
+    Button surokkhaBtn;
     ImageView call_nowCancleBtn;
     View back_to_home;
 
@@ -36,7 +38,11 @@ public class covid_main_activity extends AppCompatActivity {
         stat = findViewById(R.id.stat);
         call_nowBtn = findViewById(R.id.covid_main_activity_call_nowbtn);
         back_to_home = findViewById(R.id.covid_statistics_activity_back);
+        surokkhaBtn=findViewById(R.id.button2);
 
+        surokkhaBtn.setOnClickListener(v -> {
+         // startActivity(new Intent(this, SurokkhaActivity.class));
+        });
 
         spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
                 CountryData.countryNames));

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/s"
+  <!--  <item android:id="@+id/s"
         android:title="Posts"
-        android:icon="@drawable/create" />
+        android:icon="@drawable/create" /> -->
     <item android:id="@+id/donors"
         android:title="Donors"
         android:icon="@drawable/ic_baseline_donut_large_24" />
