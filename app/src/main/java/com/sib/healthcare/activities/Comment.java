@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.sib.healthcare.R;
 
@@ -32,7 +34,9 @@ String need="";
 AutoCompleteTextView write;
 String names[]=new String[10000];
 String token[]=new String[10000];
+String ems[]=new String[10000];
 CommentAdapter ca;
+String em123="";
 ImageView send;
 List<CommnetsData> list=new ArrayList<>();
 String gh,date,alemail,email,name,url,email1,dis,div,email2,blood,phone,patient,location,Url,disease;
@@ -88,6 +92,7 @@ ArrayAdapter<String> adapter;
                 {
                     names[co]=s.child("name").getValue().toString();
                     token[co]=s.child("token").getValue().toString();
+                    ems[co]=s.child("email").getValue().toString();
             //        Toast.makeText(getApplicationContext(),write.getText().toString(),Toast.LENGTH_LONG).show();
                     co++;
                 }
@@ -149,9 +154,16 @@ send.setOnClickListener(new View.OnClickListener() {
                d++;
                mention=names[i];
                t=token[i];
+               em123=ems[i];
 
                break;
             }
+        }
+       String em1234="";
+        for (int i = 0; i < em123.length(); i++) {
+            if (em123.charAt(i) == '@')
+                break;
+            em1234 += em123.charAt(i);
         }
         if (d == 0)
             mention = "No";
@@ -190,6 +202,7 @@ send.setOnClickListener(new View.OnClickListener() {
         String finalMain = mention;
         String finalT = t;
         String finalMention = mention;
+        String finalEm123 = em1234;
         FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Tokens").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -223,16 +236,31 @@ send.setOnClickListener(new View.OnClickListener() {
                         child(cday + " " + finalMonth + " " + cy + " " + gh).child(cday + " " + finalMonth + " " + cy + " " + time).setValue(cd);
                 NotiData nd = new NotiData(blood, patient,disease ,
                         location, phone, cday + " " + finalMonth + " " + cy, url, name, email, dis, name + " commented on your post", time, name, gh + "");
+
+
+
                 FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op);
                 FirebaseDatabase.getInstance().getReference("Users").child(email2).child("Notifications").
                         child(cday + " " + finalMonth + " " + cy + " " + time).setValue(nd);
-                  Toast.makeText(getApplicationContext(),need+"",Toast.LENGTH_LONG).show();
+                  //Toast.makeText(getApplicationContext(),need+"",Toast.LENGTH_LONG).show();
                 FcmNotificationsSender fcm = new FcmNotificationsSender(need, "Comments", name + " commented on your post", getApplicationContext(), Comment.this);
                 // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
                 fcm.SendNotifications();
-                FcmNotificationsSender fcm1 = new FcmNotificationsSender(finalT, "Comments", name + " mentioned you in a comment", getApplicationContext(), Comment.this);
-                // Toast.makeText(getApplicationContext(), dn.getToken(), Toast.LENGTH_LONG).show();
-                fcm1.SendNotifications();
+                Log.d("TAG",finalT);
+                if(finalT!=null) {
+                    HashMap op1 = new HashMap();
+                    op.put("Clicked", "No");
+                    FirebaseDatabase.getInstance().getReference("Users").child(finalEm123).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op);
+
+                    NotiData nd1 = new NotiData(blood, patient, disease,
+                            location, phone, cday + " " + finalMonth + " " + cy, url, name, finalEm123, dis, name + " mentioned you in a comment", time, name, gh + "");
+                    FirebaseDatabase.getInstance().getReference("Users").child(finalEm123).child("Notifications").
+                            child(cday + " " + finalMonth + " " + cy + " " + time).setValue(nd1);
+
+                    FcmNotificationsSender fcm1 = new FcmNotificationsSender(finalT, "Comments", name + " mentioned you in a comment", getApplicationContext(), Comment.this);
+                     Toast.makeText(getApplicationContext(), finalEm123, Toast.LENGTH_LONG).show();
+                    fcm1.SendNotifications();
+                }
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
                 write.setText("");
             }

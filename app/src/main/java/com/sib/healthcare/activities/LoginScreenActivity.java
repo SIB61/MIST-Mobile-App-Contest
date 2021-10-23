@@ -61,8 +61,10 @@ public class LoginScreenActivity extends AppCompatActivity {
             String finalEmail = email1;
             HashMap t = new HashMap();
             t.put("token", token);
+            mp.put("token1", token);
             HashMap iu = new HashMap();
             iu.put("token", token);
+            iu.put("email", finalEmail);
             Random rn = new Random();
             long yh = rn.nextInt(10000000);
             iu.put("name", name);
