@@ -92,26 +92,24 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
         holder.change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap op=new HashMap();
-                op.put("Clicked","Yes");
+                HashMap op = new HashMap();
+                op.put("Clicked", "Yes");
                 FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Clicked").
-                        child(list.get(i).getDate()+" "+list.get(i).getTime()).updateChildren(op);
+                        child(list.get(i).getDate() + " " + list.get(i).getTime()).updateChildren(op);
                 holder.change.setBackgroundResource(R.color.White);
-                if(list.get(i).getDivision().contains("Urgent")) {
+                if (list.get(i).getDivision().contains("Urgent")) {
                     c.startActivity(new Intent(c, ShowPosts.class).putExtra("Name", list.get(i).getName1()).putExtra("Address", list.get(i).getLocation() + " " + list.get(i).getDistrict()
                     ).putExtra("Url", list.get(i).getUrl()).putExtra("Contact", list.get(i).getPhone()).putExtra("Patient", list.get(i).getPatientName()).
                             putExtra("Disease", list.get(i).getDisease()).putExtra("Email", list.get(i).getEmail())
                             .putExtra("Blood", list.get(i).getBlood()).putExtra("Time", list.get(i).getTime()).putExtra("Date", list.get(i).getDate()));
 
-                }
-                else
-                {
-                    c.startActivity(new Intent(c,Comment.class).putExtra("Date",list.get(i).getDate()).
-                            putExtra("Gh",list.get(i).getTime()).putExtra("Email",list.get(i).getEmail()).
-                            putExtra("Dis",list.get(i).getDistrict()).putExtra("Div",list.get(i).getDivision())
-                            .putExtra("Blood",list.get(i).getBlood()).putExtra("Patient",list.get(i).getPatientName())
-                            .putExtra("Pat",list.get(i).getPhone()).putExtra("Location",list.get(i).getLocation())
-                            .putExtra("Url",list.get(i).getUrl())   .putExtra("Disease",list.get(i).getDisease()));
+                } else {
+                    c.startActivity(new Intent(c, Comment.class).putExtra("Date", list.get(i).getDate()).
+                            putExtra("Gh", list.get(i).getGh()).putExtra("Email", list.get(i).getEmail()).
+                            putExtra("Dis", list.get(i).getDistrict()).putExtra("Div", list.get(i).getDivision())
+                            .putExtra("Blood", list.get(i).getBlood()).putExtra("Patient", list.get(i).getPatientName())
+                            .putExtra("Pat", list.get(i).getPhone()).putExtra("Location", list.get(i).getLocation())
+                            .putExtra("Url", list.get(i).getUrl()).putExtra("Disease", list.get(i).getDisease()).putExtra("Noti", list.get(i).getTime()));
                 }
             }
         });
