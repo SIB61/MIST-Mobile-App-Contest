@@ -250,7 +250,7 @@ send.setOnClickListener(new View.OnClickListener() {
                 if(finalT!=null) {
                     HashMap op1 = new HashMap();
                     op.put("Clicked", "No");
-                    FirebaseDatabase.getInstance().getReference("Users").child(finalEm123).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op);
+                    FirebaseDatabase.getInstance().getReference("Users").child(finalEm123).child("Clicked").child(cday + " " + finalMonth + " " + cy + " " + time).setValue(op1);
 
                     NotiData nd1 = new NotiData(blood, patient, disease,
                             location, phone, cday + " " + finalMonth + " " + cy, url, name, finalEm123, dis, name + " mentioned you in a comment", time, name, gh + "");
