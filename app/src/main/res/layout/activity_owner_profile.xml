@@ -244,6 +244,7 @@
             android:textStyle="bold"
             android:textColor="@color/Blood"
             android:textSize="16dp"
+            android:visibility="gone"
             android:layout_marginBottom="30dp"
             ></TextView>
         <GridView
@@ -254,6 +255,7 @@
             android:background="#fff"
             android:numColumns="2"
             android:verticalSpacing="20dp"
+            android:visibility="gone"
             android:horizontalSpacing="10dp"
             android:layout_marginBottom="20dp">
         </GridView>

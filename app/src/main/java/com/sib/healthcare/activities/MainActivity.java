@@ -12,6 +12,7 @@ import com.sib.healthcare.Medicine.medicine_main_activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.sib.healthcare.activities.consultancy.EditProfileActivity;
+import com.sib.healthcare.activities.profile.ProfileActivity;
 import com.sib.healthcare.covid_section.covid_main_activity;
 
 import android.app.AlertDialog;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
         public void goToProfile (View view){
-            startActivity(new Intent(this, EditProfileActivity.class).putExtra("userDataModel", userDataModel));
+            startActivity(new Intent(this, ProfileActivity.class));
         }
         public void goToAboutUs (View view){
         startActivity(new Intent(this,AboutUsActivity.class));

@@ -69,6 +69,8 @@ TextView profile_name,location,phone;
     Button change;
     String sEmail,sPass;
     String p1="";
+    String pNames[]=new String[10000];
+    int coi=0;
     int cday,cmonth;
     String month;
 Button pay;

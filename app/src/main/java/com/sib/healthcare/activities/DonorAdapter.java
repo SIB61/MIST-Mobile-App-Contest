@@ -44,7 +44,7 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.Donors> {
 
     @Override
     public void onBindViewHolder(@NonNull Donors holder, @SuppressLint("RecyclerView") int i) {
-        Toast.makeText(c,list.size()+" ",Toast.LENGTH_LONG).show();
+      //  Toast.makeText(c,list.size()+" ",Toast.LENGTH_LONG).show();
 
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);

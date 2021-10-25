@@ -60,7 +60,8 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
 
 
         }
-       Toast.makeText(c, donor, Toast.LENGTH_LONG).show();
+      //
+        // Toast.makeText(c, donor, Toast.LENGTH_LONG).show();
         FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Clicked").child(list.get(i).getDate()+" "+list.get(i).getTime()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

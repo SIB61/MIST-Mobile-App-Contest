@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthCare">
         <activity
+            android:name=".Medicine.Edit_Medicine"
+            android:exported="true" />
+        <activity
             android:name=".activities.SurokkhaActivity"
             android:exported="false" />
         <activity
@@ -118,6 +121,7 @@
         <activity android:name=".Medicine.TrShow" />
         <activity android:name=".Medicine.ShowResults" />
         <activity android:name=".Medicine.Favorite" />
+        <activity android:name=".activities.profile.ProfileActivity" />
 
         <service
             android:name=".activities.FirebaseMessagingService"

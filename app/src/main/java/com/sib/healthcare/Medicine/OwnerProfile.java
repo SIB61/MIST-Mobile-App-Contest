@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -52,6 +54,8 @@ String email,email1="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_owner_profile);
         co=(TextView) findViewById(R.id.co);
         All=(TextView) findViewById(R.id.All);
@@ -390,26 +394,6 @@ add.setOnClickListener(new View.OnClickListener() {
                     ot.setVisibility(View.GONE);
                     rot.setVisibility(View.GONE);
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        FirebaseDatabase.getInstance().getReference("All").child(email1).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChildren()) {
-                    list15.clear();
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        Med me = ds.getValue(Med.class);
-                        list15.add(me);
-                    }
-                  m1=new GridAdapter(OwnerProfile.this,list15);
-                    RAll.setAdapter(m1);
-                }
-
             }
 
             @Override

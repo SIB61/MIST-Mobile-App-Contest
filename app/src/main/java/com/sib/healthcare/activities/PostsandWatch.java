@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.sib.healthcare.activities.profile.ProfileActivity;
 import com.sib.healthcare.models.UserDataModel;
 import com.sib.healthcare.R;
 
@@ -89,6 +90,9 @@ PostsAdapter post;
                     startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
                 } else if (item.getItemId() == R.id.noti) {
                     startActivity(new Intent(PostsandWatch.this, Notifications.class));
+                }
+                else if (item.getItemId() == R.id.profile) {
+                    startActivity(new Intent(PostsandWatch.this, ProfileActivity.class));
                 }
                 return true;
             }
