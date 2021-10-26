@@ -35,7 +35,8 @@
             android:onClick="back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/back_arraw_white"/>
+            app:srcCompat="@drawable/back_arraw_white" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -79,8 +80,8 @@
             android:id="@+id/covid_main_activity_call_nowbtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/covid_button_ripple_effect"
             android:backgroundTint="@color/design_default_color_error"
             android:drawableLeft="@drawable/covid_call_icon"
@@ -98,7 +99,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-     <!--   <com.google.android.material.button.MaterialButton
+        <!--   <com.google.android.material.button.MaterialButton
             android:id="@+id/button2"
             android:layout_width="146dp"
             android:layout_height="wrap_content"
@@ -180,9 +181,6 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 
-
-
-
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
@@ -198,24 +196,41 @@
 
 
         <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
+            android:id="@+id/imageView8"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            app:srcCompat="@drawable/cough" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:srcCompat="@drawable/covid_own_test" />
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            app:srcCompat="@drawable/breathing" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView20"
+            app:srcCompat="@drawable/fever" />
 
         <Button
             android:id="@+id/stat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/backg"
             android:backgroundTint="#F31C1C"
@@ -228,16 +243,67 @@
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.477"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stat" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cough"
+            android:fontFamily="@font/graphikmedium"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fever"
+            android:fontFamily="@font/graphikmedium"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView6"
+            app:layout_constraintStart_toStartOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stat"
-        app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breathing \nproblem"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/graphikmedium"
+            app:layout_constraintEnd_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="@+id/imageView7"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symptoms"
+            android:textSize="20sp"
+            android:layout_marginVertical="20dp"
+            android:fontFamily="@font/graphikmedium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

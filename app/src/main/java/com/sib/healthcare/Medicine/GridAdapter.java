@@ -1,6 +1,7 @@
 package com.sib.healthcare.Medicine;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,13 +63,12 @@ public class GridAdapter extends BaseAdapter {
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
          //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            try{
+            try {
                 Glide.with(c).load(uri).into(ph);
             }
             catch (Exception e){
-
+                Log.d("TAG", "getView: GridAdapter");
             }
-
         });
 
         name.setText(list.get(i).getMname());

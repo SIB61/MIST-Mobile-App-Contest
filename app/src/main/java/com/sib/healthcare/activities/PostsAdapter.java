@@ -105,8 +105,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
                                 child(list.get(i).getDate()+" "+list.get(i).getGh()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-
-                                Toast.makeText(c,"Post deleted successflly!!",Toast.LENGTH_LONG).show();
+                                Toast.makeText(c,"Post deleted successflly",Toast.LENGTH_LONG).show();
                             }
                         });
                     }
