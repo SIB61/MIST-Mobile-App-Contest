@@ -282,7 +282,7 @@ public class User_Section extends AppCompatActivity {
                         list3.add(me);
                     }
                     rho.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-                    m = new MedAdapter(User_Section.this, list2,"Us");
+                    m = new MedAdapter(User_Section.this, list3,"Us");
                     rho.setAdapter(m);
                 } else {
                     ho.setVisibility(View.GONE);
