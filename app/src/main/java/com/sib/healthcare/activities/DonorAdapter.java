@@ -50,7 +50,12 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.Donors> {
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             //  Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(holder.profile_image);
+            try{
+                Glide.with(c).load(uri).into(holder.profile_image);
+            }
+            catch (Exception e){
+            }
+
         });
         holder.chat.setOnClickListener(new View.OnClickListener() {
             @Override

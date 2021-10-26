@@ -34,6 +34,14 @@
         <entry key="..\:/Main/app/src/main/res/menu/user.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/drawable/bg.xml" value="0.21979166666666666" />
         <entry key="app/src/main/res/drawable/covid_call_icon.xml" value="0.1850877192982456" />
+        <entry key="app/src/main/res/drawable/covid_closebtn.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_home_screen.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_menu.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_own_test.xml" value="0.209375" />
+        <entry key="app/src/main/res/drawable/covid_sent_smsbc.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_speener.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_statistic_back.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/covid_statisticbtn.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/round20.xml" value="0.18755555555555556" />
         <entry key="app/src/main/res/drawable/top_left20.xml" value="0.10045045045045045" />
         <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.22" />

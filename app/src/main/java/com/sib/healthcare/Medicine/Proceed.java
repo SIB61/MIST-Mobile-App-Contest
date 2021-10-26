@@ -117,7 +117,14 @@ long to=0;
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(getApplicationContext()).load(uri).into(profile_image);
+
+            try{
+                Glide.with(getApplicationContext()).load(uri).into(profile_image);
+            }
+            catch (Exception e){
+
+            }
+
         });
         profile_name.setText(nam);
         location.setText(getIntent().getStringExtra("Location"));
@@ -278,8 +285,6 @@ long to=0;
                 e.printStackTrace();
                 return "error";
             }
-
-
         }
     }
 }

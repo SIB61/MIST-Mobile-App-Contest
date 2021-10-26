@@ -54,7 +54,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.Comment>
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(holder.profile_image);
+            try {
+                Glide.with(c).load(uri).into(holder.profile_image);
+            }
+            catch (Exception e){
+
+            }
+
         });
     }
 

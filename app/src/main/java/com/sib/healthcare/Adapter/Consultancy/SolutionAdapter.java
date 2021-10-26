@@ -10,11 +10,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 public class SolutionAdapter extends FirestoreRecyclerAdapter {
 
-
-
-
-
-
     public SolutionAdapter(@NonNull FirestoreRecyclerOptions options) {
         super(options);
     }

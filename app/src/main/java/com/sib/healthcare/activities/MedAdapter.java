@@ -62,7 +62,14 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MED> {
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
            //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
-            Glide.with(c.getApplicationContext()).load(uri).into(holder.ph);
+
+            try {
+                Glide.with(c.getApplicationContext()).load(uri).into(holder.ph);
+            }
+            catch (Exception e){
+
+            }
+
         });
         holder.name.setText(list.get(i).getMname());
         holder.price.setText(list.get(i).getPrice()+"Tk.");

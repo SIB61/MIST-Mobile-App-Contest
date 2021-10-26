@@ -62,7 +62,13 @@ public class GridAdapter extends BaseAdapter {
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
          //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(ph);
+            try{
+                Glide.with(c).load(uri).into(ph);
+            }
+            catch (Exception e){
+
+            }
+
         });
 
         name.setText(list.get(i).getMname());
