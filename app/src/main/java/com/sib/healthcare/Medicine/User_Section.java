@@ -515,7 +515,7 @@ public class User_Section extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this,MainActivity.class));
-        finish();
+     //   finish();
 
     }
 }

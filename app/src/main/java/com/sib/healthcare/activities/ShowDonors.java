@@ -61,7 +61,8 @@ LinearLayout snack;
         donor.setAdapter(post);
         a.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {   list.clear();
+            public void onClick(View view) {
+                list.clear();
                 post.notifyDataSetChanged();
 
                 A.setBackgroundResource(R.color.White);

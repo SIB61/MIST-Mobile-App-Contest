@@ -77,7 +77,7 @@ PostsAdapter post;
         url=hm.get(SessionManager.URL);
         FirebaseFirestore.getInstance().document("Users/" + FirebaseAuth.getInstance().getUid())
                 .get().addOnSuccessListener(documentSnapshot -> userDataModel = documentSnapshot.toObject(UserDataModel.class));
-     //  Toast.makeText(getApplicationContext(),url,Toast.LENGTH_LONG).show();
+     //   Toast.makeText(getApplicationContext(),url,Toast.LENGTH_LONG).show();
         String donor=hm.get(SessionManager.DONOR);
        //Toast.makeText(getApplicationContext(), donor+"Abid", Toast.LENGTH_LONG).show();
          dis=hm.get(SessionManager.DISTRICT);
