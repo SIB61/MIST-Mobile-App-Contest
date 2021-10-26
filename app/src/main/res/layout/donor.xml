@@ -64,7 +64,18 @@
             android:textColor="#fff"
             android:textSize="14sp"></androidx.appcompat.widget.AppCompatButton>
     </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:id="@+id/emer"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="20dp"></TextView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
