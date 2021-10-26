@@ -71,7 +71,7 @@ public class DonorAdapter extends RecyclerView.Adapter<DonorAdapter.Donors> {
         holder.profile_name.setText(list.get(i).getName());
         holder.blood.setText("Blood Group: "+list.get(i).getBlood());
         holder.address.setText("Address: "+list.get(i).getDistrict()+", "+list.get(i).getDivision());
-        holder.emer.setText(holder.emer.getText().toString()+" "+list.get(i).getPhone());
+        holder.emer.setText("In emergency Please call At:"+list.get(i).getPhone());
     }
 
     @Override

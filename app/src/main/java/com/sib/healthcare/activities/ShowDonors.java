@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.sib.healthcare.R;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +35,7 @@ RecyclerView donor;
 List<Donor> list=new ArrayList<>();
 DonorAdapter post;
 CardView A,B,AB,O,a,b,ab,o;
+int A1=0,B1=0,AB1=0,O1=0,a1=0,b1=0,ab1=0,o1=0;
 TextView type,no;
 String email;
 LinearLayout snack;
@@ -62,6 +67,7 @@ LinearLayout snack;
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 list.clear();
                 post.notifyDataSetChanged();
 
