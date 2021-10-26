@@ -47,7 +47,7 @@ public class Statistics extends AppCompatActivity {
     TextView totall_news;
 
     LinearLayout chartlayout;
-    ImageView flags;
+   // ImageView flags;
     BarChart barChart;
     BarData barData;
     BarDataSet barDataSet;
@@ -113,13 +113,13 @@ public class Statistics extends AppCompatActivity {
         barDataSet.setValueTextSize(12.0f);
 
 
-        flags = findViewById(R.id.flag);
+      //  flags = findViewById(R.id.flag);
 
         updateData(countryCodePicker.getSelectedCountryName());
         back_to_covid_home_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Statistics.this, covid_main_activity.class));
+                onBackPressed();
             }
         });
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Favorite"
+    tools:context=".Medicine.Favorite"
     android:orientation="vertical"
     android:background="#fff"
     android:padding="15dp">
@@ -25,7 +25,7 @@
         android:drawableLeft="@drawable/fav"
         android:drawablePadding="5dp"
         android:textSize="18sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
 
     <GridView
         android:id="@+id/grid"
@@ -33,7 +33,7 @@
         android:horizontalSpacing="20dp"
         android:verticalSpacing="20dp"
         android:layout_height="wrap_content"
-        android:numColumns="2"></GridView>
+        android:numColumns="2"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
         android:textColor="@color/Blood"
         android:id="@+id/no"
         android:textSize="16sp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold"/>
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:textColor="#fff"
             android:background="@drawable/button"
             android:text="Buy Products"
-            android:textStyle="bold"></androidx.appcompat.widget.AppCompatButton>
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

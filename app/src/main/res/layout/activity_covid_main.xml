@@ -32,19 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:onClick="back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_arraw_white"/>
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/covid_statistics_activity_back"
-            app:srcCompat="@drawable/covid_notification_bell" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -57,35 +48,6 @@
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/covid_statistics_activity_back" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/covid_speener"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView">
-
-            <ImageView
-                android:id="@+id/flag"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                app:srcCompat="@drawable/india" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="100dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp" />
-
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/textView2"
@@ -115,27 +77,28 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/covid_main_activity_call_nowbtn"
-            android:layout_width="141dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="20dp"
             android:background="@drawable/covid_button_ripple_effect"
             android:backgroundTint="@color/design_default_color_error"
             android:drawableLeft="@drawable/covid_call_icon"
             android:drawablePadding="8dp"
             android:fontFamily="@font/graphikmedium"
             android:paddingLeft="16dp"
-            android:text="Call Now"
+            android:text="Emergency numbers"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="14sp"
-            app:backgroundTint="#DD3453"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <com.google.android.material.button.MaterialButton
+     <!--   <com.google.android.material.button.MaterialButton
             android:id="@+id/button2"
             android:layout_width="146dp"
             android:layout_height="wrap_content"
@@ -155,7 +118,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/covid_main_activity_call_nowbtn"
-            app:layout_constraintTop_toTopOf="@+id/covid_main_activity_call_nowbtn" />
+            app:layout_constraintTop_toTopOf="@+id/covid_main_activity_call_nowbtn" /> -->
 
         <TextView
             android:id="@+id/textView4"
@@ -269,7 +232,12 @@
             app:layout_constraintHorizontal_bias="0.477"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stat"
+        app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

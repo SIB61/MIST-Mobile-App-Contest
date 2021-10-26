@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.sib.healthcare.R;
+import com.sib.healthcare.activities.LoginScreenActivity;
 import com.sib.healthcare.activities.Posting;
 import com.sib.healthcare.activities.PostingData;
 import com.sib.healthcare.activities.PostsAdapter;
@@ -340,4 +343,33 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
         }
+
+     public void logout(View view) {
+          AlertDialog.Builder builder;
+            builder = new AlertDialog.Builder(this);
+
+            builder = new AlertDialog.Builder(this);
+
+            builder.setMessage("Are you sure you want to log out??")
+                    .setCancelable(false)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(ProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            //  Action for 'NO' Button
+                            dialog.cancel();
+                        }
+                    });
+            //Creating dialog box
+            AlertDialog alert = builder.create();
+            //Setting the title manually
+            alert.setTitle("Log Out?");
+            alert.show();
+    }
 }

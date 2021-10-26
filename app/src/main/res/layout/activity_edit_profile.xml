@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="My Profile"
-        app:menu="@menu/profilemenu"
         app:titleCentered="true"
         app:titleTextColor="@color/white"
         android:background="@color/purple_200"

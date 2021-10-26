@@ -87,7 +87,6 @@ public class User_Section extends AppCompatActivity {
                     startActivity(new Intent(User_Section.this, MainActivity.class));
                 }  else if (item.getItemId() == R.id.donors) {
                     startActivity(new Intent(User_Section.this, OrdersRe.class));
-
                 }
                 else if(item.getItemId()==R.id.noti)
                 {

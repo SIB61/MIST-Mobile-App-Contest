@@ -34,32 +34,30 @@ public class covid_main_activity extends AppCompatActivity {
         setContentView(R.layout.activity_covid_main);
 
         spinner = findViewById(R.id.spinner);
-        flags = findViewById(R.id.flag);
+       // flags = findViewById(R.id.flag);
         stat = findViewById(R.id.stat);
         call_nowBtn = findViewById(R.id.covid_main_activity_call_nowbtn);
         back_to_home = findViewById(R.id.covid_statistics_activity_back);
-        surokkhaBtn=findViewById(R.id.button2);
+       // surokkhaBtn=findViewById(R.id.button2);
 
-        surokkhaBtn.setOnClickListener(v -> {
-         // startActivity(new Intent(this, SurokkhaActivity.class));
-        });
 
-        spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
-                CountryData.countryNames));
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        //spinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,
+            //    CountryData.countryNames));
 
-                flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                flags.setImageResource(CountryData.countryFlag[spinner.getSelectedItemPosition()]);
+//
+//            }
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
         stat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,9 +95,13 @@ public class covid_main_activity extends AppCompatActivity {
         back_to_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(covid_main_activity.this, MainActivity.class));
+               onBackPressed();
             }
         });
 
+    }
+
+    public void back(View view) {
+        onBackPressed();
     }
 }

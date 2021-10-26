@@ -178,17 +178,6 @@ private MaterialTimePicker timePicker;
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId()==R.id.logout)
-        {
-//            FirebaseAuth.getInstance().signOut();
-//            startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-//            finish();
-            logout();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private void showProgress(){
         progressDialog=new ProgressDialog(this);
@@ -424,31 +413,5 @@ private MaterialTimePicker timePicker;
     }
 
 
-    private void logout() {
-        builder = new AlertDialog.Builder(this);
 
-        builder = new AlertDialog.Builder(this);
-
-        builder.setMessage("Are you sure you want to log out??")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        finish();
-                        FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(EditProfileActivity.this, LoginScreenActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK));
-////            finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //  Action for 'NO' Button
-                        dialog.cancel();
-                    }
-                });
-        //Creating dialog box
-        AlertDialog alert = builder.create();
-        //Setting the title manually
-        alert.setTitle("Log Out?");
-        alert.show();
-    }
 }

@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, String> hm = sh.returnData();
         String phone2 = hm.get(SessionManager.EMAIL);
         String BNAME = hm.get(SessionManager.BNAME);
-        String t = hm.get(SessionManager.WHAT);
+        //String t = hm.get(SessionManager.WHAT);
+        String t = "NormalUser";
 
         if (t.equals("NormalUser")) {
             startActivity(new Intent(getApplicationContext(), User_Section.class));

@@ -94,7 +94,7 @@ PostsAdapter post;
                 else if (item.getItemId() == R.id.profile) {
                     startActivity(new Intent(PostsandWatch.this, ProfileActivity.class));
                 }
-                return true;
+              return true;
             }
         }));
 
@@ -134,7 +134,7 @@ PostsAdapter post;
            public void onClick(View view) {
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
-                         finish();
+                     //    finish();
            }
        });
 

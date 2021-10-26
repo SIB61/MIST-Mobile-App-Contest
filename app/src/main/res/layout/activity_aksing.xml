@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Aksing"
+    tools:context=".Medicine.Aksing"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="15dp"
