@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/s"
+    <item android:id="@+id/s2"
         android:title="Home"
         android:icon="@drawable/ic_baseline_home_24" />
-    <item android:id="@+id/donors"
+    <item android:id="@+id/orders"
         android:title="Orders"
         android:icon="@drawable/ic_baseline_donut_large_24" />
     <item android:id="@+id/fav"
@@ -13,6 +13,7 @@
         android:title="Know"
         android:icon="@drawable/ic_baseline_notifications_active_24" />
     <item android:id="@+id/profile"
+    <item android:id="@+id/profile2"
         android:title="Profile"
         android:icon="@drawable/profile" />
 </menu>

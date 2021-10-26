@@ -35,6 +35,7 @@ import com.sib.healthcare.activities.MainActivity;
 import com.sib.healthcare.activities.MedAdapter;
 import com.sib.healthcare.activities.Notifications;
 import com.sib.healthcare.activities.SessionManager;
+import com.sib.healthcare.activities.profile.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,23 +81,25 @@ public class User_Section extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_section);
         bm = (BottomNavigationView) findViewById(R.id.bottomnav);
-        bm.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bm.setOnItemReselectedListener(new BottomNavigationView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 if (item.getItemId()==R.id.s){
                     startActivity(new Intent(User_Section.this, MainActivity.class));
                 } else if (item.getItemId() == R.id.donors) {
+                if (item.getItemId()==R.id.s2) {
+                    onBackPressed();
+                }  else if (item.getItemId() == R.id.orders) {
                     startActivity(new Intent(User_Section.this, OrdersRe.class));
 
-                }
-                else if(item.getItemId()==R.id.noti)
-                {
-                    startActivity(new Intent(User_Section.this, medicine_main_activity.class));
                 }
                 else if(item.getItemId()==R.id.fav)
                 {
                      startActivity(new Intent(User_Section.this, Favorite.class));
-
+                }
+                else if (item.getItemId()==R.id.profile2)
+                {
+                    startActivity(new Intent(User_Section.this, ProfileActivity.class));
                 }
             }
         });
@@ -516,7 +519,7 @@ public class User_Section extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this,MainActivity.class));
-        finish();
+     //   finish();
 
     }
 }

@@ -83,10 +83,13 @@ PostsAdapter post;
          dis=hm.get(SessionManager.DISTRICT);
          div=hm.get(SessionManager.DIVISION);
         bm = (BottomNavigationView) findViewById(R.id.bottomnav);
-        bm.setOnItemSelectedListener((new NavigationBarView.OnItemSelectedListener() {
+        bm.setOnItemReselectedListener((new NavigationBarView.OnItemReselectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.donors) {
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                if(item.getItemId()==R.id.s){
+                    onBackPressed();
+                }
+                else if (item.getItemId() == R.id.donors) {
                     startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
                 } else if (item.getItemId() == R.id.noti) {
                     startActivity(new Intent(PostsandWatch.this, Notifications.class));
@@ -135,6 +138,7 @@ PostsAdapter post;
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
                         // finish();
+                     //    finish();
            }
        });
 

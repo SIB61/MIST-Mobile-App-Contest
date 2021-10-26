@@ -3,6 +3,11 @@
   <!--  <item android:id="@+id/s"
         android:title="Posts"
         android:icon="@drawable/create" /> -->
+
+    <item android:id="@+id/s"
+      android:title="Home"
+      android:icon="@drawable/ic_baseline_home_24"/>
+
     <item android:id="@+id/donors"
         android:title="Donors"
         android:icon="@drawable/ic_baseline_donut_large_24" />
