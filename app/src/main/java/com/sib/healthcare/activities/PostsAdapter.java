@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,18 +116,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
                 bsd.show();
             }
         });
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-       //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-
-            try {
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
                 Glide.with(c).load(uri).into(holder.profile_image);
-            }
-            catch (Exception e){
-
-            }
-        });
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
         holder.profile_name.setText(list.get(i).getName());
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override

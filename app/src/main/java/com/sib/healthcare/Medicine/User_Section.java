@@ -202,8 +202,6 @@ public class User_Section extends AppCompatActivity {
 
             }
         });
-
-
         FirebaseDatabase.getInstance().getReference("Medicines").child(co.getText().toString()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

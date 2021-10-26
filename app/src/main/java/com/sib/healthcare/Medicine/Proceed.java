@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -113,19 +114,18 @@ long to=0;
         }
         String url = hm.get(SessionManager.URL);
         String nam = hm.get(SessionManager.FULLNAME);
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-
-            try{
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(url);
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
                 Glide.with(getApplicationContext()).load(uri).into(profile_image);
-            }
-            catch (Exception e){
-
-            }
-
-        });
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
         profile_name.setText(nam);
         location.setText(getIntent().getStringExtra("Location"));
         phone.setText(getIntent().getStringExtra("Phone"));
@@ -285,6 +285,8 @@ long to=0;
                 e.printStackTrace();
                 return "error";
             }
+
+
         }
     }
 }

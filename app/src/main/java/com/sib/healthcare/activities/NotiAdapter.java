@@ -3,6 +3,7 @@ package com.sib.healthcare.activities;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,18 +81,18 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
 
             }
         });
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            try {
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
                 Glide.with(c).load(uri).into(holder.profile_image);
-            }
-            catch (Exception e){
-                
-            }
-
-        });
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
 
         holder.urgent.setText(list.get(i).getDivision());
         holder.date.setText(list.get(i).getTime()+" : "+list.get(i).getDate());
