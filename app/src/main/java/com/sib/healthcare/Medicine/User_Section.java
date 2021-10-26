@@ -83,10 +83,11 @@ public class User_Section extends AppCompatActivity {
         bm.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
-                if (item.getItemId()==R.id.s) {
+                if (item.getItemId()==R.id.s){
                     startActivity(new Intent(User_Section.this, MainActivity.class));
-                }  else if (item.getItemId() == R.id.donors) {
+                } else if (item.getItemId() == R.id.donors) {
                     startActivity(new Intent(User_Section.this, OrdersRe.class));
+
                 }
                 else if(item.getItemId()==R.id.noti)
                 {
@@ -515,7 +516,7 @@ public class User_Section extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this,MainActivity.class));
-     //   finish();
+        finish();
 
     }
 }

@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="Blood bank"
+                        android:text="Blood Bank"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -211,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
-                        android:text="medicine"
+                        android:text="Medicine Shop"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

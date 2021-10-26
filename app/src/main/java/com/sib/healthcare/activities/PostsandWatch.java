@@ -134,7 +134,7 @@ PostsAdapter post;
            public void onClick(View view) {
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
-                         finish();
+                        // finish();
            }
        });
 

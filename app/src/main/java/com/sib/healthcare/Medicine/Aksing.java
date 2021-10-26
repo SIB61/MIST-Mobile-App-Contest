@@ -35,6 +35,8 @@ String email,name,div,dis,url,phone,donor,token,pass;
         phone = hm.get(SessionManager.PHONE);
         normal=(Button) findViewById(R.id.normal);
         owner=(Button) findViewById(R.id.owner);
+
+
         normal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +47,7 @@ String email,name,div,dis,url,phone,donor,token,pass;
         owner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 sh2.loginSession(name,email,phone,pass,url,donor,token,div,dis,"Owner","No");
                 String email1="";
@@ -62,7 +65,7 @@ String email,name,div,dis,url,phone,donor,token,pass;
                 uy.put("Token",token);
                 uy.put("ran",op+"");
                 FirebaseDatabase.getInstance().getReference("MedicineOwners").child("Owners").child(email1).setValue(uy);
-
+                //startActivity(new Intent(getApplicationContext(),User_Section.class));
                 startActivity(new Intent(getApplicationContext(),AddMedicine.class).putExtra("Work","Asking"));
                 finish();
             }

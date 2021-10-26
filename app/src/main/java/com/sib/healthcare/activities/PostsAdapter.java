@@ -120,7 +120,12 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.Posts> {
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
        //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(holder.profile_image);
+            try{
+                Glide.with(c).load(uri).into(holder.profile_image);
+            }catch (Exception e){
+
+            }
+
         });
         holder.profile_name.setText(list.get(i).getName());
         holder.submit.setOnClickListener(new View.OnClickListener() {

@@ -83,8 +83,14 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(holder.profile_image);
+            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show()
+            try {
+                Glide.with(c).load(uri).into(holder.profile_image);
+            }
+            catch (Exception e){
+
+            }
+
         });
 
         holder.urgent.setText(list.get(i).getDivision());
@@ -131,7 +137,7 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
             profile_image=v.findViewById(R.id.profile_image);
             date=v.findViewById(R.id.date);
             urgent=v.findViewById(R.id.urgent);
-           change=v.findViewById(R.id.change);
+            change=v.findViewById(R.id.change);
         }
     }
 }
