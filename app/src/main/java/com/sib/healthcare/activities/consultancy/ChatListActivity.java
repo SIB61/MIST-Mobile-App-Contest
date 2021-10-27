@@ -44,11 +44,24 @@ private FirestoreRecyclerAdapter<ChatModel,ChatListViewHolder> adapter;
         query= FirebaseFirestore.getInstance().collection("Users/"+ FirebaseAuth.getInstance().getUid()+"/ChatList");
         options= new FirestoreRecyclerOptions.Builder<ChatModel>()
                 .setQuery(query,ChatModel.class).build();
+
+
         adapter=new FirestoreRecyclerAdapter<ChatModel, ChatListViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ChatListViewHolder holder, int position, @NonNull ChatModel model) {
-                StorageReference st= FirebaseStorage.getInstance().getReference("ProfilePics/"+model.getfUid()+".jpg");
-                st.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(ChatListActivity.this).load(uri).into(holder.i));
+
+
+                try{
+                    StorageReference st= FirebaseStorage.getInstance().getReference("ProfilePics/"+model.getfUid()+".jpg");
+
+                    st.getDownloadUrl().addOnSuccessListener(uri -> Glide.with(ChatListActivity.this).load(uri).into(holder.i));
+                }catch (Exception e){
+
+                }
+
+
+
+
                 holder.n.setText(model.getfName());
                 @SuppressLint("SimpleDateFormat") String time = new SimpleDateFormat( "d MMM yyyy, h:mm a" ).format ( model.getTimestamp().toDate() );
                 holder.t.setText(time);

@@ -59,14 +59,19 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MED> {
        // Toast.makeText(c,list.size()+"",Toast.LENGTH_LONG).show();
        //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
         try{
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getURL());
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
+            StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getURL());
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
 
+                try{
+                    Glide.with(c.getApplicationContext()).load(uri).into(holder.ph);
+                }
+                catch (Exception e){
 
-            Glide.with(c.getApplicationContext()).load(uri).into(holder.ph);
-        });}
+                }
+
+            });}
             catch (Exception e){
 
             }

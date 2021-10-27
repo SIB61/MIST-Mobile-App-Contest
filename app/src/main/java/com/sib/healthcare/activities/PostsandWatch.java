@@ -1,6 +1,7 @@
 package com.sib.healthcare.activities;
 
 import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -102,7 +103,12 @@ PostsAdapter post;
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             //  Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(this).load(uri).into(profile_image);
+            try{
+                Glide.with(this).load(uri).into(profile_image);
+            }catch (Exception e){
+
+            }
+
         });
         refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -134,6 +140,7 @@ PostsAdapter post;
            public void onClick(View view) {
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
+                        // finish();
                      //    finish();
            }
        });
@@ -408,8 +415,7 @@ PostsAdapter post;
 
     @Override
     public void onBackPressed() {
-     startActivity(new Intent(PostsandWatch.this,MainActivity.class));
+        startActivity(new Intent(PostsandWatch.this,MainActivity.class));
         finish();
-
-    }
+     }
 }

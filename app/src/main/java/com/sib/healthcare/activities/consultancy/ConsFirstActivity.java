@@ -62,7 +62,12 @@ public class ConsFirstActivity extends AppCompatActivity {
                 holder.name.setText(model.getName());
                 holder.des.setText(formatDes(model));
                 FirebaseStorage.getInstance().getReference(model.getImage()).getDownloadUrl().addOnSuccessListener(uri -> {
-                    Glide.with(ConsFirstActivity.this).load(uri).into(holder.image);
+                    try{
+                        Glide.with(ConsFirstActivity.this).load(uri).into(holder.image);
+                    }catch (Exception e){
+
+                    }
+
                 });
                 holder.itemView.setOnClickListener(v -> startActivity(new Intent(ConsFirstActivity.this,DoctorProfileActivity.class).putExtra("userDataModel",model)));
 

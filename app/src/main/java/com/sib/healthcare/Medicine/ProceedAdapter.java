@@ -63,7 +63,12 @@ public class ProceedAdapter extends RecyclerView.Adapter<ProceedAdapter.Pro> {
             //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
             storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                 //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-                Glide.with(c).load(uri).into(holder.mpic);
+                try{
+                    Glide.with(c).load(uri).into(holder.mpic);
+                }catch (Exception e){
+
+                }
+
             });
         }
         catch(Exception e)

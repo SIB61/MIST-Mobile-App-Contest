@@ -92,10 +92,6 @@ public class User_Section extends AppCompatActivity {
                  startActivity(new Intent(User_Section.this, Favorite.class));
             }
             return true;
-//                else if (item.getItemId()==R.id.profile2)
-//                {
-//                    startActivity(new Intent(User_Section.this, ProfileActivity.class));
-//                }
         });
         co = (TextView) findViewById(R.id.co);
         refresh = (SwipeRefreshLayout) findViewById(R.id.refresh);
@@ -513,7 +509,5 @@ public class User_Section extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this,MainActivity.class));
-     //   finish();
-
     }
 }

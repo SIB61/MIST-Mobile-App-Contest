@@ -101,7 +101,12 @@ List<Med> list=new ArrayList<>();
            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-               Glide.with(getApplicationContext()).load(uri).into(mpic);
+               try{
+                   Glide.with(getApplicationContext()).load(uri).into(mpic);
+               }catch (Exception e){
+
+               }
+
            });
        }
        catch(Exception e)

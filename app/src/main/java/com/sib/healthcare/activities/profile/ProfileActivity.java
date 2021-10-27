@@ -93,14 +93,24 @@ public class ProfileActivity extends AppCompatActivity {
             //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
             storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
                 //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-                Glide.with(getApplicationContext()).load(uri).into(profile_image);
+                try{
+                    Glide.with(getApplicationContext()).load(uri).into(profile_image);
+                }catch (Exception e){
+
+                }
+
             });
 
             StorageReference storageReference2 = FirebaseStorage.getInstance().getReference(url);
             //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
             storageReference2.getDownloadUrl().addOnSuccessListener(uri -> {
                 //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-                Glide.with(getApplicationContext()).load(uri).into(profile_imag);
+                try{
+                    Glide.with(getApplicationContext()).load(uri).into(profile_imag);
+                }catch (Exception e){
+
+                }
+
             });
         }
         catch(Exception e)
@@ -343,11 +353,12 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), DrAppointmentListActivity.class).putExtra("isDoctor",userDataModel.isDoctor()));
             }
         });
+
         po.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
-                finish();
+//                finish();
             }
         });
         }

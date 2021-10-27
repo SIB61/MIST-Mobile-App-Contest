@@ -57,23 +57,23 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
             if(email.charAt(ik)=='@') {
                 break;
             }
-                email1+=email.charAt(ik);
+            email1+=email.charAt(ik);
 
 
         }
-      //
+        //
         // Toast.makeText(c, donor, Toast.LENGTH_LONG).show();
         FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Clicked").child(list.get(i).getDate()+" "+list.get(i).getTime()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-              for(DataSnapshot s:snapshot.getChildren())
-              {
-                  String clicked=s.getValue().toString();
-               //   Toast.makeText(c, clicked, Toast.LENGTH_LONG).show();
-                  if(clicked.equals("No"))
-                      holder.change.setBackgroundResource(R.color.grey);
+                for(DataSnapshot s:snapshot.getChildren())
+                {
+                    String clicked=s.getValue().toString();
+                    //   Toast.makeText(c, clicked, Toast.LENGTH_LONG).show();
+                    if(clicked.equals("No"))
+                        holder.change.setBackgroundResource(R.color.grey);
 
-              }
+                }
             }
 
             @Override
@@ -84,8 +84,9 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.Notifi> {
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show()
-            try {
+            //     Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
+
+            try{
                 Glide.with(c).load(uri).into(holder.profile_image);
             }
             catch (Exception e){

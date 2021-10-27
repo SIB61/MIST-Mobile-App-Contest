@@ -65,7 +65,12 @@ private StorageReference storageReference;
         binding.nameDP.setText(userDataModel.getName());
         binding.typeDP.setText(userDataModel.getType());
        storageReference.getDownloadUrl().addOnSuccessListener( uri -> {
-          Glide.with(this).load(uri).into(binding.profilePic);
+           try{
+               Glide.with(this).load(uri).into(binding.profilePic);
+           }catch (Exception e){
+
+           }
+
        });
        String str = "MBBS from "+userDataModel.getMbbs()+"\n"+userDataModel.getDegrees()+"\n\nClinic Address : "
                +userDataModel.getClinicAddress()+"\n\nAvailable at "+userDataModel.getTime1()+" to "+userDataModel.getTime2()

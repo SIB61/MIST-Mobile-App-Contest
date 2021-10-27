@@ -44,6 +44,7 @@
             android:name=".covid_section.Statistics"
             android:exported="true" />
         <activity
+            android:parentActivityName=".activities.MainActivity"
             android:name=".covid_section.covid_main_activity"
             android:exported="true" />
         <activity

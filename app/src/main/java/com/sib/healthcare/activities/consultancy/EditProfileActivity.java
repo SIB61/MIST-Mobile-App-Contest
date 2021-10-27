@@ -185,7 +185,12 @@ private MaterialTimePicker timePicker;
 
     private void setView() {
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            Glide.with(this).load(uri).into(binding.imageEP);
+            try{
+                Glide.with(this).load(uri).into(binding.imageEP);
+            }catch (Exception e){
+
+            }
+
         });
         binding.nameEP.setText(userDataModel.getName());
         binding.numberEP.setText(userDataModel.getPhoneNumber());
@@ -402,7 +407,12 @@ private MaterialTimePicker timePicker;
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                  resultUri = result.getUri();
-                 Glide.with(this).load(resultUri).into(binding.imageEP);
+                 try{
+                     Glide.with(this).load(resultUri).into(binding.imageEP);
+                 }catch (Exception e){
+
+                 }
+
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
             }

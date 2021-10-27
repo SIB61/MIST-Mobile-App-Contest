@@ -90,12 +90,12 @@ public class Statistics extends AppCompatActivity {
         barEntries = new ArrayList<>();
 
 
-        barEntries.add(new BarEntry(1f,Integer.parseInt("667765")));
-        barEntries.add(new BarEntry(2f,Integer.parseInt("9795")));
-        barEntries.add(new BarEntry(3f,Integer.parseInt("5765")));
+        barEntries.add(new BarEntry(1f,Integer.parseInt("1568563")));
+        barEntries.add(new BarEntry(2f,Integer.parseInt("27841")));
+        barEntries.add(new BarEntry(3f,Integer.parseInt("1532468")));
 
-        barEntries.add(new BarEntry(4f,Integer.parseInt("370365")));
-        barEntries.add(new BarEntry(5f,Integer.parseInt("12786")));
+        barEntries.add(new BarEntry(4f,Integer.parseInt("8254")));
+        barEntries.add(new BarEntry(5f,Integer.parseInt("1387")));
 
         barDataSet=new BarDataSet(barEntries,"Data Set");
         barData=new BarData(barDataSet);

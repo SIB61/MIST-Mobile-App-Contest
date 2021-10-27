@@ -58,7 +58,12 @@ Button chat,call;
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
             //  Toast.makeText(getApplicationContext(), url,Toast.LENGTH_LONG).show();
-            Glide.with(this).load(uri).into(profile_image);
+            try{
+                Glide.with(this).load(uri).into(profile_image);
+            }catch (Exception e){
+
+            }
+
         });
         call.setOnClickListener(new View.OnClickListener() {
             @Override

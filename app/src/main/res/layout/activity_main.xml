@@ -212,7 +212,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="Medicine Shop"
-                        android:text="Medicine shop"
+
                         android:textColor="@color/black" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
