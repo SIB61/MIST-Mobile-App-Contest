@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,13 +40,17 @@ int A1=0,B1=0,AB1=0,O1=0,a1=0,b1=0,ab1=0,o1=0;
 TextView type,no;
 String email;
 LinearLayout snack;
+MaterialToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_donors);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        toolbar=findViewById(R.id.donorsTool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        rquestWindowFeature(Window.FEATURE_NO_TITLE);
+      //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         donor=(RecyclerView)findViewById(R.id.donors);
         snack=(LinearLayout) findViewById(R.id.snack);
         final SessionManager sh=new SessionManager(this,SessionManager.USERSESSION);

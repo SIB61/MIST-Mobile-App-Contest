@@ -8,18 +8,17 @@
     android:orientation="vertical"
     tools:context=".activities.consultancy.EditProfileActivity">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/editProfileToolbar"
-        android:layout_width="match_parent"
+    <ImageButton
+        android:id="@+id/b"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:title="My Profile"
-        app:titleCentered="true"
-        app:titleTextColor="@color/white"
-        android:background="@color/purple_200"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="5dp"
+        android:onClick="back"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editProfileToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/b">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

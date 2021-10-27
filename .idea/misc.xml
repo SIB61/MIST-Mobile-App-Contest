@@ -59,17 +59,18 @@
         <entry key="app/src/main/res/layout/activity_donor_reg.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dr_appointment_list.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_edit_medicine.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.11171171171171171" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.21" />
         <entry key="app/src/main/res/layout/activity_favorite.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_login_screen.xml" value="0.18854166666666666" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="app/src/main/res/layout/activity_med_adapter.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_med_adapter.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_medicine_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_notification.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.17612612612612613" />
-        <entry key="app/src/main/res/layout/activity_orders_re.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_orders_re.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_owner_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_postsand_watch.xml" value="0.1111111111111111" />
+        <entry key="app/src/main/res/layout/activity_proceed.xml" value="0.17149122807017544" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.17149122807017544" />
         <entry key="app/src/main/res/layout/activity_register_screen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_show_posts.xml" value="0.17612612612612613" />
@@ -77,7 +78,7 @@
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_surokkha.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout/activity_tr_show.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_user_section.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_user_section.xml" value="0.18" />
         <entry key="app/src/main/res/layout/appointment_list_item.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/ask_specialist_list_item.xml" value="0.11171171171171171" />
         <entry key="app/src/main/res/layout/bottomsheet.xml" value="0.1" />

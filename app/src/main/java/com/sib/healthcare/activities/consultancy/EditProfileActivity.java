@@ -76,9 +76,6 @@ private MaterialTimePicker timePicker;
         super.onCreate(savedInstanceState);
         binding=ActivityEditProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        setSupportActionBar(binding.editProfileToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("My Profile");
         userId= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         //viewModel=new ViewModelProvider(this).get(EditProfileActivityViewModel.class);
         drDocumentRef= FirebaseFirestore.getInstance().document("Doctors/"+userId);
@@ -413,5 +410,7 @@ private MaterialTimePicker timePicker;
     }
 
 
-
+    public void back(View view) {
+        onBackPressed();
+    }
 }

@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Medicine.Favorite"
     android:orientation="vertical"
-    android:background="#fff"
-    android:padding="15dp">
+    android:background="#fff">
     <ImageView
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:background="#fff"
         android:src="@drawable/arrowb" />
     <TextView
@@ -25,19 +25,21 @@
         android:drawableLeft="@drawable/fav"
         android:drawablePadding="5dp"
         android:textSize="18sp"
+        android:layout_marginStart="10dp"
         android:textStyle="bold"/>
 
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:horizontalSpacing="20dp"
-        android:verticalSpacing="20dp"
+        android:horizontalSpacing="5dp"
+        android:verticalSpacing="5dp"
         android:layout_height="wrap_content"
         android:numColumns="2"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sh"
+        android:padding="10dp"
         android:orientation="vertical"
         android:visibility="gone">
     <TextView
