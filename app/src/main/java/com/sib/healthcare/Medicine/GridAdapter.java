@@ -1,6 +1,7 @@
 package com.sib.healthcare.Medicine;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,12 +59,19 @@ public class GridAdapter extends BaseAdapter {
         name=v.findViewById(R.id.name);
         price=v.findViewById(R.id.price);
         buy=v.findViewById(R.id.buy);
+        try {
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getURL());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
          //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(ph);
+
+                Glide.with(c).load(uri).into(ph);
         });
+            }
+            catch (Exception e){
+                Log.d("TAG", "getView: GridAdapter");
+            }
+
 
         name.setText(list.get(i).getMname());
         price.setText(list.get(i).getPrice()+"Tk.");

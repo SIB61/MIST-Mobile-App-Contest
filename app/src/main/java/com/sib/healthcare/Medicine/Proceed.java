@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -78,8 +79,8 @@ long to=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_proceed);
         total=(TextView) findViewById(R.id.total);
         location=(TextView) findViewById(R.id.location);
@@ -113,12 +114,18 @@ long to=0;
         }
         String url = hm.get(SessionManager.URL);
         String nam = hm.get(SessionManager.FULLNAME);
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(getApplicationContext()).load(uri).into(profile_image);
-        });
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(url);
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
+                Glide.with(getApplicationContext()).load(uri).into(profile_image);
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
         profile_name.setText(nam);
         location.setText(getIntent().getStringExtra("Location"));
         phone.setText(getIntent().getStringExtra("Phone"));

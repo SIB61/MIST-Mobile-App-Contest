@@ -64,7 +64,7 @@ PostsAdapter post;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_postsand_watch);
         po=(TextView)findViewById(R.id.po);
         posts=(RecyclerView)findViewById(R.id.posts);
@@ -83,22 +83,19 @@ PostsAdapter post;
          dis=hm.get(SessionManager.DISTRICT);
          div=hm.get(SessionManager.DIVISION);
         bm = (BottomNavigationView) findViewById(R.id.bottomnav);
-        bm.setOnItemReselectedListener((new NavigationBarView.OnItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.s){
-                    onBackPressed();
-                }
-                else if (item.getItemId() == R.id.donors) {
-                    startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
-                } else if (item.getItemId() == R.id.noti) {
-                    startActivity(new Intent(PostsandWatch.this, Notifications.class));
-                }
-                else if (item.getItemId() == R.id.profile) {
-                    startActivity(new Intent(PostsandWatch.this, ProfileActivity.class));
-                }
-                return true;
+        bm.setOnItemSelectedListener((item -> {
+            if(item.getItemId()==R.id.s){
+                onBackPressed();
             }
+            else if (item.getItemId() == R.id.donors) {
+                startActivity(new Intent(PostsandWatch.this, ShowDonors.class));
+            } else if (item.getItemId() == R.id.noti) {
+                startActivity(new Intent(PostsandWatch.this, Notifications.class));
+            }
+            return true;
+//                else if (item.getItemId() == R.id.profile) {
+//                    startActivity(new Intent(PostsandWatch.this, ProfileActivity.class));
+//                }
         }));
 
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
@@ -137,7 +134,6 @@ PostsAdapter post;
            public void onClick(View view) {
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
-                        // finish();
                      //    finish();
            }
        });

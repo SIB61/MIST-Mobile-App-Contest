@@ -274,4 +274,7 @@ send.setOnClickListener(new View.OnClickListener() {
         });
 }
 
+    public void back(View view) {
+        onBackPressed();
     }
+}

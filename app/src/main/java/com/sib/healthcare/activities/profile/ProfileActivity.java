@@ -60,8 +60,8 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       // requestWindowFeature(Window.FEATURE_NO_TITLE);
+       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_profile);
         pName=(TextView)findViewById(R.id.name) ;
         po=(TextView)findViewById(R.id.po) ;
@@ -87,18 +87,26 @@ public class ProfileActivity extends AppCompatActivity {
         }
         pName.setText(name);
 
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(url);
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(getApplicationContext()).load(uri).into(profile_image);
-        });
-        StorageReference storageReference2= FirebaseStorage.getInstance().getReference(url);
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference2.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(getApplicationContext()).load(uri).into(profile_imag);
-        });
+        try {
+
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(url);
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
+                Glide.with(getApplicationContext()).load(uri).into(profile_image);
+            });
+
+            StorageReference storageReference2 = FirebaseStorage.getInstance().getReference(url);
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference2.getDownloadUrl().addOnSuccessListener(uri -> {
+                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
+                Glide.with(getApplicationContext()).load(uri).into(profile_imag);
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
         posts=(RecyclerView)findViewById(R.id.posts);
 
         posts.setLayoutManager(new LinearLayoutManager(this));

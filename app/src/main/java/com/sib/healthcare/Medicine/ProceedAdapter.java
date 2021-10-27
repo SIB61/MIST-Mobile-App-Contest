@@ -2,6 +2,7 @@ package com.sib.healthcare.Medicine;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,12 +58,18 @@ public class ProceedAdapter extends RecyclerView.Adapter<ProceedAdapter.Pro> {
                 break;
             email1+=email.charAt(u);
         }
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(c).load(uri).into(holder.mpic);
-        });
+        try {
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference(list.get(i).getUrl());
+            //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+            storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
+                Glide.with(c).load(uri).into(holder.mpic);
+            });
+        }
+        catch(Exception e)
+        {
+            Log.d("TAG",e.getMessage());
+        }
         holder.mname.setText(list.get(i).getMname());
         holder.count.setText(list.get(i).getCount());
         long p=Integer.parseInt(list.get(i).getPrice())*Integer.parseInt(list.get(i).getCount());

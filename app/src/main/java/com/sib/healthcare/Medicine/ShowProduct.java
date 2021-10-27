@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -56,8 +57,8 @@ List<Med> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       /// requestWindowFeature(Window.FEATURE_NO_TITLE);
+       // getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_show_product);
         SessionManager sh = new SessionManager(getApplicationContext(), SessionManager.USERSESSION);
         HashMap<String, String> hm = sh.returnData();
@@ -95,12 +96,18 @@ List<Med> list=new ArrayList<>();
        mpic=(ImageView) findViewById(R.id.mpic);
        scart=(RelativeLayout) findViewById(R.id.scart);
        ert=(RelativeLayout) findViewById(R.id.ert);
-        StorageReference storageReference= FirebaseStorage.getInstance().getReference(Url);
-        //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
-        storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
-            Glide.with(getApplicationContext()).load(uri).into(mpic);
-        });
+       try {
+           StorageReference storageReference = FirebaseStorage.getInstance().getReference(Url);
+           //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
+           storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+               //   Toast.makeText(c, url,Toast.LENGTH_LONG).show();
+               Glide.with(getApplicationContext()).load(uri).into(mpic);
+           });
+       }
+       catch(Exception e)
+       {
+           Log.d("TAG",e.getMessage());
+       }
        mname=(TextView) findViewById(R.id.mname);
        c=(TextView) findViewById(R.id.c);
        dec=(Button) findViewById(R.id.dec);

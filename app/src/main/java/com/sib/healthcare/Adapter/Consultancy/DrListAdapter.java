@@ -41,7 +41,14 @@ public class DrListAdapter extends RecyclerView.Adapter {
         specialist.setText(drList.get(position).getType());
         FirebaseStorage.getInstance().getReference(drList.get(position).getImage())
                 .getDownloadUrl().addOnSuccessListener( uri -> {
-            Glide.with(holder.itemView.getContext()).load(uri).into(drImage);
+
+                    try{
+                        Glide.with(holder.itemView.getContext()).load(uri).into(drImage);
+                    }
+                    catch (Exception e){
+
+                    }
+
         });
 
         holder.itemView.setOnClickListener(v -> {

@@ -87,7 +87,8 @@
             android:parentActivityName=".activities.consultancy.ConsFirstActivity" />
         <activity
             android:name=".activities.consultancy.DoctorProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".activities.consultancy.ConsFirstActivity"/>
         <activity
             android:name=".activities.consultancy.DoctorListActivity"
             android:exported="true"
@@ -105,11 +106,13 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".activities.PostsandWatch" />
         <activity android:name=".activities.Posting" />
-        <activity android:name=".activities.Notifications" />
+        <activity android:name=".activities.Notifications"
+            android:parentActivityName=".activities.PostsandWatch"/>
         <activity android:name=".activities.DonorReg" />
         <activity android:name=".activities.Comment" />
         <activity android:name=".activities.ShowPosts" />
-        <activity android:name=".activities.ShowDonors" />
+        <activity android:name=".activities.ShowDonors"
+            android:parentActivityName=".activities.PostsandWatch"/>
         <activity android:name=".Medicine.AddMedicine" />
         <activity android:name=".Medicine.Aksing" />
         <activity android:name=".Medicine.OrdersRe" />

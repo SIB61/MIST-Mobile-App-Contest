@@ -58,12 +58,18 @@ public class MedAdapter extends RecyclerView.Adapter<MedAdapter.MED> {
     public void onBindViewHolder(@NonNull MED holder, @SuppressLint("RecyclerView") int i) {
        // Toast.makeText(c,list.size()+"",Toast.LENGTH_LONG).show();
        //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
+        try{
         StorageReference storageReference= FirebaseStorage.getInstance().getReference(list.get(i).getURL());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-           //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
+            //  Toast.makeText(c, list.get(i).getURL(),Toast.LENGTH_LONG).show();
+
+
             Glide.with(c.getApplicationContext()).load(uri).into(holder.ph);
-        });
+        });}
+            catch (Exception e){
+
+            }
         holder.name.setText(list.get(i).getMname());
         holder.price.setText(list.get(i).getPrice()+"Tk.");
         if(wo.equals("Ow")){

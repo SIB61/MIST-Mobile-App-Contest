@@ -46,7 +46,14 @@ public class TopDrListAdapter extends RecyclerView.Adapter {
         StorageReference storageReference=FirebaseStorage.getInstance().getReference(listData.get(position).getImage());
         //Glide.with(holder.itemView.getContext()).load(storageReference).into(imageView);
         storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-            Glide.with(holder.itemView.getContext()).load(uri).into(imageView);
+
+            try{
+                Glide.with(holder.itemView.getContext()).load(uri).into(imageView);
+            }
+            catch (Exception e){
+
+            }
+
         });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -78,30 +78,24 @@ public class User_Section extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+      //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_user_section);
         bm = (BottomNavigationView) findViewById(R.id.bottomnav);
-        bm.setOnItemReselectedListener(new BottomNavigationView.OnItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                if (item.getItemId()==R.id.s){
-                    startActivity(new Intent(User_Section.this, MainActivity.class));
-                } else if (item.getItemId() == R.id.donors) {
-                if (item.getItemId()==R.id.s2) {
-                    onBackPressed();
-                }  else if (item.getItemId() == R.id.orders) {
-                    startActivity(new Intent(User_Section.this, OrdersRe.class));
-
-                }
-                else if(item.getItemId()==R.id.fav)
-                {
-                     startActivity(new Intent(User_Section.this, Favorite.class));
-                }
-                else if (item.getItemId()==R.id.profile2)
-                {
-                    startActivity(new Intent(User_Section.this, ProfileActivity.class));
-                }
+        bm.setOnItemSelectedListener(item -> {
+            if (item.getItemId()==R.id.s2) {
+                onBackPressed();
+            }  else if (item.getItemId() == R.id.orders) {
+                startActivity(new Intent(User_Section.this, OrdersRe.class));
             }
+            else if(item.getItemId()==R.id.fav)
+            {
+                 startActivity(new Intent(User_Section.this, Favorite.class));
+            }
+            return true;
+//                else if (item.getItemId()==R.id.profile2)
+//                {
+//                    startActivity(new Intent(User_Section.this, ProfileActivity.class));
+//                }
         });
         co = (TextView) findViewById(R.id.co);
         refresh = (SwipeRefreshLayout) findViewById(R.id.refresh);

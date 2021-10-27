@@ -89,13 +89,13 @@ public class LoginScreenActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.hasChildren()) {
-                            Toast.makeText(getApplicationContext(), finalEmail, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), finalEmail, Toast.LENGTH_LONG).show();
                             name = snapshot.child("Name").getValue().toString();
                             Url = snapshot.child("url").getValue().toString();
                             FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Donor").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot1) {
-                                    Toast.makeText(LoginScreenActivity.this, snapshot1.toString(), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(LoginScreenActivity.this, snapshot1.toString(), Toast.LENGTH_SHORT).show();
                                     if(snapshot1.hasChildren()) {
                                         String phone = snapshot1.child("phone").getValue().toString();
                                         String district = snapshot1.child("district").getValue().toString();
@@ -172,7 +172,7 @@ public class LoginScreenActivity extends AppCompatActivity {
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("TAG", "signInWithEmail:failure", task.getException());
-                        Toast.makeText(LoginScreenActivity.this, email+password,
+                        Toast.makeText(LoginScreenActivity.this, "authentication failed",
                                 Toast.LENGTH_SHORT).show();
                         updateUI(null);
                     }

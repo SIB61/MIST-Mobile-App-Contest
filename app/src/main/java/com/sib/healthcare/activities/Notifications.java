@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,19 +34,22 @@ public class Notifications extends AppCompatActivity {
     ImageView back;
     List<NotiData> list = new ArrayList<>();
     List<NotiData> list1 = new ArrayList<>();
-
+    MaterialToolbar toolbar ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
+        toolbar=findViewById(R.id.NotiTool);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         noti = (RecyclerView) findViewById(R.id.noti);
-        back = (ImageView) findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        //back = (ImageView) findViewById(R.id.back);
+//        back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
         noti.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NotiAdapter(this, list);
         noti.setAdapter(adapter);
