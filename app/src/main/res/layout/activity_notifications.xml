@@ -12,8 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="Notifications"
-            android:background="@color/purple_200"
-            app:titleTextColor="@color/black"
+            android:background="@color/Blood"
+            app:titleTextColor="@color/white"
             app:titleCentered="true"
             app:navigationIcon="@drawable/ic_baseline_arrow_back_24"/>
 

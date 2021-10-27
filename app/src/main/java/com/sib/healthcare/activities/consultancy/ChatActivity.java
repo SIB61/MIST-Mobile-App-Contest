@@ -52,15 +52,17 @@ private FirestoreRecyclerAdapter<ChatModel,RecyclerView.ViewHolder> adapter;
                    if(documentSnapshot.exists())
                    {
                       userDataModel = documentSnapshot.toObject(UserDataModel.class);
+                       try{
                        FirebaseStorage.getInstance().getReference(Objects.requireNonNull(userDataModel).getImage()).getDownloadUrl().addOnSuccessListener(uri -> {
-                           try{
+
                                Glide.with(this).load(uri).into(binding.imageCA);
+                       });
                            }
                            catch (Exception e){
 
                            }
 
-                       });
+
                        binding.nameCA.setText(userDataModel.getName());
                        binding.typeCA.setText(userDataModel.getType());
                    }
