@@ -274,7 +274,7 @@ long to=0;
                     Toast.makeText(getApplicationContext(), "Order is successful!!", Toast.LENGTH_LONG).show();
                 }
                 startActivity(new Intent(getApplicationContext(),User_Section.class));
-                finish();
+              //  finish();
             }
         });
     }

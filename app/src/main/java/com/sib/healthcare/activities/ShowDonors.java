@@ -46,9 +46,9 @@ MaterialToolbar toolbar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_donors);
-        toolbar=findViewById(R.id.donorsTool);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // toolbar=findViewById(R.id.donorsTool);
+       // setSupportActionBar(toolbar);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        rquestWindowFeature(Window.FEATURE_NO_TITLE);
       //  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         donor=(RecyclerView)findViewById(R.id.donors);

@@ -26,6 +26,9 @@
         <activity
             android:name=".activities.SurokkhaActivity"
             android:exported="false" />
+        <activity android:name=".activities.ShowDonors">
+        </activity>
+
         <activity
             android:name=".activities.AboutUsActivity"
             android:exported="true"
@@ -112,7 +115,6 @@
         <activity android:name=".activities.DonorReg" />
         <activity android:name=".activities.Comment" />
         <activity android:name=".activities.ShowPosts" />
-        <activity android:name=".activities.ShowDonors"
             android:parentActivityName=".activities.PostsandWatch"/>
         <activity android:name=".Medicine.AddMedicine" />
         <activity android:name=".Medicine.Aksing" />

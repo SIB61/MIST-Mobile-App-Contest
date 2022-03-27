@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -117,6 +118,7 @@ PostsAdapter post;
                 finish();
             }
         });
+        Toast.makeText(getApplicationContext(),donor,Toast.LENGTH_LONG).show();
         if(donor==null||donor.equals("No"))
             ask.setVisibility(View.VISIBLE);
         no.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +142,7 @@ PostsAdapter post;
            public void onClick(View view) {
 
                          startActivity(new Intent(getApplicationContext(),Posting.class).putExtra("Work","No"));
+                         //this activoty is used to call all the posts
                         // finish();
                      //    finish();
            }
@@ -213,7 +216,7 @@ PostsAdapter post;
         String finalEmail = email1;
         String finalMonth1 = month;
         String finalCm = cm1;
-        FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Posts").child(cm1).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Users").child(email1).child("Posts").child("October").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //  list.clear();
@@ -223,7 +226,7 @@ PostsAdapter post;
                     PostingData pd=s.getValue(PostingData.class);
                     list.add(pd);
                 }
-                FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Posts").child(finalMonth1).addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("Users").child(finalEmail).child("Posts").child("October").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         ///  list.clear();
@@ -241,7 +244,7 @@ PostsAdapter post;
 
                     }
                 });
-                FirebaseDatabase.getInstance().getReference("Posts").child(finalMonth1).addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("Posts").child("October").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot s:snapshot.getChildren())

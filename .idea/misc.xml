@@ -3,17 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Main/app/src/main/res/drawable/back_arraw_white.xml" value="0.26615384615384613" />
+        <entry key="..\:/Main/app/src/main/res/drawable/backg.xml" value="0.26615384615384613" />
         <entry key="..\:/Main/app/src/main/res/drawable/cart.xml" value="0.14635416666666667" />
         <entry key="..\:/Main/app/src/main/res/drawable/delete.xml" value="0.14791666666666667" />
         <entry key="..\:/Main/app/src/main/res/drawable/fav.xml" value="0.2703125" />
         <entry key="..\:/Main/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.14635416666666667" />
         <entry key="..\:/Main/app/src/main/res/drawable/text.xml" value="0.11041666666666666" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_add_medicine.xml" value="0.1" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_about_us.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_add_medicine.xml" value="0.16" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_aksing.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_appointment_booking.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_ask_specialists.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_chat.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_chat_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_comment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_cons_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_doctor_list.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_doctor_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_edit_profile.xml" value="0.12916666666666668" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_favorite.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_med_adapter.xml" value="0.25416666666666665" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_medicine_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_notifications.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_orders_re.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_owner_profile.xml" value="0.13020833333333334" />
@@ -22,13 +34,15 @@
         <entry key="..\:/Main/app/src/main/res/layout/activity_proceed.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_donors.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_posts.xml" value="0.1" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_show_product.xml" value="0.13177083333333334" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_show_product.xml" value="0.2" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_show_results.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_splash_screen.xml" value="0.151268115942029" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_take_address.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/activity_tr_show.xml" value="0.25416666666666665" />
-        <entry key="..\:/Main/app/src/main/res/layout/activity_user_section.xml" value="0.12645422357106728" />
+        <entry key="..\:/Main/app/src/main/res/layout/activity_user_section.xml" value="0.20324864639733445" />
+        <entry key="..\:/Main/app/src/main/res/layout/comments.xml" value="0.223731884057971" />
         <entry key="..\:/Main/app/src/main/res/layout/donor.xml" value="0.13020833333333334" />
+        <entry key="..\:/Main/app/src/main/res/layout/dr_list_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/posts.xml" value="0.1" />
         <entry key="..\:/Main/app/src/main/res/layout/prodducts.xml" value="0.25416666666666665" />
         <entry key="..\:/Main/app/src/main/res/layout/tip.xml" value="0.25416666666666665" />

@@ -7,349 +7,352 @@
     android:background="#fff"
     android:padding="15dp"
     tools:context=".Medicine.User_Section">
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/refresh">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp">
 
-        <LinearLayout
-            android:id="@+id/snack"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Medicine Shop"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
+            android:layout_marginBottom="50dp">
 
             <LinearLayout
+                android:id="@+id/snack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-
-
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="10"
-                    android:background="@drawable/backg"
-                    android:hint="Search Medicine Name"
-                    android:textColorHint="#000"
-                    app:boxStrokeColor="#000"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:endIconMode="clear_text"
-                    app:endIconTint="#000"
-                    app:hintTextColor="#000"
-                    app:passwordToggleEnabled="true"
-                    app:startIconDrawable="@drawable/create"
-                    app:startIconTint="#000">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/se"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textColor="#000" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
-                    android:id="@+id/search"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:src="@drawable/ic_baseline_search_24"/>
-
-                <RelativeLayout
-                    android:id="@+id/scart"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2">
-
-                    <ImageView
-                        android:id="@+id/cart"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/cart"/>
-
-                    <TextView
-                        android:id="@+id/count"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignRight="@+id/cart"
-                        android:layout_marginTop="-5dp"
-                        android:text="0"
-                        android:textColor="@color/Blood"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/tip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/co"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Covid-19"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    android:text="Medicine Shop"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/wo"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Women Care"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rwo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <com.google.android.material.textfield.TextInputLayout
 
-                <TextView
-                    android:id="@+id/de"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Devices"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rde"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
 
-                <TextView
-                    android:id="@+id/ho"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Homeopathy"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="10"
+                        android:background="@drawable/backg"
+                        android:hint="Search Medicine Name"
+                        android:textColorHint="#000"
+                        app:boxStrokeColor="#000"
+                        app:boxStrokeWidthFocused="2dp"
+                        app:endIconMode="clear_text"
+                        app:endIconTint="#000"
+                        app:hintTextColor="#000"
+                        app:passwordToggleEnabled="true"
+                        app:startIconDrawable="@drawable/create"
+                        app:startIconTint="#000">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rho"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/se"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textColor="#000" />
 
-                <TextView
-                    android:id="@+id/nu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Nutrition"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rnu"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <ImageView
+                        android:id="@+id/search"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/ic_baseline_search_24" />
 
-                <TextView
-                    android:id="@+id/vi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Vitamins"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <RelativeLayout
+                        android:id="@+id/scart"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2">
+
+                        <ImageView
+                            android:id="@+id/cart"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cart" />
+
+                        <TextView
+                            android:id="@+id/count"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/cart"
+                            android:layout_marginTop="-5dp"
+                            android:text="0"
+                            android:textColor="@color/Blood"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    android:id="@+id/tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/he"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Heart"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rhe"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/co"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Covid-19"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/ca"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Cancer"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rca"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/wo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Women Care"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/dia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Diabetes"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rwo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rdi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/de"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Devices"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/pn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Penumonia"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rde"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rpn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/ho"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Homeopathy"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/me"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Mental"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rho"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rme"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/nu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Nutrition"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/ot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Others"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rnu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="#fff"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/vi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Vitamins"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/All"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
-                    android:text="All Products"
-                    android:textColor="@color/Blood"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/RAll"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
-                    android:background="#fff"
-                    android:numColumns="2"
-                    android:verticalSpacing="20dp"
-                    android:horizontalSpacing="10dp"
-                    android:orientation="horizontal"/>
+                    <TextView
+                        android:id="@+id/he"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Heart"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rhe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/ca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Cancer"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rca"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/dia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Diabetes"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rdi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/pn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Penumonia"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rpn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/me"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Mental"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/ot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Others"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:background="#fff"
+                        android:orientation="horizontal" />
+
+                    <TextView
+                        android:id="@+id/All"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:text="All Products"
+                        android:textColor="@color/Blood"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/RAll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="50dp"
+                        android:background="#fff"
+                        android:horizontalSpacing="10dp"
+                        android:numColumns="2"
+                        android:orientation="horizontal"
+                        android:verticalSpacing="20dp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnav"
